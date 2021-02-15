@@ -1,0 +1,481 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>wyh&#39;s space</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>wyh's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/bg/star_night.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-15 11:13" pubdate>
+        2021年2月15日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      23
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            <div class="markdown-body">
+              <h1 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h1><p>工厂模式分为三种，分别为：</p>
+<ul>
+<li>简单工厂模式</li>
+<li>工厂方法模式</li>
+<li>抽象工厂模式</li>
+</ul>
+<p>接下来以pizza店的例子阐述三种模式</p>
+<h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><p><strong>一句话描述：简单工厂模式将对象的创建封装了起来</strong></p>
+<p>通过工厂类创建对象，并且根据传入参数决定具体要实例化哪种子类对象的做法，叫简单工厂模式(Simpe Factory Pattern)<br>以下代码描述了产品类，包括一个抽象接口和两个具体类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//Pizza类为接口，description方法由具体的pizza类实现</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Pizza</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">description</span><span class="hljs-params">()</span></span>;<br>&#125;<br><span class="hljs-comment">//有两种pizza类实现了上面的接口</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CheesePizza</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Pizza</span></span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">description</span><span class="hljs-params">()</span> </span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;I am cheesepizza&quot;</span>);<br>    &#125;<br>&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VeggiePizza</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Pizza</span></span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">description</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;I am veggiePizza&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>接下来我们构建一个pizza工厂专门负责构造pizza对象。从而把本应在PizzaStore中构造并初始化pizza对象的代码迁移到pizza工厂类的创建方法createPizza中：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//pizza工厂类。这个类只做一件事：帮客户创建pizza</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SimplePizzaFactory</span></span>&#123;<br>    <span class="hljs-comment">//在创建方法中传入参数type，根据参数来判断要创建哪种pizza对象</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Pizza <span class="hljs-title">createPizza</span><span class="hljs-params">(String type)</span></span>&#123;<br>        Pizza pizza = <span class="hljs-keyword">null</span>;<br>        <span class="hljs-keyword">if</span>(type.equals(<span class="hljs-string">&quot;cheese&quot;</span>))<br>            pizza = <span class="hljs-keyword">new</span> CheesePizza();<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(type.equals(<span class="hljs-string">&quot;veggie&quot;</span>))<br>            pizza = <span class="hljs-keyword">new</span> VeggiePizza();<br>        <span class="hljs-keyword">return</span> pizza;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>因此，在客户端（也就是PizzaStore类）中，想要创建哪种对象，只需传入对应的名称即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PizzaStore</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Pizza <span class="hljs-title">orderPizza</span><span class="hljs-params">(String type)</span></span>&#123;<br>        <span class="hljs-comment">//先创建一个工厂对象factory</span><br>        SimplePizzaFactory factory = <span class="hljs-keyword">new</span> SimplePizzaFactory();<br>        <span class="hljs-comment">//再利用工厂factory创建与type相对应的工厂对象</span><br>        Pizza pizza = factory.createPizza(type);<br>        pizza.cook();<br>        <span class="hljs-keyword">return</span> pizza;<br>    &#125;<br>    <span class="hljs-comment">//其他方法（均可以调用createPizza方法创建pizza对象）</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>通过简单工厂模式，我们可以把客户类和具体子类的实例化解耦，客户端不再需要用众多if else语句根据type判断自己应该实例化哪个子类。现在客户端只需要用将type传入工厂类中的创建方法，即可在在这个方法的返回值中得到想要的对象。</p>
+<p>这样做有什么好处呢？   </p>
+<blockquote>
+<p>设想如果未使用简单工厂模式，在客户端用if else判断并实例化产品对象。当我们有多个客户端的时候，这些客户端就都需要知道产品的细节（即有哪些产品以及需要构建哪种产品对象）。而且如果我们多增加一项产品，那么这么多客户端都需要进行修改（再增加一条if else语句）</p>
+</blockquote>
+<p>简单工厂模式的缺陷：  </p>
+<blockquote>
+<p>即使使用了简单工厂模式，当我们多增加一项产品时，还是要在工厂类的构建方法中增加一条if else语句。这样就不符合”对扩展开放，对修改封闭”的OO原则。</p>
+</blockquote>
+<p>因此就引入了工厂方法模式，我们将在这个模式中解决以上缺陷带来的问题。</p>
+<h2 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h2><p><strong>一句话描述：每一个产品子类都有一个对应的工厂子类</strong></p>
+<p>在工厂方法模式中，我们为每一个Pizza子类创建对应的工厂子类，工厂方法模式将构建产品的细节封装进具体的工厂子类中。注意：</p>
+<ul>
+<li>每一个Pizza子类都实现Pizza接口</li>
+<li>每一个工厂子类都实现工厂接口</li>
+</ul>
+<p>因此，我们可以使用某一种具体工厂子类创建其对应的Pizza对象。当新增一种pizza时，我们构建一种和它对应的新工厂子类，就可以构造这种pizza对象。而不用在工厂类中修改代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//抽象的工厂接口</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">PizzaFactory</span></span>&#123;<br>    <span class="hljs-function">Pizza <span class="hljs-title">createPizza</span><span class="hljs-params">()</span></span>;<br>&#125;<br><span class="hljs-comment">//以下为两种工厂子类:CheesePizza工厂和VeggiePizza工厂</span><br><span class="hljs-comment">//它们分别实现了工厂接口</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CheesePizzaFactory</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">PizzaFactory</span></span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Pizza <span class="hljs-title">createPizza</span><span class="hljs-params">()</span></span>&#123;<br>        Pizza pizza = <span class="hljs-keyword">new</span> CheesePizza();<br>        <span class="hljs-keyword">return</span> pizza;<br>    &#125;<br>&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VeggiePizzaFactory</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">PizzaFactory</span></span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Pizza <span class="hljs-title">createPizza</span><span class="hljs-params">()</span></span>&#123;<br>        Pizza pizza = <span class="hljs-keyword">new</span> VeggiePizza();<br>        <span class="hljs-keyword">return</span> pizza;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>对于客户端PizzaStore，想得到哪种Pizza对象，只需要构造与其对应的工厂子类对象，并使用其创建方法即可。连简单工厂模式中的传入type参数这一步都免了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PizzaStore</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Pizza <span class="hljs-title">orderPizza</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-comment">//先创建一个cheese披萨工厂</span><br>        PizzaFactory cheesefactory = <span class="hljs-keyword">new</span> CheesePizzaFactory();<br>        <span class="hljs-comment">//再利用这个工厂创建我们想要的cheese披萨</span><br>        Pizza pizza = cheesefactory.createPizza();<br>        pizza.cook();<br>        <span class="hljs-keyword">return</span> pizza;<br>    &#125;<br>    <span class="hljs-comment">//其他方法</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F.jpg" srcset="/img/loading.gif"></p>
+<p>工厂方法模式的缺陷：  </p>
+<blockquote>
+<p>如果我们的产品子类越来越多，那么我们就要为每一个产品子类都创建一个工厂子类，这样类就会越来越多，非常繁琐。</p>
+</blockquote>
+<p>为了解决这个问题，以下引入抽象工厂模式</p>
+<h2 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h2><p><strong>一句话描述：把产品分组，每组配备一个工厂，组内不同产品对应于这个工厂中的不同方法</strong></p>
+<p>在抽象工厂模式中，我们不为每一个产品子类配备一个工厂子类。而是将产品进行分组，每组组内的不同产品由同一个工厂类的不同方法创建。</p>
+<p>假设我们当前有四种pizza产品，分别为：</p>
+<ul>
+<li>大份cheese披萨</li>
+<li>小份cheese披萨</li>
+<li>大份蔬菜披萨</li>
+<li>小份蔬菜披萨</li>
+</ul>
+<p>工厂方法模式的做法是：为这四种产品类都配备一个对应的具体工厂子类。</p>
+<p>而对于抽象工厂模式，我们将产品分为两组：大份组和小份组。每组配备一个工厂。</p>
+<p>以下为产品类：包括cheese披萨和蔬菜披萨两种抽象接口，每种接口分别由大份和小份两个具体类实现。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">cheesePizza</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Pizza</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">cook</span><span class="hljs-params">()</span></span>;<br>&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BigcheesePizza</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">cheesePizza</span></span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">cook</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;cook a BigcheesePizza&quot;</span>);<br>    &#125;<br>&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SmallcheesePizza</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">cheesePizza</span></span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">cook</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;cook a SmallcheesePizza&quot;</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">veggiePizza</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Pizza</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">cook</span><span class="hljs-params">()</span></span>;<br>&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BigveggiePizza</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">veggiePizza</span></span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">cook</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;cook a BigveggiePizza&quot;</span>);<br>    &#125;<br>&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SmallveggiePizza</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">veggiePizza</span></span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">cook</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;cook a SmallveggiePizza&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>以下是工厂类，先定义一个抽象的工厂接口。由于产品有两种（大份披萨和小份披萨），因此我们实现两种工厂类BigFactory和SmallFactory，分别用来构建大披萨对象和小披萨对象。</p>
+<p>此外，每个工厂对应产品分类中的所有产品，工厂类都有一个与其对应的构建方法。例如：我们想得到一个大份cheese披萨对象，那么只需要使用大份pizza工厂中的createCheesePizza()方法即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Factory</span></span>&#123;<br>    <span class="hljs-function">cheesePizza <span class="hljs-title">createCheesePizza</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-function">veggiePizza <span class="hljs-title">createVeggiePizza</span><span class="hljs-params">()</span></span>;<br>&#125;<br><span class="hljs-comment">//大份披萨工厂</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BigFactory</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Factory</span></span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> cheesePizza <span class="hljs-title">createCheesePizza</span><span class="hljs-params">()</span></span>&#123;<br>        cheesePizza pizza = <span class="hljs-keyword">new</span> BigcheesePizza();<br>        <span class="hljs-keyword">return</span> pizza;<br>    &#125;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> veggiePizza <span class="hljs-title">createVeggiePizza</span><span class="hljs-params">()</span></span>&#123;<br>        veggiePizza pizza = <span class="hljs-keyword">new</span> BigveggiePizza();<br>        <span class="hljs-keyword">return</span> pizza;<br>    &#125;<br>&#125;<br><span class="hljs-comment">//小份披萨工厂</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SmallFactory</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Factory</span></span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> cheesePizza <span class="hljs-title">createCheesePizza</span><span class="hljs-params">()</span></span>&#123;<br>        cheesePizza pizza = <span class="hljs-keyword">new</span> SmallcheesePizza();<br>        <span class="hljs-keyword">return</span> pizza;<br>    &#125;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> veggiePizza <span class="hljs-title">createVeggiePizza</span><span class="hljs-params">()</span></span>&#123;<br>        veggiePizza pizza = <span class="hljs-keyword">new</span> SmallveggiePizza();<br>        <span class="hljs-keyword">return</span> pizza;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>最后是客户端代码，通过使用不同的工厂，并调用该工厂中不同的创建方法，我们就可以创造出不同的产品。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PizzaStore1</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Pizza <span class="hljs-title">orderPizza</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-comment">//先创建一个大份披萨工厂</span><br>        Factory1 BigFactory = <span class="hljs-keyword">new</span> BigFactory();<br>        <span class="hljs-comment">//再利用这个工厂中的相应方法创建我们想要的cheese披萨</span><br>        Pizza pizza = BigFactory.createCheesePizza();<br>        pizza.cook();<br>        <span class="hljs-keyword">return</span> pizza;<br>    &#125;<br>    <span class="hljs-comment">//其他方法</span><br>&#125;<br></code></pre></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/15/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
