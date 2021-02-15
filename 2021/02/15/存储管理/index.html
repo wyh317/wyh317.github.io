@@ -1,0 +1,512 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>存储管理 - wyh&#39;s space</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>wyh's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/bg/star_night.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="存储管理">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-15 00:00" pubdate>
+        2021年2月15日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.6k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      27
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">存储管理</h1>
+            
+            <div class="markdown-body">
+              <h1 id="存储管理"><a href="#存储管理" class="headerlink" title="存储管理"></a>存储管理</h1><h2 id="1-地址空间"><a href="#1-地址空间" class="headerlink" title="1.地址空间"></a>1.地址空间</h2><p>就像进程的概念创造了一类抽象的CPU以运行程序一样，地址空间为程序创造了一种抽象的内存。地址空间是一个进程可用于寻址内存的一套地址集合。每个进程都有一个自己的地址空间，并且这个地址空间独立于其他进程的地址空间。</p>
+<p>即要做到的是：给每个程序一个自己的地址空间，使得一个程序中的地址28所对应的物理地址与另一个程序中的地址28所对应的物理地址不同。</p>
+<p>一种为每个进程提供私有地址空间的简单方式是：使用两个寄存器，程序的起始物理地址装载到<strong>基址寄存器</strong>中，程序的长度装载到<strong>界限寄存器</strong>中。每个内存地址在送到内存之前，都会自动先加上基址寄存器的内容。</p>
+<hr>
+<p>如果把所有进程一直保存在内存中需要巨大的内存，如果内存不够，就做不到这一点。处理这种内存超载问题有以下两种方式</p>
+<ul>
+<li>交换技术<br>把一个进程完整地调入内存，使该进程运行一段时间，然后把它存回磁盘。空闲进程主要在磁盘上，所以当它们不运行时就不会占用内存。但是受限于磁盘传输速率限制，将进程从磁盘调出和换入通常需要不短的时间。</li>
+<li>虚拟内存（使得程序在只有一部分被调入内存的情况下运行）</li>
+</ul>
+<h2 id="2-虚拟内存"><a href="#2-虚拟内存" class="headerlink" title="2.虚拟内存"></a>2.虚拟内存</h2><p>虚拟内存的目的是为了让物理内存扩充成更大的逻辑内存，从而让程序获得更多的可用内存。</p>
+<p>虚拟内存的基本思想是：每个程序都有自己的地址空间，这个空间被分割成多个块，每个块称作一个页面(page)。每一页有自己连续的地址范围，这些页被映射到物理内存，但并不是所有的页都必须在内存中才能运行程序。当程序引用到一部分在物理内存中的页时，由硬件执行必要的映射。当程序引用到不在物理内存中的页时，操作系统负责将缺失的部分装入物理内存并重新执行失败的指令。、</p>
+<p>从上面的描述中可以看出，虚拟内存允许程序不用将地址空间中的每一页都映射到物理内存，也就是说一个程序不需要全部调入内存就可以运行，这使得有限的内存运行大程序成为可能。例如有一台计算机可以产生 16 位地址，那么一个程序的地址空间范围是 0~64K，这些地址是虚拟地址。该计算机只有 32KB 的物理内存，虚拟内存技术允许该计算机运行一个 64K 大小的程序。</p>
+<p>注意：在使用虚拟内存的情况下，虚拟地址不是直接被送到内存总线上，而是被送到内存管理单元（MMU），MMU把虚拟地址映射成为物理内存地址。</p>
+<p><img src="/img/%E5%9B%BE3.1.jpg" srcset="/img/loading.gif" alt="avatar"></p>
+<p>虚拟地址空间按照固定大小划分成称为页面(page)的若干单元。在物理内存中对应的单元成为页框(page frame)</p>
+<p>如果程序访问到一个未映射的页面，内存管理单元MMU法线该页没有被映射（/img/图中用X表示），于是使CPU陷入到操作系统，这里称为**<em>缺页中断**</em> (page fault)。操作系统找到一个很少使用的页框且把它的内容写入磁盘，然后把需要访问的页面读到刚才回收的页框中，修改映射关系，然后重新启动引起陷阱的指令。</p>
+<h3 id="页表"><a href="#页表" class="headerlink" title="页表"></a>页表</h3><p>页表的目的是把虚拟页面映射为相应的页框。每个进程需要自己的页表（因为它有自己的虚拟地址空间）</p>
+<p>虚拟内存的本质上是用来创造一个新的抽象概念——地址空间。这个概念是对物理内存的抽象，类似于进程是对物理机器(CPU)的抽象。虚拟内存的实现，是将虚拟地址空间分解成页，并将每一页映射到物理内存的某一页。</p>
+<h2 id="3-页面置换算法"><a href="#3-页面置换算法" class="headerlink" title="3.页面置换算法"></a>3.页面置换算法</h2><p>在程序运行过程中，如果要访问的页面不在内存中，就发生缺页中断从而将该页调入内存中。此时如果内存已无空闲空间，系统必须从内存中调出一个页面到磁盘对换区中来腾出空间。</p>
+<p>页面置换算法的主要目标是使页面置换频率最低（也可以说缺页率最低）。</p>
+<h3 id="1-最优页面置换算法"><a href="#1-最优页面置换算法" class="headerlink" title="1. 最优页面置换算法"></a>1. 最优页面置换算法</h3><blockquote>
+<p>OPT, Optimal replacement algorithm</p>
+</blockquote>
+<p>所选择的被换出的页面将是最长时间内不再被访问，通常可以保证获得最低的缺页率。<br>此算法是一种理论上的算法，因为无法知道一个页面多长时间不再被访问。</p>
+<p>举例：一个系统为某进程分配了三个物理块，并有如下页面引用序列：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">7，0，1，2，0，3，0，4，2，3，0，3，2，1，2，0，1，7，0，1<br></code></pre></td></tr></table></figure>
+<p>开始运行时，先将 7, 0, 1 三个页面装入内存。当进程要访问页面 2 时，产生缺页中断，会将页面 7 换出，因为页面 7 再次被访问的时间最长。</p>
+<h3 id="2-最近最久未使用页面置换算法"><a href="#2-最近最久未使用页面置换算法" class="headerlink" title="2. 最近最久未使用页面置换算法"></a>2. 最近最久未使用页面置换算法</h3><blockquote>
+<p>LRU, Least Recently Used</p>
+</blockquote>
+<p>虽然无法知道将来要使用的页面情况，但是可以知道过去使用页面的情况。LRU 将最近最久未使用的页面换出。</p>
+<p>为了实现 LRU，需要在内存中维护一个所有页面的链表。当一个页面被访问时，将这个页面移到链表表头。这样就能保证链表表尾的页面是最近最久未访问的。</p>
+<p>因为每次访问都需要更新链表，因此这种方式实现的 LRU 代价很高。</p>
+<h3 id="3-先进先出"><a href="#3-先进先出" class="headerlink" title="3. 先进先出"></a>3. 先进先出</h3><blockquote>
+<p>FIFO, First In First Out</p>
+</blockquote>
+<p>选择换出的页面是最先进入的页面。<br>该算法会将那些经常被访问的页面换出，导致缺页率升高。</p>
+<h3 id="4-第二次机会算法"><a href="#4-第二次机会算法" class="headerlink" title="4. 第二次机会算法"></a>4. 第二次机会算法</h3><p>FIFO 算法可能会把经常使用的页面置换出去，为了避免这一问题，对该算法做一个简单的修改：</p>
+<p>当页面被访问 (读或写) 时设置该页面的 R 位为 1。需要替换的时候，检查最老页面的 R 位。如果 R 位是 0，那么这个页面既老又没有被使用，可以立刻置换掉；如果是 1，就将 R 位清 0，并把该页面放到链表的尾端，修改它的装入时间使它就像刚装入的一样，然后继续从链表的头部开始搜索。</p>
+<h3 id="6-时钟"><a href="#6-时钟" class="headerlink" title="6. 时钟"></a>6. 时钟</h3><blockquote>
+<p>Clock</p>
+</blockquote>
+<p>第二次机会算法需要在链表中移动页面，降低了效率。时钟算法使用环形链表将页面连接起来，再使用一个指针指向最老的页面。</p>
+<h3 id="7-工作集页面置换算法"><a href="#7-工作集页面置换算法" class="headerlink" title="7.工作集页面置换算法"></a>7.工作集页面置换算法</h3><p>一个进程正在使用的页面的集合称为它的工作集（working set）。如果整个工作集都被装入到了内存中，那么进程在运行到下一个阶段之前，不会产生很多缺页中断。若内存太小而无法容纳下整个工作集，那么进程的运行过程中会产生大量的缺页中断，导致运行速度也会变得很缓慢。若每执行几条指令程序就发生一次缺页中断，那么就称这个程序发生了颠簸（thrashing）</p>
+<p>不少分页系统都会跟踪进程的工作集，以确保在让进程运行之前，它的工作集就已经在内存中了。该方法称为工作集模型，其目的在于大大减少缺页中断。在让进程运行前预先装入其工作集页面也成为预先调页(prepaging)</p>
+<p>基于工作集的页面置换算法的基本思路就是找出一个不在工作集中的页面并淘汰它。</p>
+<p><img src="/img/%E5%9B%BE3.5.jpg" srcset="/img/loading.gif" alt="avatar"></p>
+<p>最好的两种算法是老化算法和工作集时钟算法</p>
+<h2 id="4-分段"><a href="#4-分段" class="headerlink" title="4.分段"></a>4.分段</h2><p>虚拟内存采用的是分页技术，也就是将地址空间划分成固定大小的页，每一页再与物理内存进行映射。</p>
+<p><img src="/img/%E5%9B%BE3.2.jpg" srcset="/img/loading.gif" alt="avatar"></p>
+<p>下/img/图为一个编译器在编译过程中建立的多个表，有 4 个表是动态增长的，如果使用分页系统的一维地址空间，动态增长的特点会导致覆盖问题的出现。</p>
+<p>分段的做法是把每个表分成段，一个段(segment)构成一个独立的地址空间。每个段的长度可以不同，并且可以动态增长。它们既不会影响到其他的段，地址空间中也没有任何其他东西阻挡它增长。</p>
+<p><img src="/img/%E5%9B%BE3.3.jpg" srcset="/img/loading.gif" alt="avatar"></p>
+<p>使用段的好处是：</p>
+<ul>
+<li>简化对长度经常变动的数据结构的管理</li>
+<li>简化链接操作</li>
+<li>简化修改</li>
+<li>有助于在几个进程之间共享过程和数据</li>
+</ul>
+<h3 id="分段与分页的结合"><a href="#分段与分页的结合" class="headerlink" title="分段与分页的结合"></a>分段与分页的结合</h3><p>程序的地址空间划分成多个拥有独立地址空间的段，每个段上的地址空间划分成大小相同的页。这样既拥有分段系统的共享和保护，又拥有分页系统的虚拟内存功能。</p>
+<h3 id="分页与分段的比较"><a href="#分页与分段的比较" class="headerlink" title="分页与分段的比较"></a>分页与分段的比较</h3><ul>
+<li>对程序员的透明性：分页透明，但是分段需要程序员显式划分每个段。</li>
+<li>地址空间的维度：分页是一维地址空间，分段是二维的。</li>
+<li>大小是否可以改变：页的大小不可变，段的大小可以动态改变。</li>
+<li>出现的原因：分页主要用于实现虚拟内存，从而获得更大的地址空间；分段主要是为了使程序和数据可以被划分为逻辑上独立的地址空间并且有助于共享和保护。</li>
+</ul>
+<p><img src="/img/%E5%9B%BE3.4.jpg" srcset="/img/loading.gif" alt="avatar"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/15/%E4%BC%A0%E8%BE%93%E5%B1%82/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">传输层</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/15/%E6%AD%BB%E9%94%81/">
+                        <span class="hidden-mobile">死锁</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

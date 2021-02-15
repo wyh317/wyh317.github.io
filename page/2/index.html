@@ -181,24 +181,20 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/14/72.%20%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/">Leetcode：72.编辑距离</a>
+        <a href="/2021/02/15/%E4%BA%8B%E5%8A%A1/">事务</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/14/72.%20%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/">
+        <a href="/2021/02/15/%E4%BA%8B%E5%8A%A1/">
           
           
             
           
-          72. 编辑距离题目给你两个单词 word1 和 word2，请你计算出将 word1 转换成 word2 所使用的最少操作数 。
-你可以对一个单词进行如下三种操作：
-插入一个字符删除一个字符替换一个字符
-     
-示例 1：
-输入：word1 = &quot;horse&quot;, word2 = &quot;ros&quot;
-输出：3
-解释：
-horse -&gt; rorse (将 &
+          事物事物的概念事物是访问并更新数据库中数据项的一组操作，它们要么都执行，要么都不执行。
+可以通过commit提交一个事物，也可以通过rollback来进行回滚
+MySQL默认采用自动提交模式。也就是说，如果不显式使用START TRANSACTION语句来开始一个事务，那么每执行一个SQL语句后就会马上执行COMMIT操作。
+事物的四大特性ACID
+原子性(Atomicity)：是指数据库事物是不
         </a>
       </p>
 
@@ -206,8 +202,8 @@ horse -&gt; rorse (将 &
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-14 00:00" pubdate>
-              2021-02-14
+            <time datetime="2021-02-15 00:00" pubdate>
+              2021-02-15
             </time>
           </div>
         
@@ -215,7 +211,7 @@ horse -&gt; rorse (将 &
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a>
             
           </div>
         
@@ -223,7 +219,484 @@ horse -&gt; rorse (将 &
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/15/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">单例模式</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/15/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
+          
+          
+            
+          
+          单例模式定义单例模式确保一个类只有一个实例，并提供一个全局访问点
+通常使用一个私有构造器、一个静态函数、一个私有静态变量来实现。
+
+为了保证类只有一个实例，所以就不能用new关键字和构造器来创建对象实例，因此需要将构造器声明为私有的，只有在类的内部才能调用构造器。
+与此同时，需要一个私有静态变量来记录这个唯一的对象实例
+还需要一个私有静态函数来返回这个唯一的私有静态变量。
+
+实现1.懒汉模式与饿汉
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-15 00:00" pubdate>
+              2021-02-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/15/%E4%BC%A0%E8%BE%93%E5%B1%82/">传输层</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/15/%E4%BC%A0%E8%BE%93%E5%B1%82/">
+          
+          
+            
+          
+          传输层1.概述网络层只把分组发送到目的主机，但是真正通信的并不是主机而是主机中的进程。传输层提供了进程间的逻辑通信，传输层向高层用户屏蔽了下面网络层的核心细节，使应用程序看起来像是在两个传输层实体之间有一条端到端的逻辑通信信道。
+传输层包括以下两个协议：
+
+TCP（Transmission Control Protocol）:TCP是面向连接的，提供可靠交付，有流量控制，拥塞控制，提供全双工通信，
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-15 00:00" pubdate>
+              2021-02-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/15/%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86/">存储管理</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/15/%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86/">
+          
+          
+            
+          
+          存储管理1.地址空间就像进程的概念创造了一类抽象的CPU以运行程序一样，地址空间为程序创造了一种抽象的内存。地址空间是一个进程可用于寻址内存的一套地址集合。每个进程都有一个自己的地址空间，并且这个地址空间独立于其他进程的地址空间。
+即要做到的是：给每个程序一个自己的地址空间，使得一个程序中的地址28所对应的物理地址与另一个程序中的地址28所对应的物理地址不同。
+一种为每个进程提供私有地址空间的简单
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-15 00:00" pubdate>
+              2021-02-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/15/%E6%AD%BB%E9%94%81/">死锁</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/15/%E6%AD%BB%E9%94%81/">
+          
+          
+            
+          
+          死锁1.资源在进程对设备、文件等资源取得了排他性的访问权时，有可能会出现死锁。
+资源可以分为如下两类：
+
+可抢占资源：可以从拥有它的进程中抢占而不会产生任何副作用（比如存储器）
+不可抢占资源：在不引起相关计算失败的情况下，无法把它从占有它的进程中抢占过来（比如CD刻录机）
+
+考虑这样一种情况：进程A获取了资源1，进程B获取了资源2，每个进程如果都想请求另一个资源就会被阻塞，那么每个进程都无法继续运
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-15 00:00" pubdate>
+              2021-02-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/15/%E7%B4%A2%E5%BC%95/">索引</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/15/%E7%B4%A2%E5%BC%95/">
+          
+          
+            
+          
+          索引索引也叫键，是帮助存储引擎快速找到记录的一种数据结构。相当于一个目录的作用。
+索引的优点：
+
+加快数据的检索速度
+通过创建唯一性索引，保证数据库表中每一行数据的唯一性
+
+索引的缺点：
+
+创建和维护索引需要耗费时间：当对表中数据进行修改时，如果数据有索引，那么索引也需要修改。
+占用物存储空间
+
+B+树B+树是一颗搜索树，也是平衡树。在B+树中，所有记录节点都是按照键值的大小顺序存放在同一层的叶子
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-15 00:00" pubdate>
+              2021-02-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/15/%E7%BD%91%E7%BB%9C%E5%B1%82/">网络层</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/15/%E7%BD%91%E7%BB%9C%E5%B1%82/">
+          
+          
+            
+          
+          网络层1.概述网络层分为数据平面和控制平面。  
+
+数据平面的作用是在一个路由器中，将数据报从一个输入链路转移到一个适当的输出链路，即转发功能(forward)
+控制平面的作用是协调一个网络中的每个路由器的转发动作，使得数据报沿着源和目的地主机之间的路由器路径最终进行端到端传送，即路由功能(routing)
+
+链路层交换机和路由器的区别：
+
+链路层交换机基于链路层帧中的字段值做出转发决定，交换机因
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-15 00:00" pubdate>
+              2021-02-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/15/%E9%94%81/">锁</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/15/%E9%94%81/">
+          
+          
+            
+          
+          锁数据库系统使用锁是为了支持对共享资源进行并发访问，提供数据的完整性和一致性。
+锁的粒度锁定的数据量越少，发生锁争用的可能就越小，系统的并发程度就越高。但锁的各种操作(获取锁、释放锁、检查锁状态)都会增加系统开销。因此锁的粒度越小，系统开销就越大。因此在选择锁的粒度时，需要在锁开销和并发程度做平衡。
+MySQL数据库根据锁的粒度把锁分为表级锁和行级锁:
+
+表级锁：对当前操作的整张表加锁。锁的粒度大
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-15 00:00" pubdate>
+              2021-02-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/15/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">Java虚拟机</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/15/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">
+          
+          
+            
+          
+          一、Java内存区域
+1.程序计数器程序计数器是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。为了线程切换后能恢复到正确的执行位置，每条线程都需要有一个独立的程序计数器。
+2.Java虚拟机栈虚拟机栈描述的是Java方法执行的线程内存模型。每个方法被执行的时候，Java虚拟机会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直到执行完成的过程，对应着一个
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-15 00:00" pubdate>
+              2021-02-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Java/">Java</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">Java虚拟机</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/15/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/">进程与线程</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/15/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/">
+          
+          
+            
+          
+          进程与线程在任何多道程序设计系统中，CPU由一个进程快速切换至另一个进程，使得每个进程各运行几十或几百个毫秒。严格地说，在某一瞬间，CPU只能运行一个进程。但在1秒钟期间，它可能运行多个进程，这样就产生并行的错觉。
+1.进程一个进程是某种类型的一个活动，它有程序、输入、输出以及状态。单个处理器可以被若干个进程共享，它使用某种调度算法决定何时停止一个进程的工作，并转而为另一个进程提供服务。
+
+停留在
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-15 00:00" pubdate>
+              2021-02-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
             
           </div>
         
@@ -235,7 +708,7 @@ horse -&gt; rorse (将 &
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   

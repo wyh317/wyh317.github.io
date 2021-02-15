@@ -1,0 +1,654 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>Java虚拟机 - wyh&#39;s space</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>wyh's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/bg/star_night.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Java虚拟机">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-15 00:00" pubdate>
+        2021年2月15日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      7.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      78
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Java虚拟机</h1>
+            
+            <div class="markdown-body">
+              <h1 id="一、Java内存区域"><a href="#一、Java内存区域" class="headerlink" title="一、Java内存区域"></a>一、Java内存区域</h1><p><img src="/img/Java%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.jpg" srcset="/img/loading.gif" alt="Java运行时数据区"></p>
+<h2 id="1-程序计数器"><a href="#1-程序计数器" class="headerlink" title="1.程序计数器"></a>1.程序计数器</h2><p>程序计数器是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。<br>为了线程切换后能恢复到正确的执行位置，每条线程都需要有一个独立的程序计数器。</p>
+<h2 id="2-Java虚拟机栈"><a href="#2-Java虚拟机栈" class="headerlink" title="2.Java虚拟机栈"></a>2.Java虚拟机栈</h2><p>虚拟机栈描述的是Java方法执行的线程内存模型。每个方法被执行的时候，Java虚拟机会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直到执行完成的过程，对应着一个栈帧在Java虚拟机栈中入栈和出栈的过程。</p>
+<p>该区域可能抛出的异常：</p>
+<ul>
+<li>若线程请求的栈深度大于虚拟机所允许的深度，将抛出StackOverflowError异常</li>
+<li>若Java虚拟机的栈容量可以动态扩展，当栈扩展至无法申请到足够的内存会抛出OutOfMemoryError异常</li>
+</ul>
+<h2 id="3-本地方法栈"><a href="#3-本地方法栈" class="headerlink" title="3.本地方法栈"></a>3.本地方法栈</h2><p>本地方法栈和Java虚拟机栈类似，只是本地方法栈为执行本地方法服务，虚拟机栈为执行Java方法服务。<br>注：本地方法一般是用其他语言（C、C++、汇编）编写的，并且被编译为基于本机硬件和操作系统的程序。</p>
+<h2 id="4-Java堆"><a href="#4-Java堆" class="headerlink" title="4.Java堆"></a>4.Java堆</h2><p>此区域的唯一目的就是存放对象实例，它也是垃圾收集器管理的内存区域。<br>Java堆在虚拟机启动时创建，被所有线程共享，是虚拟机管理的内存区域中最大的一块。</p>
+<p>现代的垃圾收集器基本都采用分代收集算法，即针对不同类型的对象采取不同的垃圾回收策略。因此可以把Java堆分成新生代和老生代这两部分区域。</p>
+<h2 id="5-方法区"><a href="#5-方法区" class="headerlink" title="5.方法区"></a>5.方法区</h2><p>用于存放类相关的信息，如类名、常量、静态变量、方法描述、即时编译器编译后的代码等数据。被所有线程共享。<br>这个区域的垃圾回收的主要目标是对常量池的回收和对类的卸载。</p>
+<p>运行时常量池也是方法区的一部分，class文件中的常量池会在类加载后被放入这个区域。</p>
+<h2 id="对象的创建、内存布局和访问"><a href="#对象的创建、内存布局和访问" class="headerlink" title="对象的创建、内存布局和访问"></a>对象的创建、内存布局和访问</h2><h3 id="1-对象的创建"><a href="#1-对象的创建" class="headerlink" title="1.对象的创建"></a>1.对象的创建</h3><ul>
+<li>给对象分配内存（两种方法：指针碰撞、空闲列表）</li>
+<li>将分配到的内存空间都初始化为零值</li>
+<li>用构造函数根据使用者的意愿对对象进程初始化</li>
+</ul>
+<h3 id="2-对象的内存布局"><a href="#2-对象的内存布局" class="headerlink" title="2.对象的内存布局"></a>2.对象的内存布局</h3><p>在HotSpot虚拟机中，对象在内存中的存储布局可以分为以下三部分：</p>
+<ul>
+<li>对象头：包括Mark Word（哈希码、GC分代年龄等）和类型指针（虚拟机通过这个指针来确定该对象是哪个类的实例）</li>
+<li>实例数据：对象真正存储的有用信息</li>
+<li>对齐填充；任何对象的大小都必须是8字节的整数倍，因此如果对象实例数据部分没有对齐的话，就需要通过填充对齐来补全。</li>
+</ul>
+<h3 id="3-对象的访问定位"><a href="#3-对象的访问定位" class="headerlink" title="3.对象的访问定位"></a>3.对象的访问定位</h3><p>Java程序会通过栈上的reference数据来操作堆上的具体对象。对象的访问方式有以下两种：</p>
+<ul>
+<li>使用句柄访问：reference中存储的是对象的句柄地址，而句柄中包含了对象实例数据和类型数据各自具体的地址信息。好处是reference存储的是稳定句柄地址，在对象被移动时只会改变句柄的实例数据指针，而reference本身不需要修改。</li>
+<li>直接指针访问；reference中存储的直接就是对象地址。好处是节省了一次指针定位的时间开销，访问速度更快。</li>
+</ul>
+<p><img src="/img/%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BF%E9%97%AE%E5%AE%9A%E4%BD%8D.jpg" srcset="/img/loading.gif" alt="对象的访问定位"></p>
+<p>内存溢出和内存泄漏的区别：</p>
+<ul>
+<li>内存泄漏：已经分配的堆内存由于某些原因无法释放</li>
+<li>内存溢出：没有足够的内存再供分配了</li>
+</ul>
+<h1 id="二、垃圾收集与内存分配"><a href="#二、垃圾收集与内存分配" class="headerlink" title="二、垃圾收集与内存分配"></a>二、垃圾收集与内存分配</h1><p>在Java的内存区域中：程序计数器、虚拟机栈、本地方法栈这三个区域属于线程私有，当线程结束时内存自然就跟着回收了。因此只需要对Java堆和方法区进行垃圾收集。</p>
+<h2 id="判断哪些对象需要被回收"><a href="#判断哪些对象需要被回收" class="headerlink" title="判断哪些对象需要被回收"></a>判断哪些对象需要被回收</h2><h3 id="1-引用计数算法"><a href="#1-引用计数算法" class="headerlink" title="1.引用计数算法"></a>1.引用计数算法</h3><p>在对象中添加一个引用计数器，每当有一个地方引用它时，计数器就加一；当引用失效时，计数器就减一；计数器为0的对象可被回收。</p>
+<p>缺陷：当两个对象存在循环引用时，引用计数器永不为0，导致无法对这两个对象进行回收。  正是因为这个缺陷的存在，Java虚拟机不使用引用计数算法来判断对象的存活与否。</p>
+<p>例如：对象objA和objB都有字段instance，赋值令objA.instance=objB及objB.instance=objA，除此之外，这两个对象再无任何引用，实际上这两个对象已经不可能再被访问，但是它们因为互相引用着对方，导致它们的引用计数都不为零，引用计数算法也就无法回收它们。</p>
+<h3 id="2-可达性分析算法"><a href="#2-可达性分析算法" class="headerlink" title="2.可达性分析算法"></a>2.可达性分析算法</h3><p>Java虚拟机使用可达性分析算法判断对象是否可被回收。其以GC Roots作为起始节点集开始根据引用关系向下搜索，可达的对象存活，不可达的对象可被回收。</p>
+<p>GC Roots包括如下：</p>
+<ul>
+<li><p>虚拟机栈中引用的对象</p>
+</li>
+<li><p>方法区中类静态属性所引用的对象（例如引用类型静态变量）</p>
+</li>
+<li><p>方法区中常量引用的对象（字符串常量池中的引用）</p>
+</li>
+<li><p>所有被同步锁（synchronized关键字）所持有的对象</p>
+</li>
+<li><p>等等</p>
+<p><img src="/img/GCRoot.jpg" srcset="/img/loading.gif" alt="GCRoot.jpg"></p>
+</li>
+</ul>
+<p><strong>四种引用关系：</strong></p>
+<ul>
+<li>强引用：使用new关键字创建的引用，例如Object obj = new Object()。只要强引用关系还存在，垃圾收集器就永远不会回收被引用的对象。</li>
+<li>软引用：在系统将要发生内存溢出异常之前，先将软引用关联的对象列进回收范围进行第二次回收。如果这次回收后还没获得足够的内存，才会抛出内存溢出异常。</li>
+<li>弱引用：一旦垃圾收集器开始工作，无论当前内存是否足够，都会回收只被弱引用关联的对象。</li>
+<li>虚引用：又称为幽灵引用或者幻影引用，一个对象是否有虚引用的存在，不会对其生存时间造成影响，也无法通过虚引用得到一个对象。为一个对象设置虚引用的唯一目的是能在这个对象被回收时收到一个系统通知。</li>
+</ul>
+<p><strong>方法区的回收</strong><br>方法区的垃圾收集主要回收废弃的常量和不再使用的类型。</p>
+<p>因为方法区主要存放永久代对象，而永久代对象的回收率比新生代低很多，所以在方法区上进行回收性价比不高。</p>
+<h2 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h2><h3 id="分代收集理论"><a href="#分代收集理论" class="headerlink" title="分代收集理论"></a>分代收集理论</h3><p>收集器应该将Java堆划分出不同的区域，然后将回收对象依据其年龄（年龄即对象熬过垃圾收集过程的次数）分配到不同的区域之中存储。<br>设计者一般至少会把Java堆划分为新生代和老生代两个区域。在新生代中，每次垃圾收集时都发现有大批对象死去，而每次回收后存活的少量对象，将会逐步晋升到老生代中存放。</p>
+<h3 id="1-标记-清除算法"><a href="#1-标记-清除算法" class="headerlink" title="1.标记-清除算法"></a>1.标记-清除算法</h3><p>步骤：</p>
+<ul>
+<li>首先标记出所有需要回收的对象</li>
+<li>在标记完成后，统一回收所有被标记的对象</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>执行效率不稳定（标记和清除两个过程的执行效率随对象数量增长而降低）</li>
+<li>会产生大量的内存碎片，导致无法给大对象分配内存</li>
+</ul>
+<p><img src="/img/%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95.png" srcset="/img/loading.gif" alt="标记清除算法"></p>
+<h3 id="2-标记-复制算法"><a href="#2-标记-复制算法" class="headerlink" title="2.标记-复制算法"></a>2.标记-复制算法</h3><p>此算法主要针对新生代。它将可用内存按照容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活的对象复制到另一块上面，然后再把已使用过的内存空间一次清理掉。</p>
+<p><img src="/img/%E6%A0%87%E8%AE%B0%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95.png" srcset="/img/loading.gif" alt="标记复制算法"></p>
+<p>现在的商业虚拟机大都采用这种收集算法回收新生代的内存，但是并不是划分为大小相等的两块，而是把新生代划分为一块较大的 Eden 空间和两块较小的 Survivor 空间，每次分配内存只使用 Eden 和其中一块 Survivor。在回收时，将 Eden 和 Survivor 中还存活着的对象全部复制到另一块 Survivor 上，最后清理 Eden 和使用过的那一块 Survivor。</p>
+<p>当Survivor空间不足以容纳一次MinorGC之后存活的对象时，就需要依赖其他内存区域（老年代）进行分配担保，即借用老年代的空间存储放不下的对象。</p>
+<h3 id="3-标记-整理算法"><a href="#3-标记-整理算法" class="headerlink" title="3.标记-整理算法"></a>3.标记-整理算法</h3><p>此算法主要针对老年代。其中的标记过程仍然与标记清除算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向内存空间一端移动，然后直接清理掉边界以外的内存。</p>
+<p>此算法缺点在于：需要移动大量对象，处理效率比较低。优点在于不会产生内存碎片。</p>
+<p><img src="/img/%E6%A0%87%E8%AE%B0%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95.png" srcset="/img/loading.gif" alt="标记整理算法"></p>
+<p>Java虚拟机为什么要划分为新生代和老年代？<br>分代收集可以让我们根据各个年代的特点选择合适的垃圾收集算法。在新生代中，每次收集都会有大量对象死去，所以可以选择复制算法，只需要付出少量对象的复制成本就可以完成每次垃圾收集。而老年代的对象存活几率是比较高的，而且没有额外的空间对它进行分配担保，所以我们必须选择“标记-清除”或“标记-整理”算法进行垃圾收集。</p>
+<h2 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h2><p><img src="/img/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8.png" srcset="/img/loading.gif" alt="垃圾收集器"></p>
+<h3 id="1-Serial收集器"><a href="#1-Serial收集器" class="headerlink" title="1.Serial收集器"></a>1.Serial收集器</h3><p>Serial收集器是一个单线程工作的收集器。它在进行收集时，必须暂停所有工作线程，直到它收集结束。</p>
+<p><img src="/img/Serial%E6%94%B6%E9%9B%86%E5%99%A8.png" srcset="/img/loading.gif" alt="Serial收集器"></p>
+<p>Serial收集器对运行在客户端模式下的虚拟机来说是很好的选择。因为这种场景下内存不会特别大，停顿时间可以接收</p>
+<h3 id="2-ParNew收集器"><a href="#2-ParNew收集器" class="headerlink" title="2.ParNew收集器"></a>2.ParNew收集器</h3><p>多线程版本的Serial收集器。</p>
+<p>适用于服务端模式的新生代垃圾收集。除了Serial之外，只有它能和CMS配合使用。也可以理解为，ParNew合并入CMS，成为它专门处理新生代的组成部分。</p>
+<p><img src="/img/ParNew%E6%94%B6%E9%9B%86%E5%99%A8.png" srcset="/img/loading.gif" alt="ParNew收集器"></p>
+<p><strong>并行和并发区分</strong>：  </p>
+<ul>
+<li>并行：并行描述的是多条垃圾收集器线程之间的关系</li>
+<li>并发：并发描述的是垃圾收集器线程与用户线程之间的关系<h3 id="3-Parallel-Scavenge收集器"><a href="#3-Parallel-Scavenge收集器" class="headerlink" title="3.Parallel Scavenge收集器"></a>3.Parallel Scavenge收集器</h3>吞吐量优先收集器</li>
+</ul>
+<p>其他垃圾收集器的目标是尽可能缩短垃圾收集时用户线程的停顿时间。而此收集器的目标是达到一个可以控制的吞吐量。吞吐量是指CPU用于运行用户代码的时间和总时间（运行用户代码时间+运行垃圾收集时间）的比值。</p>
+<p>顿时间越短就越适合需要与用户交互或需要保证服务响应质量的程序，良好的响应速度能提升用户体验；而高吞吐量则可以最高效率地利用处理器资源，尽快完成程序的运算任务，主要适合在后台运算而不需要太多交互的分析任务。</p>
+<p>垃圾收集停顿时间的缩短是以牺牲吞吐量和新生代空间为代价获取的。（新生代空间变小，虽然每次的垃圾回收时间缩短，但是垃圾回收变得频繁，进而导致吞吐量下降）</p>
+<h3 id="4-Serial-Old收集器"><a href="#4-Serial-Old收集器" class="headerlink" title="4.Serial Old收集器"></a>4.Serial Old收集器</h3><p>Serial的老年代版本，同样是一个单线程收集器。它有两大用途：</p>
+<ul>
+<li><p>在 JDK1.5 以及以前的版本中与 Parallel Scavenge 收集器搭配使用</p>
+</li>
+<li><p>作为 CMS 收集器的后备方案</p>
+<h3 id="5-Parallel-Old收集器"><a href="#5-Parallel-Old收集器" class="headerlink" title="5.Parallel Old收集器"></a>5.Parallel Old收集器</h3><p>Parallel Scavenge收集器的老年代版本</p>
+</li>
+</ul>
+<p><img src="/img/Parallel_Scavenge%E6%94%B6%E9%9B%86%E5%99%A8.png" srcset="/img/loading.gif" alt="Parallel Scavenge收集器"></p>
+<p>在注重吞吐量或者处理器资源较为稀缺的场合，可以优先考虑Parallel Scavenge加Parallel Old收集器这个组合</p>
+<h3 id="6-CMS收集器"><a href="#6-CMS收集器" class="headerlink" title="6.CMS收集器"></a>6.CMS收集器</h3><p>CMS(Concurrent Mark Sweep)收集器是一种以获取最短回收停顿时间为目标的老年代收集器。它是基于标记-清除算法实现的。</p>
+<p>分为以下四个步骤：</p>
+<ol>
+<li>初始标记：仅仅标记一下GC Roots能直接关联到的对象，速度很快，需要停顿。</li>
+<li>并发标记：从GC Roots的直接关联对象开始遍历整个对象图的过程。耗时最长但是不需要停顿，可以与用户线程并发运行</li>
+<li>重新标记：为了修正并发标记期间因用户程序继续运作而导致标记产生变动的那一部分对象的标记记录。需要停顿。</li>
+<li>并发清除：清除掉已经标记的死亡对象，不需要停顿。</li>
+</ol>
+<p>由于在整个过程中耗时最长的并发标记和并发清除阶段中，垃圾收集器线程都可以和用户线程一起工作，所以从总体上说，CMS收集器的内存回收过程是与用户线程一起并发执行的。</p>
+<p><img src="/img/CMS%E6%94%B6%E9%9B%86%E5%99%A8.png" srcset="/img/loading.gif" alt="CMS收集器"></p>
+<p>缺点如下：</p>
+<ol>
+<li>基于标记-清除算法，会产生很多内存碎片。往往会出现老年代还有大量空间剩余，但无法找到足够大连续空间来分配当前对象，不得不提前触发一次Full GC的情况。</li>
+<li>无法处理浮动垃圾。浮动垃圾是指并发标记和并发清理阶段由于用户线程继续运行而产生的垃圾。这一部分垃圾出现在标记过程之后，CMS无法在当次收集中处理掉它们，只好留到下一次垃圾收集时清理。由于浮动垃圾的存在，因此需要预留出一部分内存，意味着 CMS 收集不能像其它收集器那样等待老年代快满的时候再回收。如果预留的内存不够存放浮动垃圾，就会出现 Concurrent Mode Failure，这时虚拟机将临时启用 Serial Old 来替代 CMS，这样停顿时间就长了。</li>
+<li>吞吐量低：低停顿时间是以牺牲吞吐量为代价的，在并发阶段，它虽然不会导致用户线程停顿，但却会因为占用了一部分线程（或者说处理器的计算能力）而导致应用程序变慢，降低总吞吐量。<h3 id="7-G1收集器"><a href="#7-G1收集器" class="headerlink" title="7.G1收集器"></a>7.G1收集器</h3>G1(Garbage First)收集器是一款面向服务端应用的垃圾收集器。在多CPU和大内存场景下有很好的性能。</li>
+</ol>
+<p>G1收集器不像其他收集器一样只对新生代或老年代进行回收，它可以直接对新生代和老年代一起回收。衡量标准不再是它属于哪一个分代，而是哪块内存中存放的垃圾数量最多，回收收益最大。这就是G1收集器的Mixed GC模式。</p>
+<p>G1不再坚持固定大小以及固定数量的分代区域划分，而是把连续的Java堆划分为多个大小相等的独立区域（Region），收集器能够对扮演不同角色的Region采用不同的策略处理。</p>
+<p>通过引入 Region 的概念，从而将原来的一整块内存空间划分成多个的小空间，使得每个小空间可以单独进行垃圾回收。这种划分方法带来了很大的灵活性，使得可预测的停顿时间模型成为可能。通过记录每个 Region 垃圾回收时间以及回收所获得的空间（这两个值是通过过去回收的经验获得），并维护一个优先列表，每次根据允许的收集时间，优先回收价值最大的 Region。</p>
+<p>G1收集器的工作步骤：</p>
+<ul>
+<li>初始标记</li>
+<li>并发标记</li>
+<li>最终标记</li>
+<li>筛选回收<br>除了并发标记以外，其余步骤都要完全暂停用户线程<br><img src="/img/G1%E6%94%B6%E9%9B%86%E5%99%A8.png" srcset="/img/loading.gif" alt="G1收集器"></li>
+</ul>
+<p>G1收集器的特点：</p>
+<ul>
+<li>可预测的停顿：G1 除了追求低停顿外，还能建立可预测的停顿时间模型，能让使用者明确指定消耗在 GC 上的时间不得超过 N 毫秒</li>
+<li>空间整合：G1从整体来看是基于“标记-整理”算法实现的收集器，但从局部（两个Region之间）上看又是基于“标记-复制”算法实现，无论如何，这两种算法都意味着G1运作期间不会产生内存空间碎片，垃圾收集完成之后能提供规整的可用内存。这种特性有利于程序长时间运行，在程序为大对象分配内存时不容易因无法找到连续内存空间而提前触发下一次收集</li>
+</ul>
+<h2 id="内存分配和回收策略"><a href="#内存分配和回收策略" class="headerlink" title="内存分配和回收策略"></a>内存分配和回收策略</h2><ul>
+<li>对象优先在新生代的Eden上分配，当Eden空间不够时，发起MinorGC</li>
+<li>大对象直接进入老年代</li>
+<li>长期存活的对象进入老年代</li>
+</ul>
+<hr>
+<h1 id="三、类加载机制"><a href="#三、类加载机制" class="headerlink" title="三、类加载机制"></a>三、类加载机制</h1><p>在Class文件中描述的各类信息，最终都需要加载到虚拟机中才能被运行和使用。而虚拟机如何加载这些Class文件、Class文件中的信息进入到虚拟机中会发生什么变化，这些是类加载机制要处理的内容。</p>
+<p>虚拟机的类加载机制：Java虚拟机把描述类的数据从Class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类。</p>
+<p>在Java中，类加载是在程序运行期间完成的。即，第一次使用到一个类时才对其进行加载，而不是一次性加载所有类（会占用很大的内存）</p>
+<h2 id="类的生命周期"><a href="#类的生命周期" class="headerlink" title="类的生命周期"></a>类的生命周期</h2><p><img src="/img/%E7%B1%BB%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg" srcset="/img/loading.gif" alt="类的生命周期"></p>
+<h2 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a>类加载过程</h2><p>类的生命周期中前五个阶段：加载、验证、准备、解析、初始化构成了类加载过程。</p>
+<h3 id="1-加载"><a href="#1-加载" class="headerlink" title="1.加载"></a>1.加载</h3><p>在加载阶段，Java虚拟机完成了以下三件事情：</p>
+<ul>
+<li>通过一个类的全限定名来获取定义此类的二进制字节流（可以通过ZIP包、网络、数据库等途径获取）</li>
+<li>将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构</li>
+<li>在内存中生成一个代表该类的Class对象，作为方法区中该类各种数据的访问入口</li>
+</ul>
+<p>数组类型不通过类加载器创建，它由 Java 虚拟机直接创建。此外所有的类都由类加载器加载，加载的作用就是将 .class文件加载到内存。</p>
+<p>加载阶段和连接阶段的部分内容是交叉进行的，加载阶段尚未结束，连接阶段可能就已经开始了。</p>
+<h3 id="2-验证"><a href="#2-验证" class="headerlink" title="2.验证"></a>2.验证</h3><p>确保Class文件的字节流中包含的信息符合要求，不会危害虚拟机自身的安全。</p>
+<p>Class文件并不一定只能从Java源码编译而来，虽然Java语言本身相对安全，但Java无法做到的事情在字节码层面上却有可能实现。所以如果虚拟机不检查输入的字节流的话，很可能会因为载入了有错误或有恶意企图的字节码流而导致系统收到攻击。</p>
+<h3 id="3-准备"><a href="#3-准备" class="headerlink" title="3.准备"></a>3.准备</h3><p>准备阶段是正式为类中定义的变量（静态变量）在方法区中分配内存并设置类变量初始值（通常为零值）的阶段。</p>
+<p>注意：这个阶段只为静态变量分配内存，实例变量不会在这阶段分配内存，它会在对象实例化时随着对象一起被分配在堆中。因为实例化不是类加载的一个过程，类加载发生在所有实例化操作之前，并且类加载只进行一次，实例化可以进行多次。</p>
+<p>在准备阶段设置的初始值一般为零值，例如下面的value变量在这个阶段将被初始化为0(之后的初始化阶段才会被具体赋值)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> value = <span class="hljs-number">123</span>;<br></code></pre></td></tr></table></figure>
+<p>特殊情况：如果value是常量，那么它就会被初始化为表达式所定义的值123</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> value = <span class="hljs-number">123</span>;<br></code></pre></td></tr></table></figure>
+<h3 id="4-解析"><a href="#4-解析" class="headerlink" title="4.解析"></a>4.解析</h3><p>解析阶段是Java虚拟机将常量池内的<strong>符号引用</strong>替换为<strong>直接引用</strong>的过程，也就是得到类或者字段、方法在内存中的指针或者偏移量。</p>
+<p>符号引用就是一组符号来描述目标，可以是任何字面量。直接引用就是直接指向目标的指针、相对偏移量或一个间接定位到目标的句柄。</p>
+<p>例如：在程序执行方法时，系统需要明确知道这个方法所在的位置。Java虚拟机为每个类都准备了一张方法表来存放类中所有的方法。当需要调用一个类的方法的时候，只要知道这个方法在方法表中的偏移量就可以直接调用该方法了。通过解析阶段符号引用就可以直接转变为目标方法在类中方法表的位置，从而使得方法可以被调用。</p>
+<h3 id="5-初始化"><a href="#5-初始化" class="headerlink" title="5.初始化"></a>5.初始化</h3><p>在初始化阶段，Java虚拟机才真正开始执行类中编写的Java代码，将主导权从虚拟机移交给应用程序。</p>
+<p>初始化阶段是执行类构造器 &lt; clinit &gt;() 的过程。在准备阶段，类变量已经赋过一次系统要求的初始零值，而在初始化阶段，根据使用者通过程序制定的主观计划去初始化类变量和其它资源。</p>
+<p>&lt; clinit &gt;() 是由编译器自动收集类中所有静态变量的赋值动作和静态语句块中的语句合并产生的，编译器收集的顺序由语句在源文件中出现的顺序决定。特别注意的是，静态语句块只能访问到定义在它之前的类变量，定义在它之后的类变量只能赋值，不能访问。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>&#123;<br>    <span class="hljs-keyword">static</span> &#123;<br>        i = <span class="hljs-number">0</span>;                <span class="hljs-comment">// 给变量赋值可以正常编译通过</span><br>        System.out.print(i);  <span class="hljs-comment">// 这句编译器会提示“非法向前引用”</span><br>    &#125;<br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>虚拟机会保证一个类的 &lt; clinit &gt;() 方法在多线程环境下被正确的加锁和同步，如果多个线程同时初始化一个类，只会有一个线程执行这个类的 &lt; clinit &gt;() 方法，其它线程都会阻塞等待，直到活动线程执行 &lt; clinit &gt;() 方法完毕。</p>
+<h2 id="类加载器与双亲委派模型"><a href="#类加载器与双亲委派模型" class="headerlink" title="类加载器与双亲委派模型"></a>类加载器与双亲委派模型</h2><p>Java虚拟机的设计者将类加载阶段中的“通过一个类的全限定名来获取描述该类的二进制字节流”这个动作放到Java虚拟机外部去实现，以便让应用程序自己去决定如何去获取所需的类。实现这个动作的代码被称为“类加载器”（Class Loader)</p>
+<p>每一个类加载器，都有一个独立的类命名空间。即使两个类来源于同一个Class文件，被同一个Java虚拟机加载，但只要加载它们的类加载器不同，那这两个类就必定不相等。（两个类相互独立）</p>
+<h3 id="类加载器分类"><a href="#类加载器分类" class="headerlink" title="类加载器分类"></a>类加载器分类</h3><p>从Java虚拟机的角度看，类加载器只分为以下两种：</p>
+<ul>
+<li>启动类加载器（Bootstrap ClassLoader)：使用C++实现，是虚拟机自身的一部分。</li>
+<li>其他类加载器：使用Java语言实现，独立于虚拟机之外，全部继承自抽象类java.lang.ClassLoader</li>
+</ul>
+<p>从Java开发人员的角度看，类加载器可以分为以下的三层类加载器：</p>
+<ul>
+<li>启动类加载器（Bootstrap ClassLoader): 这个加载器将存放在 <JAVA_HOME>\lib 目录下的，能被虚拟机识别的类库加载到虚拟机内存中（按照文件名识别，如 rt.jar）。启动类加载器无法被 Java 程序直接引用，用户在编写自定义类加载器时，如果需要把加载请求委派给启动类加载器，直接使用 null 代替即可。</li>
+<li>扩展类加载器（Extension ClassLoader)：这个加载器将 <JAVA_HOME>/lib/ext 目录中的、或者被 java.ext.dir 系统变量所指定的路径中所有的类库加载到虚拟机内存中。由于类加载器是Java代码实现的，开发者可以直接在程序中使用扩展类加载器来加载Class文件。</li>
+<li>应用程序类加载器（Application ClassLoader)：也称为“系统类加载器”，它负责加载用户类路径（ClassPath）上所有的类库。开发者同样可以直接在代码中使用这个类加载器，如果应用程序中没有自定义过自己的类加载器，一般情况下这个就是程序中默认的类加载器。</li>
+</ul>
+<h3 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h3><p>Java应用通过以上三种类加载器的相互配合来完成类加载，此外用户也可以加入自定义的类加载器来进行拓展。类加载器的层次关系如下所示，这种关系被称为双亲委派模型：</p>
+<p><img src="/img/%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B.jpg" srcset="/img/loading.gif" alt="双亲委派模型"></p>
+<p>双亲委派模型要求除了顶层的启动类加载器外，其余的类加载器都应该有自己的父类加载器。注意：类加载器的父子关系不是以继承(is-a)来实现的，而是以组合(has-a)来实现的。</p>
+<p><strong>工作过程</strong>：<br>每个类加载器都先将类加载请求委派给父类加载器去处理，所以最后所有的加载请求都传送到最顶层的启动类加载器中，只有当父类加载器反馈自己无法完成这个加载请求时，自加载器才会尝试自己去完成加载。</p>
+<p>Java官方API文档的描述如下：</p>
+<blockquote>
+<p>The Java platform uses a delegation model for loading classes. The basic idea is that every class loader has a “parent” class loader. When loading a class, a class loader first “delegates” the search for the class to its parent class loader before attempting to find the class itself.</p>
+</blockquote>
+<p><strong>好处</strong><br>Java中的类随着它的类加载器一起具备了一种带有优先级的层次关系，可以使基础类得到统一。</p>
+<p>例如：存放在rt.jar中的类java.lang.Object，无论哪一个类加载器要加载这个类，最终都将委派给处于模型顶端的启动类加载器进行加载，因此能保证程序中加载的所有的Object类都是同一个类（正如前述：相同的类文件被不同的类加载器加载产生的是两个不同的类）。</p>
+<p>反之，如果没有双亲委派模型，如果编写另外一个 java.lang.Object 并放到 ClassPath 中，它将会被应用程序类加载器加载，这样程序中就会有多个Object类，造成混乱。</p>
+<p><strong>实现</strong><br>双亲委派模型的代码全部集中在java.lang.ClassLoader的loadClass()方法中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassLoader</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> ClassLoader parent;<br>    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">synchronized</span> Class&lt;?&gt; loadClass(String name, <span class="hljs-keyword">boolean</span> resolve) <span class="hljs-keyword">throws</span> ClassNotFoundException<br>    &#123;<br>        <span class="hljs-comment">// 首先，检查请求的类是否已经被加载过了</span><br>        Class c = findLoadedClass(name);<br>        <span class="hljs-keyword">if</span> (c == <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-keyword">if</span> (parent != <span class="hljs-keyword">null</span>) &#123;<br>                c = parent.loadClass(name, <span class="hljs-keyword">false</span>);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                c = findBootstrapClassOrNull(name);<br>            &#125;<br>            &#125; <span class="hljs-keyword">catch</span> (ClassNotFoundException e) &#123;<br>                <span class="hljs-comment">// 如果父类加载器抛出ClassNotFoundException</span><br>                <span class="hljs-comment">// 说明父类加载器无法完成加载请求</span><br>            &#125;<br>            <span class="hljs-keyword">if</span> (c == <span class="hljs-keyword">null</span>) &#123;<br>                <span class="hljs-comment">// 在父类加载器无法加载时</span><br>                <span class="hljs-comment">// 再调用本身的findClass方法来进行类加载</span><br>                c = findClass(name);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (resolve) &#123;<br>            resolveClass(c);<br>        &#125;<br>        <span class="hljs-keyword">return</span> c;<br>    &#125;<br><br>    <span class="hljs-keyword">protected</span> Class&lt;?&gt; findClass(String name) <span class="hljs-keyword">throws</span> ClassNotFoundException &#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ClassNotFoundException(name);<br>    &#125;<br>&#125;<br>loadClass()方法的运行逻辑：先检查请求加载的类是否已经被加载过，若没有则调用父加载器的loadClass()方法，若父加载器为空则默认使用启动类加载器作为父加载器。只有当父加载器加载失败，抛出ClassNotFoundException异常时，才调用自己的findClass()方法尝试进行加载。<br></code></pre></td></tr></table></figure>
+<p><strong>自定义类加载器</strong><br>除了 BootstrapClassLoader 其他类加载器均由 Java 实现且全部继承自java.lang.ClassLoader。如果我们要自定义自己的类加载器，就需要继承 ClassLoader。</p>
+<ul>
+<li>如果想打破双亲委派模型，就需要重写loadClass()方法，因为双亲委派模型的逻辑是由loadClass()方法体现的。</li>
+<li>如果不想打破双亲委派模型，就重写 ClassLoader 类中的 findClass() 方法即可，无法被父类加载器加载的类最终会通过这个方法被加载。</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>周志明. 深入理解 Java 虚拟机 [M]. 机械工业出版社, 2019.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/CyC2018/CS-Notes">Cyc2018/CS-Nodes</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Snailclimb/JavaGuide">Snailclimb/JavaGuide</a></li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">Java虚拟机</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/15/%E9%94%81/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">锁</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/15/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/">
+                        <span class="hidden-mobile">进程与线程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

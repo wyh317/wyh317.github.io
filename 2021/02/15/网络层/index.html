@@ -1,0 +1,522 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>网络层 - wyh&#39;s space</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>wyh's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/bg/star_night.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="网络层">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-15 00:00" pubdate>
+        2021年2月15日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.6k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      38
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">网络层</h1>
+            
+            <div class="markdown-body">
+              <h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h2><p>网络层分为数据平面和控制平面。  </p>
+<ul>
+<li>数据平面的作用是在一个路由器中，将数据报从一个输入链路转移到一个适当的输出链路，即转发功能(forward)</li>
+<li>控制平面的作用是协调一个网络中的每个路由器的转发动作，使得数据报沿着源和目的地主机之间的路由器路径最终进行端到端传送，即路由功能(routing)</li>
+</ul>
+<p>链路层交换机和路由器的区别：</p>
+<ul>
+<li>链路层交换机基于链路层帧中的字段值做出转发决定，交换机因此被称为链路层设备。</li>
+<li>路由器基于网络层数据报中的首部字段做出转发决定，路由器因此被称为网络层设备</li>
+</ul>
+<p>当一个数据报从源被传送到目的地主机时，它通过了一些列的路由器。每个路由器都是用这个数据报的目的地地址来转发包。即，每个路由器都有一个转发表，其将目的地的IP地址与一个输出链路接口相对应。当一个数据报到达路由器时，路由器使用数据高的目的Ip地址在转发表中找到一个合适的输出链路接口(output link interface)</p>
+<p>网络层协议概览：</p>
+<p><img src="/img/%E5%9B%BE%E7%89%874.1.jpg" srcset="/img/loading.gif"></p>
+<h2 id="2-IP协议-Internet-Protocol"><a href="#2-IP协议-Internet-Protocol" class="headerlink" title="2.IP协议(Internet Protocol)"></a>2.IP协议(Internet Protocol)</h2><h3 id="2-1-IP数据报格式："><a href="#2-1-IP数据报格式：" class="headerlink" title="2.1 IP数据报格式："></a>2.1 IP数据报格式：</h3><p><img src="/img/%E5%9B%BE%E7%89%874.2.jpg" srcset="/img/loading.gif" alt="IP数据报格式"></p>
+<ul>
+<li>header length：由于IPv4数据报中包含一些可变数量的选项(options),因此需要首部长度字段用来确定IP数据报中载荷从何处开始。大多数IP数据报不包含(option),所以**<em>一般的IP数据报具有20字节的首部**</em>。</li>
+<li>TTL(Time-to-live):该字段用来确保数据报不会永远在网络中循环。每当一个路由器处理数据包时，该字段就减1.若TTL字段减为0，则该数据报被丢弃。</li>
+<li>Protocol：该字段只有当一个IP数据报到达其最终目的地时才会有用，其指示了IP数据报的数据部分应该交给哪个特定的传输层协议。例如：值为6表明要将data交给TCP，值为17表明要将data交给UDP。这里Protoclo字段所起到的作用，类似于传输层报文段中的端口号的作用。**<em>协议号是将网络层与传输层绑定在一起的粘合剂，而端口号是将传输层与应用层绑定在一起的粘合剂**</em></li>
+<li>首部检验和：路由器对收到的每个IP数据报计算其首部检验和，如果数据报首部中携带的检验和，与计算得到的检验和不一致，则检测出error，路由器一般会丢掉检测出error的数据报。</li>
+</ul>
+<h3 id="2-2-IP编址"><a href="#2-2-IP编址" class="headerlink" title="2.2 IP编址"></a>2.2 IP编址</h3><p>主机和物理链路之间的边界叫接口。IP要求每台主机和路由器接口拥有自己的IP地址。因此一个IP地址与一个接口相关联，而不是与包括该接口的主机或路由器相关联。</p>
+<p>每个IP地址长度为32比特（4字节），这些地址通常按所谓点分十进制记法表示，即地址中的每个字节用它的十进制形式书写，各字节间以句点隔开。</p>
+<p><img src="/img/%E5%9B%BE%E7%89%874.3.jpg" srcset="/img/loading.gif"></p>
+<p>如/img/图片所示，在这个例子中，互联左上方的三个主机接口和一个路由器接口的网络形成一个子网。IP编址为这个子网分配一个地址223.1.1.0/24。其中的“/24”记法，称为子网掩码（subnet mask），指示32比特中的最左侧24比特定义了子网地址。一个子网中的所有设备拥有共同的子网地址。</p>
+<p>形式为a.b.c.d/x的地址的x最高比特构成了IP地址的网络部分，并且经常被称为该地址的前缀。一个组织通常被分配一块连续的地址，即具有相同前缀的一段地址。当该组织外部的一台路由器转发一个数据报，且该数据报的目的地址位于该组值的内部时，仅需要考虑该地址前面的x比特，这相当大地减少了在这些路由器中转发表的长度。</p>
+<p>一个地址的剩余32-x比特可认为是用于区分该组织内部设备的，其中的所有设备具有相同的网络前缀。当该组织内部的路由器转发分组时，才会考虑这些比特。</p>
+<p>IP广播地址是255.255.255.255。当一个主机发出一个目的地址为255.255.255.255的数据报时，该报文会交付给同一个网络中的所有主机。</p>
+<h2 id="3-DHCP协议"><a href="#3-DHCP协议" class="headerlink" title="3. DHCP协议"></a>3. DHCP协议</h2><p>DHCP(Dynamic Host Configuration Protocal)协议允许主机自动获取一个IP地址。网络管理员能够配置DHCP，以使某给定主机每次与网络连接时能得到一个相同的IP地址，或者某主机将被分配一个临时的IP地址，每次与网络连接时该地址也许是不同的。同时，DHCP还允许一台主机得知其他的一些信息，例如子网掩码、第一条路由器地址（默认网关）与它的本地DNS服务器的地址。</p>
+<p>DHCP适合这样的情况：许多用户来来往往，并且只在有限的时间内需要地址。</p>
+<p>每个子网一般都将具有一台DHCP服务器。如果在子网中没有服务器，则需要一个DHCP中继代理，这个代理知道用于该网络的DHCP服务器的地址。</p>
+<p>DHCP协议的四个步骤（yiaddr:your Internet adress)：    </p>
+<p><img src="/img/%E5%9B%BE%E7%89%874.4.jpg" srcset="/img/loading.gif"></p>
+<ul>
+<li><strong>DHCP服务器发现</strong>：一台新到达的主机的首要任务是发现一个要与其交互的DHCP服务器。这可以通过广播DHCP发现报文(DHCP discover message)来完成，客户在UDP分组中向端口67发送该发现报文。</li>
+<li><strong>DHCP服务器提供</strong>：当DHCP服务器收到一个DHCP发现报文时，用DHCP提供报文（DHCP offer message）向客户做出响应，该报文向该子网中的所有节点广播，仍然使用广播地址255.255.255.255。每台DHCP服务器提供的报文含有收到的发现报文的事务ID、向客户推荐的IP地址、网络掩码以及IP地址租用期（即IP地址有效的时间量）</li>
+<li><strong>DHCP请求</strong>：新到达的客户从一个或多个服务器offer中选择一个，并向选中的服务器offer用DHCP请求报文（DHCP request message）进行响应，并回显配置的参数。</li>
+<li><strong>DHCP ACK</strong>：服务器使用DHCP ACK报文（DHCP ACK message）对DHCP请求报文进行响应，证实所要求的参数。</li>
+</ul>
+<h2 id="4-网络地址转换（NAT）"><a href="#4-网络地址转换（NAT）" class="headerlink" title="4.网络地址转换（NAT）"></a>4.网络地址转换（NAT）</h2><p>NAT用于如下/img/图片所示的家庭网络等专用网络或具有专用地址的地域，一个具有专用地址的地域是指其地址仅对该网络中的设备有意义的网络。</p>
+<p><img src="/img/%E5%9B%BE%E7%89%874.5.jpg" srcset="/img/loading.gif"></p>
+<p>NAT路由器对于外部设备来说甚至不像一台路由器，相反它对外界的行为就像一个具有单一IP地址的设备。在/img/图片中，所有离开家庭路由器流向更大的因特网的报文都拥有一个源地址138.76.29.7,且所有进入家庭的报文都拥有一个目的地址138.76.29.7。NAT路由器对外界隐藏了家庭网络内的细节。</p>
+<p>路由器从ISP的DHCP服务器得到它的地址，并且路由器运行一个DHCP服务器，为位于NAT-DHCP路由器控制的家庭网络地址空间的计算机提供地址。</p>
+<p>例如：主机10.0.0.1指派了源端口号3345并将该数据报发送到LAN中，NAT路由器收到该数据报，为其生成一个新的源端口号5001，将源IP地址替代为其WAN一侧接口的IP地址138.76.29.7，且将源端口3345更换为新端口5001.<br>当报文到达NAT路由器时，路由器使用目的地址的IP地址与目的端口号从NAT转发表中检索出家庭网络浏览器使用的相应IP地址。于是，路由器重写该数据报的目的地址和目的端口号，并向家庭网络转发该数据报。</p>
+<p>注：如果一个主机在NAT后面，那么它无法作为一个服务器接受TCP连接请求。</p>
+<h2 id="5-ICMP（Internet-Control-Message-Protocol"><a href="#5-ICMP（Internet-Control-Message-Protocol" class="headerlink" title="5.ICMP（Internet Control Message Protocol)"></a>5.ICMP（Internet Control Message Protocol)</h2><p>主机和路由器用ICMP来彼此沟通网络层的信息。ICMP最典型的用途是差错报告。ICMP报文是承载在IP分组中的，因此从体系结构上讲它是位于IP之上的，但是它仍然被认为是网络层的协议而不是更高层的协议。当一台主机收到一个指明上层协议为ICMP的IP数据报时，它分解出该数据报的内容给ICMP，就像分解出一个数据报的内容给TCP或UDP一样。</p>
+<p>ICMP报文有一个类型字段和一个编码字段，并且包含引起该ICMP报文首次生成的IP数据报的首部和前8字节内容（以便发送方能确定引发该差错的数据报）<br>ICMP报文类型如下：</p>
+<p><img src="/img/%E5%9B%BE%E7%89%874.6.jpg" srcset="/img/loading.gif"></p>
+<p>以下为两个ICMP的应用：</p>
+<h3 id="Ping"><a href="#Ping" class="headerlink" title="Ping"></a>Ping</h3><p>Ping 是 ICMP 的一个重要应用，主要用来测试两台主机之间的连通性。</p>
+<p>Ping 的原理是通过向目的主机发送 ICMP Echo （Type类型为8，code类型为0）请求报文，目的主机收到之后会发送 Echo 回答报文。Ping 会根据时间和成功响应的次数估算出数据包往返时间以及丢包率。</p>
+<h3 id="Traceroute"><a href="#Traceroute" class="headerlink" title="Traceroute"></a>Traceroute</h3><p>Traceroute 是 ICMP 的另一个应用，用来跟踪一个分组从源点到终点的路径。</p>
+<p>Traceroute 发送的 IP 数据报封装的是无法交付的 UDP 报文段，并由目的主机发送终点不可达ICMP差错报告报文。</p>
+<ul>
+<li>源主机向目的主机发送一连串的 IP 数据报。第一个数据报 P1 的生存时间 TTL 设置为 1，当 P1 到达路径上的第一个路由器 R1 时，R1 收下它并把 TTL 减 1，此时 TTL 等于 0，R1 就把 P1 丢弃，并向源主机发送一个 ICMP 时间超过差错报告报文；</li>
+<li>源主机接着发送第二个数据报 P2，并把 TTL 设置为 2。P2 先到达 R1，R1 收下后把 TTL 减 1 再转发给 R2，R2 收下后也把 TTL 减 1，由于此时 TTL 等于 0，R2 就丢弃 P2，并向源主机发送一个 ICMP 时间超过差错报文。</li>
+<li>不断执行这样的步骤，直到最后一个数据报刚刚到达目的主机，主机不转发数据报，也不把 TTL 值减 1。但是因为数据报封装的是无法交付的 UDP，因此目的主机要向源主机发送 ICMP 终点不可达差错报告报文（Type3 code3）。</li>
+<li>之后源主机知道了到达目的主机所经过的路由器 IP 地址以及到达每个路由器的往返时间。</li>
+</ul>
+<h2 id="6-IPv6"><a href="#6-IPv6" class="headerlink" title="6.IPv6"></a>6.IPv6</h2><p>为了解决IPv4地址不够用的问题，IPv6将IP地址长度从32比特增加到128比特，且IPv6数据报的首部被固定为40字节。IPv6也不允许在中间路由器上进行分片和重新组装，这种操作只能在源和目的地上执行。</p>
+<h3 id="IPv4向IPv6的过渡："><a href="#IPv4向IPv6的过渡：" class="headerlink" title="IPv4向IPv6的过渡："></a>IPv4向IPv6的过渡：</h3><p>IPv4向IPv6的过渡有两种方式，分别为双栈方法（dual-stack）和使用隧道（tunneling）</p>
+<p><strong><em>双栈方法</em></strong>：<br>使用双栈方法的IPv6节点具有完整的IPv4实现，它具有发送和接受IPv4和IPv6两种数据报的能力。但是这种方法有一个缺点：如下/img/图片所示：如果不适用隧道的话，即使E和F之间能交换IPv5数据报，但从D到E的IPv4数据报中并不含有从A发出的初始IPv6数据报中的所有字段。因此E和F之间也只能交换IPv4.</p>
+<p><strong><em>使用隧道</em></strong>：  </p>
+<p><img src="/img/%E5%9B%BE%E7%89%874.7.jpg" srcset="/img/loading.gif"></p>
+<p>我们将两台IPv6路由器之间中间IPv4路由器的集合称为一个隧道(tunnel),借助于隧道，在隧道发送端的IPv6节点（如B）可将整个IPv6数据报放到一个IPv4数据报的数据(data)字段中。于是，该IPv4数据报的地址设为指向隧道接受端的IPv6节点(如E)。</p>
+<p>在隧道接受端的IPv6节点最终收到该IPv4数据报，并确定该IPv4数据报含有一个IPv6数据报，于是从中取出IPv6数据报，再为该IPv6数据报提供路由，就好像它是从一个直接相连的IPv6邻居那里接收到该IPv6数据的一样。</p>
+<h2 id="7-路由选择算法"><a href="#7-路由选择算法" class="headerlink" title="7.路由选择算法"></a>7.路由选择算法</h2><p>路由选择算法的目的：给定一组路由器以及连接路由器的链路，路由选择算法要找到一条从源路由器到目的路由器的最好路径。</p>
+<p>其分为两类；</p>
+<ul>
+<li>全局式路由选择算法：用完整的、全局的网络信息计算出从源到目的地之间的最低费用路径。具有这种全局信息的算法常被称作<strong>链路状态(link state,LS)算法</strong></li>
+<li>分散式路由选择算法： 没有节点拥有关于所有网络链路费用的完整信息，每个节点仅有与其直接相连链路的费用信息便可开始计算。常被称作<strong>距离向量(distance-vector,DV)算法</strong></li>
+</ul>
+<p>路由选择协议都是自适应的，能随着网络通信量和拓扑结构的变化而自适应地进行调整。</p>
+<p>互联网可以划分为许多较小的自治系统 AS，一个 AS 可以使用一种和别的 AS 不同的路由选择协议。在一个AS内部，所有路由器运行同样的自治系统内部路由选择协议。在各AS之间，AS运行相同的AS间路由选择协议。</p>
+<p>可以把路由选择协议划分为两大类：</p>
+<ul>
+<li>自治系统内部的路由选择：RIP 和 OSPF</li>
+<li>自治系统间的路由选择：BGP</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/15/%E7%B4%A2%E5%BC%95/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">索引</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/15/%E9%94%81/">
+                        <span class="hidden-mobile">锁</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

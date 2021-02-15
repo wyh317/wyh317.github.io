@@ -1,0 +1,558 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>Git - wyh&#39;s space</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>wyh's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/bg/star_night.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Git">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-15 00:00" pubdate>
+        2021年2月15日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      28
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Git</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p>git命令必须在仓库目录内执行</p>
+<ol>
+<li><p>创建一个空目录并进入</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-variable">$</span> mkdir learngit<br><span class="hljs-variable">$</span> <span class="hljs-built_in">cd</span> learngit<br></code></pre></td></tr></table></figure></li>
+<li><p>将这个目录变成git可以管理的仓库</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp">$ git <span class="hljs-keyword">init</span><br></code></pre></td></tr></table></figure></li>
+<li><p>将一个文件<strong>添加</strong>到仓库</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">$ git <span class="hljs-builtin-name">add</span> readme.txt<br></code></pre></td></tr></table></figure>
+<p>注意：添加某个文件时，该文件必须在当前目录下存在</p>
+</li>
+<li><p>将这个文件<strong>提交</strong>到仓库</p>
+<figure class="highlight smalltalk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs smalltalk"><span class="hljs-string">$ </span>git commit -m <span class="hljs-comment">&quot;wrote a readme file&quot;</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<p>-m后面是本次提交的说明</p>
+<h2 id="对仓库中内容进行修改"><a href="#对仓库中内容进行修改" class="headerlink" title="对仓库中内容进行修改"></a>对仓库中内容进行修改</h2><p>用以下命令可以掌握工作区的状态，它会告诉我们文件有没有修改过</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">git status</span><br></code></pre></td></tr></table></figure>
+<p>而以下命令可以查看修改的内容</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">git <span class="hljs-built_in">diff</span> readme.txt<br></code></pre></td></tr></table></figure>
+<h3 id="1-版本回退"><a href="#1-版本回退" class="headerlink" title="1.版本回退"></a>1.版本回退</h3><p>我们在工作中会不断地对文件进行修改，当我们觉得修改到一定程度的时候，就可以进行一次commit，相当于打游戏时进行一次存档。一旦文件被该乱了，或者不小心删除了文件，还可以从最近的一个commit中恢复。</p>
+<p>以下命令告诉我们commit的历史记录,它会显示从最近到最远的提交版本</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">git <span class="hljs-built_in">log</span><br></code></pre></td></tr></table></figure>
+<p>在Git中，<strong>用HEAD表示当前版本</strong>，也就是最新的提交，上一个版本就是HEAD^，上上一个版本就是HEAD^^，往上100个版本就是HEAD~100。如果我们要把当前版本回退到上一个版本，就可以用如下的命令</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">git <span class="hljs-keyword">reset</span> <span class="hljs-comment">--hard HEAD^</span><br></code></pre></td></tr></table></figure>
+<p>显然，当回退到上一个版本之后，刚才的当前版本已经不会在git log中看到了。但扔可以通过commit id回到刚才的那个版本（7c0b9b为那个版本git版本号的前几位）</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">git</span> reset --hard  <span class="hljs-number">7</span>c<span class="hljs-number">0</span>b<span class="hljs-number">9</span>b<br></code></pre></td></tr></table></figure>
+<p>但是那个版本的版本号找不到或者不记得了怎么办？不要紧，git记录了我们的每一次命令,通过如下命令行查看命令历史，就可以找到我们想重返的版本的id</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">$ git reflog<br><span class="hljs-number">7</span>c0b9b5 (HEAD -&gt; master) HEAD@&#123;<span class="hljs-number">0</span>&#125;: <span class="hljs-keyword">reset</span>: moving <span class="hljs-keyword">to</span> <span class="hljs-number">7</span>c0b9b<br><span class="hljs-number">06</span>d21e9 HEAD@&#123;<span class="hljs-number">1</span>&#125;: <span class="hljs-keyword">reset</span>: moving <span class="hljs-keyword">to</span> HEAD^<br><span class="hljs-number">7</span>c0b9b5 (HEAD -&gt; master) HEAD@&#123;<span class="hljs-number">2</span>&#125;: <span class="hljs-keyword">commit</span>: <span class="hljs-keyword">add</span> a <span class="hljs-type">line</span><br><span class="hljs-number">06</span>d21e9 HEAD@&#123;<span class="hljs-number">3</span>&#125;: <span class="hljs-keyword">commit</span> (initial): <span class="hljs-keyword">write</span> a readme <span class="hljs-type">text</span><br></code></pre></td></tr></table></figure>
+<h3 id="2-工作区和暂存区"><a href="#2-工作区和暂存区" class="headerlink" title="2.工作区和暂存区"></a>2.工作区和暂存区</h3><p>Git管理的文件分为工作区和版本库(.git隐藏目录)。版本库又分为暂存区stage和git为我们创建的第一个分支master。</p>
+<p>我们把文件添加到git版本库分为两步：</p>
+<ul>
+<li>用git add把文件修改添加到暂存区</li>
+<li>用git commit将暂存区的内容添加到当前分支</li>
+</ul>
+<p>可以理解为：将需要提交的文件修改先全都放到暂存区，然后，一次性提交暂存区的所有修改。</p>
+<h3 id="3-撤销修改和删除文件"><a href="#3-撤销修改和删除文件" class="headerlink" title="3.撤销修改和删除文件"></a>3.撤销修改和删除文件</h3><p>如下命令可以用来撤销对工作区的修改</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">$ git checkout <span class="hljs-comment">-- readme.txt</span><br></code></pre></td></tr></table></figure>
+<p>有两种情况：</p>
+<ul>
+<li>readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；</li>
+<li>readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。</li>
+</ul>
+<p>总之，以上命令就是让这个文件工作区回到最近一次git commit或git add时的状态。</p>
+<p>但是如果对工作区修改后还add到了暂存区该怎么办呢？</p>
+<ol>
+<li>先用如下命令可以撤销对暂存区的修改（unstage），然后重新放回工作区<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>git reset HEAD readme.txt<br></code></pre></td></tr></table></figure></li>
+<li>现在暂存区干净了，但是工作区还有修改，接下来再撤销掉工作区的修改：<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">$ git checkout <span class="hljs-comment">-- readme.txt</span><br></code></pre></td></tr></table></figure>
+总结撤销修改的三种情况：</li>
+</ol>
+<ul>
+<li>当改乱了文件的内容并且还未add，想直接丢弃工作区的修改时，用命令git checkout – file</li>
+<li>当改乱了文件的内容并且add到了暂存区时，想丢弃修改，第一步先用命令git reset HEAD file丢弃暂存区的修改，第二步再用命令git checkout – file丢弃工作区的修改。</li>
+<li>当已经把改乱的文件commit到版本库时，想撤销提交，这时就需要版本回退。</li>
+</ul>
+<p>总结删除文件的两种情况：<br>当我们把工作区的一个文件删除时：</p>
+<ul>
+<li><p>如果我们确实要从版本库中删除该文件，那么就用git rm file删除掉，并且git commit</p>
+</li>
+<li><p>如果我们其实是不小心删错了，那就可以用git checkout – file将误删的文件恢复到最新版本。</p>
+<p>注意：git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。</p>
+</li>
+</ul>
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><p>Github用来提供Git仓库托管服务，它相当于一个服务器，其他每个人都从这个“服务器”仓库克隆一份到自己的电脑上，并且各自把各自的提交推送到服务器仓库里，也从服务器仓库中拉取别人的提交。</p>
+<ol>
+<li>在github中添加本地计算机的SSH Key。这样GitHub就可以识别出你推送的提交确实是你推送的，而不是别人冒充的，而Git支持SSH协议，所以，GitHub只要知道了你的公钥，就可以确认只有你自己才能推送。</li>
+<li>在github中建立一个 repository。并在本地库中运行如下命令将本地版本库和github上的远程库关联起来（远程库的名字就叫origin）<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">$ git remote add origin https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/wyh317/</span>learnGit.git<br></code></pre></td></tr></table></figure></li>
+<li>将本地库的所有内容推送到远程库上,实际上是把当前分支master推送到远程。并且本地的master分支和远程的master分支关联了起来<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">$ git <span class="hljs-built_in">push</span> -u <span class="hljs-built_in">origin</span> master<br></code></pre></td></tr></table></figure>
+由于远程库是空的，所以第一次推送master分支时，带了”-u”。之后，只要本地做了提交，就可以通过如下命令将本地的master分支的最近修改推送至Github<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">$ git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> master<br></code></pre></td></tr></table></figure>
+可以使用如下命令从github上克隆出一个本地库<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">$ git <span class="hljs-keyword">clone</span> <span class="hljs-title">git</span>@github.com:wyh317/learnGit.git<br></code></pre></td></tr></table></figure>
+当从远程仓库克隆时，Git自动把本地的master分支和远程的master分支对应起来了，并且远程仓库的默认名称是origin。可以用git remote或者git remote -v查看远程库的信息。</li>
+</ol>
+<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><p>Git鼓励使用分支完成某个任务，合并后再删掉分支，这和直接在master分支上工作效果是一样的，但过程更安全。</p>
+<ul>
+<li>查看分支：git branch</li>
+<li>创建分支：git branch name</li>
+<li>创建一个分支并切换到它：git switch -c name</li>
+<li>切换到某个分支：git switch name</li>
+<li>合并某分支到当前分支：git merge name</li>
+<li>删除分支：git branch -d name</li>
+</ul>
+<p>当两个分支的文件修改有冲突时，git无法完成自动合并，我们必须先手动把冲突解决然后提交，再合并。用git log –graph命令可以看到分支合并图。</p>
+<p>通常在合并分支时，git会默认使用fast forward模式，但这种模式下删除分支后，会丢掉分支信息。如果使用以下命令行来merge(即将分支test合并到当前分支）：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata">$ git <span class="hljs-keyword">merge</span> --<span class="hljs-keyword">no</span>-ff -<span class="hljs-keyword">m</span> <span class="hljs-string">&quot;merge with no-ff&quot;</span> <span class="hljs-keyword">test</span><br></code></pre></td></tr></table></figure>
+<p>那么Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。（因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去），能看出来做过合并，而fast forward合并后就看不出来曾经做过合并</p>
+<p><strong><em>分支策略</em></strong>：</p>
+<ul>
+<li>master分支应该是非常稳定的，仅用来发布版本，不能在上面工作</li>
+<li>dev分支是不稳定的，用来工作用，到版本发布时，再把dev分支合并到master上</li>
+<li>团队的每个成员都在dev的分支上工作，每个人有自己的分支，工作完往dev上合并即可。</li>
+</ul>
+<p><strong><em>Bug分支</em></strong>：<br>在修复bug时，我们通过创建新的bug分支来进行修复，修复完之后进行合并，最后将这个bug分支删除。</p>
+<p>当手头上的工作还没有完成时，我们可以用git stash命令将当前工作现场“储藏”起来，然后去修复bug，修复后再用git stash pop命令恢复现场继续工作。</p>
+<p>在master分支上修复的bug，想要合并到当前dev分支，可以用如下命令，把修复bug的commit（用其id表示）“复制”到当前分支，避免重复劳动。</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">git cherry-pick commitid</span><br></code></pre></td></tr></table></figure>
+<p><strong><em>Feature分支</em></strong>：<br>每添加一个新功能，最好新建一个feature分支并在上面开发，完成后与主分支进行merge，最后删除该feature分支。</p>
+<p><strong><em>多人协作</em></strong>：  </p>
+<ul>
+<li>首先，用git push origin <branch-name>向远程推送自己的更改</li>
+<li>如果推送失败，说明队友的最新提交和我们正要试图的提交有冲突，那我们先用git pull抓取远程的新提交</li>
+<li>在本地解决冲突，并在本地提交</li>
+<li>将冲突解决后的分支提交到远程git push origin <branch-name></li>
+</ul>
+<p>如果git pull提示no tracking information，则说明本地分支和远程分支的链接关系没有创建，用命令git branch –set-upstream-to <branch-name> origin/<branch-name>。</p>
+<h2 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h2><p>发布一个版本时，我们通常会在版本库中打一个标签（tag），一个标签对应着一个commit，例如id为6a5819e的commit对应着标签为v1.2的版本，这样便与日后查找。</p>
+<p>可以通过如下的命令进行打标签：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">$ git <span class="hljs-keyword">tag</span> <span class="hljs-title">v1</span>.<span class="hljs-number">3</span><br>$ git <span class="hljs-keyword">tag</span> <span class="hljs-title">v1</span>.<span class="hljs-number">2</span> <span class="hljs-number">6</span>a5819e<br></code></pre></td></tr></table></figure>
+<p>第一行将标签v1.3打到当前分支最新提交的commit上，第二行将标签v1.2打到id为6a5819e的commit上。</p>
+<p>命令git tag可以查看所有标签。git show <tagname>可以看到标签的说明文字。</p>
+<p>删除一个本地标签：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">$ git <span class="hljs-keyword">tag</span> <span class="hljs-title">-d</span> v0.<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<p>向远程推送一个本地标签：</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">$ git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> &lt;tagname&gt;<br></code></pre></td></tr></table></figure>
+<p>向远程推送全部未推送过的本地标签:</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">$ git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> --tags<br></code></pre></td></tr></table></figure>
+<p>删除一个远程标签：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>git push origin <span class="hljs-symbol">:refs/tags/&lt;tagname&gt;</span><br></code></pre></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Git/">Git</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/15/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">装饰者模式</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/15/%E4%BA%8B%E5%8A%A1/">
+                        <span class="hidden-mobile">事务</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
