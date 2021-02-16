@@ -181,21 +181,21 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/15/BFPRT%E7%AE%97%E6%B3%95/">BFPRT算法</a>
+        <a href="/2021/02/15/KMP%E7%AE%97%E6%B3%95/">KMP算法</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/15/BFPRT%E7%AE%97%E6%B3%95/">
+        <a href="/2021/02/15/KMP%E7%AE%97%E6%B3%95/">
           
           
             
           
-          BFPRT算法算法目的在无序数组中找到第K小的数，时间复杂度O(N)
-基于partition思路的算法和快速排序中partition的思想有些相像。比如说我们要在长度为1000的数组中找到第n小的数，于是我们现在数组中随机找一个数进行partition的过程，小于它的放左边，等于它的放中间，大于它的放右边。完成后的情况如下图所示，等于区域范围为500-600
+          KMP算法KMP算法目的在str1中寻找str2出现的位置假设str1长度为N，str2长度为M  
+暴力方法：尝试从str1的每一个位置开始，让str2来匹配，暴力方法时间复杂度：O(MN)
+KMP算法流程：
 
-因为我们要找第n小的数，因此：
-
-如
+i1代表str1的索引，i2代表str2的索引。二者都从零位置开始尝试匹配。每一次匹配成功，i1和i2都右移
+当匹配失败时（以图中为例：X != Y)，有一个推论为：在str1从i到j中
         </a>
       </p>
 
@@ -227,6 +227,116 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/02/15/Leetcode%201143.%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/">【Leetcode】1143.最长公共子序列</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/15/Leetcode%201143.%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/">
+          
+          
+            
+          
+          1143.最长公共子序列题目给定两个字符串 text1 和 text2，返回这两个字符串的最长公共子序列的长度。
+注：两个字符串的「公共子序列」（Longest Common Subsequence，简称 LCS）是这两个字符串所共同拥有的子序列。若这两个字符串没有公共子序列，则返回 0。
+示例 1:
+输入：text1 = &quot;abcde&quot;, text2 = &quot;ace&
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-15 00:00" pubdate>
+              2021-02-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/15/git/">Git</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/15/git/">
+          
+          
+            
+          
+          Git创建仓库git命令必须在仓库目录内执行
+
+创建一个空目录并进入
+12$ mkdir learngit$ cd learngit
+将这个目录变成git可以管理的仓库
+1$ git init
+将一个文件添加到仓库
+1$ git add readme.txt
+注意：添加某个文件时，该文件必须在当前目录下存在
+
+将这个文件提交到仓库
+1$ git commit -m &quot;wrote a re
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-15 00:00" pubdate>
+              2021-02-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Git/">Git</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/02/15/Manacher%E7%AE%97%E6%B3%95/">Manacher遍历</a>
       </h1>
 
@@ -240,6 +350,52 @@
 暴力方法（中心扩展法）假设字符串的长度为N，那么回文串可能的中心有2N-1种。其中，每个单字符串都可作为回文串的中心，这种情况有N种。其次，双字符串也可作为回文串的中心，这种情况有N-1种。单字符中心负责扩展成长度为奇数的字符串，双字符串中心可以扩展成长度为偶数的字符串。例如：
 
 字符串“aba”有5种可能的中心：a、b、c、ab、ba  
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-15 00:00" pubdate>
+              2021-02-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/15/Morris%E9%81%8D%E5%8E%86/">Morris遍历</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/15/Morris%E9%81%8D%E5%8E%86/">
+          
+          
+            
+          
+          Morris遍历经典的二叉树遍历，无论是递归还是非递归。其空间复杂度都是O(h),其中h为二叉树的高度。而Morris遍历可以做到时间复杂度O(N), 空间复杂度O(1)
+算法流程记当前来到的节点引用为cur
+
+如果cur没有左孩子，那么cur向右移动：cur = cur.right
+如果cur有左孩子，那么找到它左子树上最右的节点，记为mostright
+如果mostright的右指针right
         </a>
       </p>
 
@@ -327,240 +483,19 @@ RealSubject和Pxory都实现了Subject接口，因此Pxory可以在RealSubject�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/15/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">工厂模式</a>
+        <a href="/2021/02/15/%E4%BC%A0%E8%BE%93%E5%B1%82/">传输层</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/15/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+        <a href="/2021/02/15/%E4%BC%A0%E8%BE%93%E5%B1%82/">
           
           
             
           
-          工厂模式工厂模式分为三种，分别为：
+          传输层1.概述网络层只把分组发送到目的主机，但是真正通信的并不是主机而是主机中的进程。传输层提供了进程间的逻辑通信，传输层向高层用户屏蔽了下面网络层的核心细节，使应用程序看起来像是在两个传输层实体之间有一条端到端的逻辑通信信道。
+传输层包括以下两个协议：
 
-简单工厂模式
-工厂方法模式
-抽象工厂模式
-
-接下来以pizza店的例子阐述三种模式
-简单工厂模式一句话描述：简单工厂模式将对象的创建封装了起来
-通过工厂类创建对象，并且根据传入参数决定具体要实例化哪种子类对象的做法，叫简单工厂模式(Simpe Factory Pattern)以下代码描述了产品类，包括一个抽象接口和两个具体类
-12345678910111213
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/15/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">策略模式</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/15/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">
-          
-          
-            
-          
-          策略模式定义策略模式定义了一簇算法，并把它们分别封装起来，让它们之间可以相互替换。此模式让算法的变化独立于使用算法的客户。
-
-实现定义一个算法簇：描述鸭子的不同飞行行为.算法簇包含两个具体的算法(行为)：FlyWithWings和FlyNoWay。它们都实现自接口FlyBehavior
-123456789101112131415public interface FlyBehavior &#123;
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/15/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">装饰者模式</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/15/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">
-          
-          
-            
-          
-          装饰者模式定义动态地为对象扩展功能。
-在扩展功能这一方面，装饰者模式比继承更有弹性
-
-实现实现背景：一家咖啡店有多种饮料(如咖啡、豆浆），还有多种调料可以添加（如Whip、Mocha）。每种饮料都有一个基础价格，加完调料后，价格即为基础价格加上调料价格。要求我们要计算一杯加过调料的饮料的价格。
-所有的装饰者和被装饰者都要继承自抽象类Beverage
-1234567public static abs
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/15/git/">Git</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/15/git/">
-          
-          
-            
-          
-          Git创建仓库git命令必须在仓库目录内执行
-
-创建一个空目录并进入
-12$ mkdir learngit$ cd learngit
-将这个目录变成git可以管理的仓库
-1$ git init
-将一个文件添加到仓库
-1$ git add readme.txt
-注意：添加某个文件时，该文件必须在当前目录下存在
-
-将这个文件提交到仓库
-1$ git commit -m &quot;wrote a re
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Git/">Git</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/15/%E4%BA%8B%E5%8A%A1/">事务</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/15/%E4%BA%8B%E5%8A%A1/">
-          
-          
-            
-          
-          事物事物的概念事物是访问并更新数据库中数据项的一组操作，它们要么都执行，要么都不执行。
-可以通过commit提交一个事物，也可以通过rollback来进行回滚
-MySQL默认采用自动提交模式。也就是说，如果不显式使用START TRANSACTION语句来开始一个事务，那么每执行一个SQL语句后就会马上执行COMMIT操作。
-事物的四大特性ACID
-原子性(Atomicity)：是指数据库事物是不
+TCP（Transmission Control Protocol）:TCP是面向连接的，提供可靠交付，有流量控制，拥塞控制，提供全双工通信，
         </a>
       </p>
 
@@ -585,7 +520,7 @@ MySQL默认采用自动提交模式。也就是说，如果不显式使用START 
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
             
           </div>
         
@@ -654,19 +589,20 @@ MySQL默认采用自动提交模式。也就是说，如果不显式使用START 
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/15/%E4%BC%A0%E8%BE%93%E5%B1%82/">传输层</a>
+        <a href="/2021/02/15/%E4%BA%8B%E5%8A%A1/">事务</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/15/%E4%BC%A0%E8%BE%93%E5%B1%82/">
+        <a href="/2021/02/15/%E4%BA%8B%E5%8A%A1/">
           
           
             
           
-          传输层1.概述网络层只把分组发送到目的主机，但是真正通信的并不是主机而是主机中的进程。传输层提供了进程间的逻辑通信，传输层向高层用户屏蔽了下面网络层的核心细节，使应用程序看起来像是在两个传输层实体之间有一条端到端的逻辑通信信道。
-传输层包括以下两个协议：
-
-TCP（Transmission Control Protocol）:TCP是面向连接的，提供可靠交付，有流量控制，拥塞控制，提供全双工通信，
+          事物事物的概念事物是访问并更新数据库中数据项的一组操作，它们要么都执行，要么都不执行。
+可以通过commit提交一个事物，也可以通过rollback来进行回滚
+MySQL默认采用自动提交模式。也就是说，如果不显式使用START TRANSACTION语句来开始一个事务，那么每执行一个SQL语句后就会马上执行COMMIT操作。
+事物的四大特性ACID
+原子性(Atomicity)：是指数据库事物是不
         </a>
       </p>
 
@@ -691,7 +627,64 @@ TCP（Transmission Control Protocol）:TCP是面向连接的，提供可靠交�
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/15/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">工厂模式</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/15/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+          
+          
+            
+          
+          工厂模式工厂模式分为三种，分别为：
+
+简单工厂模式
+工厂方法模式
+抽象工厂模式
+
+接下来以pizza店的例子阐述三种模式
+简单工厂模式一句话描述：简单工厂模式将对象的创建封装了起来
+通过工厂类创建对象，并且根据传入参数决定具体要实例化哪种子类对象的做法，叫简单工厂模式(Simpe Factory Pattern)以下代码描述了产品类，包括一个抽象接口和两个具体类
+12345678910111213
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-15 00:00" pubdate>
+              2021-02-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
             
           </div>
         
