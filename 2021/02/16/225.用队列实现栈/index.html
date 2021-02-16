@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Hello World - wyh&#39;s space</title>
+  <title>wyh&#39;s space</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Hello World">
+            <span class="h2" id="subtitle" title="">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-14 20:53" pubdate>
-        2021年2月14日 晚上
+      <time datetime="2021-02-16 08:46" pubdate>
+        2021年2月16日 早上
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      75 字
+      527 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      6
        分钟
     </span>
   
@@ -224,18 +224,25 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Hello World</h1>
+            <h1 style="display: none"></h1>
             
             <div class="markdown-body">
-              <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+              <h1 id="225-用队列实现栈"><a href="#225-用队列实现栈" class="headerlink" title="225 用队列实现栈"></a>225 用队列实现栈</h1><p><strong>注意</strong>: 队列的基本操作为add和poll和isEmpty，栈的基本操作为push和pop和empty</p>
+<p><strong>思路：</strong>  </p>
+<ul>
+<li><p>准备两个队列，一个queue队列一个help队列</p>
+</li>
+<li><p>执行push操作时，只向queue队列中add元素</p>
+</li>
+<li><p>执行pop操作时，将queue中元素弹入help中，只剩下一个需要弹出的元素，将queue中剩下的这一个元素保存后弹出。 最后，将help和queue互换，因为此时queue已弹空，原来queue元素均导入到help中。为了实现任何入列都是入到queue中，因此需将两个队列互换  </p>
+</li>
+<li><p>执行peek操作时，与pop操作大体相同。只是peek并未真要弹出栈顶元素，只是取出而已。所以需要将这个元素也加进help中。最终的效果相当于把queue中元素均加入到help中，再将help与queue互换  </p>
+</li>
+<li><p>queue队列为空栈即为空  </p>
+</li>
+<li><p>*代码：**</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyStack</span> </span>&#123;<br><br>    Queue&lt;Integer&gt; queue1;<br>    Queue&lt;Integer&gt; help;<br>    <br>    <span class="hljs-comment">/** Initialize your data structure here. */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyStack</span><span class="hljs-params">()</span> </span>&#123;<br>        queue1 = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();<br>        help = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();<br>    &#125;<br>    <br>   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">push</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>        <span class="hljs-comment">//只向队列queue中push元素</span><br>        queue1.add(x);<br>    &#125;<br>    <br>    <span class="hljs-comment">/** Removes the element on top of the stack and returns that element. */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">pop</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//将queue中元素弹入help中，只剩下一个需要弹出的元素</span><br>        <span class="hljs-keyword">while</span>(queue1.size() != <span class="hljs-number">1</span>)<br>            help.add(queue1.poll());<br>        <span class="hljs-comment">//将queue中剩下的这一个元素保存后弹出</span><br>        <span class="hljs-keyword">int</span> res = queue1.poll();<br>        <span class="hljs-comment">//将help和queue互换</span><br>		<span class="hljs-comment">//因为此时queue已弹空，原来queue元素均导入到help中。</span><br>		<span class="hljs-comment">//为了实现任何入列都是入到queue中，因此需将两个队列互换</span><br>        swap();<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>    <br>    <span class="hljs-comment">/** Get the top element. */</span><br>    <span class="hljs-comment">//取队顶元素的peek操作大体与pop相同，只是peek并未真要弹出栈顶元素，只是取出而已</span><br>	<span class="hljs-comment">//所以需要将这个元素也加进help中。最终的效果相当于把queue中元素均加入到help中，再将help与queue互换</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">top</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">while</span>(queue1.size() != <span class="hljs-number">1</span>)<br>            help.add(queue1.poll());<br>        <span class="hljs-keyword">int</span> res = queue1.poll();<br>        help.add(res);<br>        swap();<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>    <br>    <span class="hljs-comment">/** Returns whether the stack is empty. */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">empty</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> queue1.isEmpty();<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">()</span> </span>&#123;<br>        Queue&lt;Integer&gt; tmp = help;<br>        help = queue1;<br>        queue1 = tmp;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
 
             </div>
             <hr>
@@ -252,18 +259,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/15/20.%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【Leetcode】20.有效的括号</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/14/72.%20%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/">
-                        <span class="hidden-mobile">Leetcode：72.编辑距离</span>
+                      <a href="/2021/02/16/5614.%E6%89%BE%E5%87%BA%E6%9C%80%E5%85%B7%E7%AB%9E%E4%BA%89%E5%8A%9B%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97/">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -181,6 +181,282 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/02/16/225.%E7%94%A8%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E6%A0%88/"></a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/16/225.%E7%94%A8%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E6%A0%88/">
+          
+          
+            
+          
+          225 用队列实现栈注意: 队列的基本操作为add和poll和isEmpty，栈的基本操作为push和pop和empty
+思路：  
+
+准备两个队列，一个queue队列一个help队列
+
+执行push操作时，只向queue队列中add元素
+
+执行pop操作时，将queue中元素弹入help中，只剩下一个需要弹出的元素，将queue中剩下的这一个元素保存后弹出。 最后，将help和queue互换，因
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-16 08:46" pubdate>
+              2021-02-16
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/16/5614.%E6%89%BE%E5%87%BA%E6%9C%80%E5%85%B7%E7%AB%9E%E4%BA%89%E5%8A%9B%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97/"></a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/16/5614.%E6%89%BE%E5%87%BA%E6%9C%80%E5%85%B7%E7%AB%9E%E4%BA%89%E5%8A%9B%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97/">
+          
+          
+            
+          
+          5614.找出最具竞争力的子序列题目给你一个整数数组 nums 和一个正整数 k ，返回长度为 k 且最具 竞争力 的 nums 子序列。
+在子序列 a 和子序列 b 第一个不相同的位置上，如果 a 中的数字小于 b 中对应的数字，那么我们称子序列 a 比子序列 b（相同长度下）更具 竞争力 。 例如，[1,3,4] 比 [1,3,5] 更具竞争力，在第一个不相同的位置，也就是最后一个位置上， 4
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-16 08:46" pubdate>
+              2021-02-16
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/16/232.%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/"></a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/16/232.%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/">
+          
+          
+            
+          
+          232 用栈实现队列思路：  
+
+准备两个栈，一个push栈，一个pop栈
+
+执行push操作时，只向push栈中添加元素
+
+执行pop操作时，若pop栈为空，则先将push栈中的元素全倒入到pop栈中，然后弹出pop栈的栈顶
+
+执行peek操作时，和pop操作基本相同
+
+当push栈和pop栈均为空时，队列为空
+
+*代码：**
+1234567891011121314151617181920212
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-16 08:46" pubdate>
+              2021-02-16
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/16/503.%20%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A4%A7%E5%85%83%E7%B4%A0%20II/"></a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/16/503.%20%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A4%A7%E5%85%83%E7%B4%A0%20II/">
+          
+          
+            
+          
+          503. 下一个更大元素 II题目给定一个循环数组（最后一个元素的下一个元素是数组的第一个元素），输出每个元素的下一个更大元素。数字 x 的下一个更大的元素是按数组遍历顺序，这个数字之后的第一个比它更大的数，这意味着你应该循环地搜索它的下一个更大的数。如果不存在，则输出 -1。
+示例 1:
+输入: [1,2,1]
+输出: [2,-1,2]
+解释: 第一个 1 的下一个更大的数是 2；
+数字 2 找
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-16 08:46" pubdate>
+              2021-02-16
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/16/739.%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6/"></a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/16/739.%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6/">
+          
+          
+            
+          
+          739.每日温度题目请根据每日 气温 列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，请在该位置用 0 来代替。
+例如，
+给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
+你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。
+
+提示：气温 列表长度的范围是 [1
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-16 08:46" pubdate>
+              2021-02-16
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/16/84.%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/"></a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/16/84.%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/">
+          
+          
+            
+          
+          84.柱状图中最大的矩形题目给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。求在该柱状图中，能够勾勒出来的矩形的最大面积。
+例如:height = [4,3,2,5,6].
+则柱状图中每一竖列的高分别为4，3，2，5，6。
+能找到的最大矩形即为以5为底，以2为高的矩形。面积为10.
+
+方法（单调栈）依次计算以每一竖列为高的所有矩形中最大的面积。即统计从一个竖
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-16 08:46" pubdate>
+              2021-02-16
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/16/71.%E7%AE%80%E5%8C%96%E8%B7%AF%E5%BE%84/"></a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/16/71.%E7%AE%80%E5%8C%96%E8%B7%AF%E5%BE%84/">
+          
+          
+            
+          
+          71.简化路径题目以 Unix 风格给出一个文件的绝对路径，你需要简化它。或者换句话说，将其转换为规范路径。
+在 Unix 风格的文件系统中，一个点（.）表示当前目录本身；此外，两个点 （..） 表示将目录切换到上一级（指向父目录）；两者都可以是复杂相对路径的组成部分。
+请注意，返回的规范路径必须始终以斜杠 / 开头，并且两个目录名之间必须只有一个斜杠 /。最后一个目录名（如果存在）不能以 / 结
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-16 08:46" pubdate>
+              2021-02-16
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/02/15/Leetcode%201143.%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/">Leetcode：1143.最长公共子序列</a>
       </h1>
 
@@ -313,372 +589,6 @@ i1代表str1的索引，i2代表str2的索引。二者都从零位置开始尝�
             
           </div>
         
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/15/BFPRT%E7%AE%97%E6%B3%95/">BFPRT算法</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/15/BFPRT%E7%AE%97%E6%B3%95/">
-          
-          
-            
-          
-          BFPRT算法算法目的在无序数组中找到第K小的数，时间复杂度O(N)
-基于partition思路的算法和快速排序中partition的思想有些相像。比如说我们要在长度为1000的数组中找到第n小的数，于是我们现在数组中随机找一个数进行partition的过程，小于它的放左边，等于它的放中间，大于它的放右边。完成后的情况如下图所示，等于区域范围为500-600
-
-因为我们要找第n小的数，因此：
-
-如
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/15/Manacher%E7%AE%97%E6%B3%95/">Manacher遍历</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/15/Manacher%E7%AE%97%E6%B3%95/">
-          
-          
-            
-          
-          Manacher算法算法目的一个字符串中找到最长回文子串
-暴力方法（中心扩展法）假设字符串的长度为N，那么回文串可能的中心有2N-1种。其中，每个单字符串都可作为回文串的中心，这种情况有N种。其次，双字符串也可作为回文串的中心，这种情况有N-1种。单字符中心负责扩展成长度为奇数的字符串，双字符串中心可以扩展成长度为偶数的字符串。例如：
-
-字符串“aba”有5种可能的中心：a、b、c、ab、ba  
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/15/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/">代理模式</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/15/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/">
-          
-          
-            
-          
-          定义一句话描述：控制对其他对象的访问
-代理模式创建代理(Pxory)，让代理控制某对象的访问，被代理的对象可以是远程的对象、创建开销大的对象或需要安全控制的对象。
-
-RealSubject和Pxory都实现了Subject接口，因此Pxory可以在RealSubject出现的地方取代它。
-代理模式有以下几个代表：
-
-远程代理：控制访问远程对象
-虚拟代理：控制访问创建开销大的资源
-保护代理：基于权限
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/15/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">工厂模式</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/15/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
-          
-          
-            
-          
-          工厂模式工厂模式分为三种，分别为：
-
-简单工厂模式
-工厂方法模式
-抽象工厂模式
-
-接下来以pizza店的例子阐述三种模式
-简单工厂模式一句话描述：简单工厂模式将对象的创建封装了起来
-通过工厂类创建对象，并且根据传入参数决定具体要实例化哪种子类对象的做法，叫简单工厂模式(Simpe Factory Pattern)以下代码描述了产品类，包括一个抽象接口和两个具体类
-12345678910111213
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/15/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">策略模式</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/15/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">
-          
-          
-            
-          
-          策略模式定义策略模式定义了一簇算法，并把它们分别封装起来，让它们之间可以相互替换。此模式让算法的变化独立于使用算法的客户。
-
-实现定义一个算法簇：描述鸭子的不同飞行行为.算法簇包含两个具体的算法(行为)：FlyWithWings和FlyNoWay。它们都实现自接口FlyBehavior
-123456789101112131415public interface FlyBehavior &#123;
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/15/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">装饰者模式</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/15/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">
-          
-          
-            
-          
-          装饰者模式定义动态地为对象扩展功能。
-在扩展功能这一方面，装饰者模式比继承更有弹性
-
-实现实现背景：一家咖啡店有多种饮料(如咖啡、豆浆），还有多种调料可以添加（如Whip、Mocha）。每种饮料都有一个基础价格，加完调料后，价格即为基础价格加上调料价格。要求我们要计算一杯加过调料的饮料的价格。
-所有的装饰者和被装饰者都要继承自抽象类Beverage
-1234567public static abs
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/15/git/">Git</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/15/git/">
-          
-          
-            
-          
-          Git创建仓库git命令必须在仓库目录内执行
-
-创建一个空目录并进入
-12$ mkdir learngit$ cd learngit
-将这个目录变成git可以管理的仓库
-1$ git init
-将一个文件添加到仓库
-1$ git add readme.txt
-注意：添加某个文件时，该文件必须在当前目录下存在
-
-将这个文件提交到仓库
-1$ git commit -m &quot;wrote a re
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Git/">Git</a>
-            
-          </div>
         
       </div>
     </article>

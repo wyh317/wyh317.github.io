@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Hello World - wyh&#39;s space</title>
+  <title>wyh&#39;s space</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Hello World">
+            <span class="h2" id="subtitle" title="">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-14 20:53" pubdate>
-        2021年2月14日 晚上
+      <time datetime="2021-02-16 08:46" pubdate>
+        2021年2月16日 早上
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      75 字
+      508 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      6
        分钟
     </span>
   
@@ -224,18 +224,49 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Hello World</h1>
+            <h1 style="display: none"></h1>
             
             <div class="markdown-body">
-              <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+              <h1 id="71-简化路径"><a href="#71-简化路径" class="headerlink" title="71.简化路径"></a>71.简化路径</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>以 Unix 风格给出一个文件的绝对路径，你需要简化它。或者换句话说，将其转换为规范路径。</p>
+<p>在 Unix 风格的文件系统中，一个点（.）表示当前目录本身；此外，两个点 （..） 表示将目录切换到上一级（指向父目录）；两者都可以是复杂相对路径的组成部分。</p>
+<p>请注意，返回的规范路径必须始终以斜杠 / 开头，并且两个目录名之间必须只有一个斜杠 /。最后一个目录名（如果存在）不能以 / 结尾。此外，规范路径必须是表示绝对路径的最短字符串。</p>
+<pre><code>示例 1：
+输入：&quot;/home/&quot;
+输出：&quot;/home&quot;
+解释：注意，最后一个目录名后面没有斜杠。
+
+示例 2：
+输入：&quot;/../&quot;
+输出：&quot;/&quot;
+解释：从根目录向上一级是不可行的，因为根是你可以到达的最高级。
+
+示例 3：
+输入：&quot;/home//foo/&quot;
+输出：&quot;/home/foo&quot;
+解释：在规范路径中，多个连续斜杠需要用一个斜杠替换。
+
+示例 4：
+输入：&quot;/a/./b/../../c/&quot;
+输出：&quot;/c&quot;
+
+示例 5：
+输入：&quot;/a/../../b/../c//.//&quot;
+输出：&quot;/c&quot;
+
+示例 6：
+输入：&quot;/a//b////c/d//././/..&quot;
+输出：&quot;/a/b/c&quot;
+</code></pre>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>用栈解决，具体步骤如下：</p>
+<ul>
+<li>先将给定路径以”/“分割，分割得到的元素可能包含”.” , “..” , “”这三种特殊情况以及正常的目录。</li>
+<li>如果遍历到正常的目录，则入栈。如果遍历到””和”.”,不入栈。如果遍历到”..”,则弹出栈顶目录。</li>
+<li>遍历栈中的每一层目录，拼出规范路径的结果res</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">simplifyPath</span><span class="hljs-params">(String path)</span> </span>&#123;<br>    Stack&lt;String&gt; stack = <span class="hljs-keyword">new</span> Stack&lt;&gt;();<br>    <span class="hljs-keyword">for</span>(String str: path.split(<span class="hljs-string">&quot;/&quot;</span>))&#123;<br>        <span class="hljs-keyword">if</span>(str.equals(<span class="hljs-string">&quot;..&quot;</span>))&#123;<br>            <span class="hljs-keyword">if</span>(!stack.isEmpty())<br>                stack.pop();<br>        &#125;<br>        <span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-keyword">if</span>(!str.isEmpty() &amp;&amp; !str.equals(<span class="hljs-string">&quot;.&quot;</span>))<br>                stack.push(str);<br>        &#125;<br>    &#125;<br>    String res = <span class="hljs-string">&quot;&quot;</span>;<br>    <span class="hljs-keyword">for</span>(String str: stack)<br>        res += <span class="hljs-string">&quot;/&quot;</span> + str;<br>    <span class="hljs-keyword">return</span> res.isEmpty() ? <span class="hljs-string">&quot;/&quot;</span> : res;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/simplify-path/solution/zhan-by-powcai/">leetcode题解区</a></li>
+</ul>
 
             </div>
             <hr>
@@ -252,9 +283,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/15/20.%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/">
+                      <a href="/2021/02/16/84.%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【Leetcode】20.有效的括号</span>
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -262,8 +293,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/14/72.%20%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/">
-                        <span class="hidden-mobile">Leetcode：72.编辑距离</span>
+                      <a href="/2021/02/15/Leetcode%201143.%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/">
+                        <span class="hidden-mobile">Leetcode：1143.最长公共子序列</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

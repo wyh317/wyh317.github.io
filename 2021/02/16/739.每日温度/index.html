@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Hello World - wyh&#39;s space</title>
+  <title>wyh&#39;s space</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Hello World">
+            <span class="h2" id="subtitle" title="">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-14 20:53" pubdate>
-        2021年2月14日 晚上
+      <time datetime="2021-02-16 08:46" pubdate>
+        2021年2月16日 早上
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      75 字
+      561 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      6
        分钟
     </span>
   
@@ -224,19 +224,29 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Hello World</h1>
+            <h1 style="display: none"></h1>
             
             <div class="markdown-body">
-              <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+              <h1 id="739-每日温度"><a href="#739-每日温度" class="headerlink" title="739.每日温度"></a>739.每日温度</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>请根据每日 气温 列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，请在该位置用 0 来代替。</p>
+<pre><code>例如，
+给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
+你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。
+</code></pre>
+<p>提示：气温 列表长度的范围是 [1, 30000]。每个气温的值的均为华氏度，都是在 [30, 100] 范围内的整数。</p>
+<h2 id="方法（单调栈）"><a href="#方法（单调栈）" class="headerlink" title="方法（单调栈）"></a>方法（单调栈）</h2><p>题目的意思为：要我们对于数组中的每一个数，找到右边最近的比它大的那个数离它有多远</p>
+<p><strong>对于在数组中寻找左右两边最近的比它大或比它小的数的情况，我们可以使用单调栈来解决。</strong></p>
+<p>算法流程：<br>准备一个栈，然后遍历数组：</p>
+<ul>
+<li><p>如果当前元素比栈顶元素小，那么直接入栈。</p>
+</li>
+<li><p>如果当前元素比栈顶元素大，那么不断地将栈顶元素弹出，直到当前元素比栈顶元素小为止，再将当前元素入栈。以让栈保持从栈底到栈顶从大到小的单调性。</p>
+</li>
+<li><p>每当栈中一个元素弹出时，说明让它弹出的那个元素就是它右边最近的比它大的元素。我们这时进行结算，它们之间的距离就是它们在数组中的位置（索引）之差。也正因为如此，为了方便，我们在将元素入栈出栈时，都针对的是它在数组中的索引，而不是它具体的值。</p>
+</li>
+<li><p>当遍历完所有元素后，如果栈中还有元素没有弹出，说明这些元素没有遇到右边比它大的元素，将结果数组中这些元素对应的位置处置0</p>
+</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] dailyTemperatures(<span class="hljs-keyword">int</span>[] T) &#123;<br>    <span class="hljs-keyword">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[T.length];<br>    Stack&lt;Integer&gt; stack = <span class="hljs-keyword">new</span> Stack&lt;&gt;();<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; T.length; i++)&#123;<br>        <span class="hljs-keyword">while</span>(!stack.isEmpty() &amp;&amp; T[i] &gt; T[stack.peek()])&#123;<br>            <span class="hljs-keyword">int</span> index = stack.pop();<br>            res[index] = i - index;<br>        &#125;<br>        stack.push(i);<br>    &#125;<br>    <span class="hljs-keyword">while</span>(!stack.isEmpty())&#123;<br>        <span class="hljs-keyword">int</span> index = stack.pop();<br>        res[index] = <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -252,9 +262,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/15/20.%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/">
+                      <a href="/2021/02/16/503.%20%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A4%A7%E5%85%83%E7%B4%A0%20II/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【Leetcode】20.有效的括号</span>
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -262,8 +272,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/14/72.%20%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/">
-                        <span class="hidden-mobile">Leetcode：72.编辑距离</span>
+                      <a href="/2021/02/16/84.%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
