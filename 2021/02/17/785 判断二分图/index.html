@@ -1,0 +1,469 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>【Leetcode】785.判断二分图 - wyh&#39;s space</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>wyh's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/bg/star_night.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="【Leetcode】785.判断二分图">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-17 00:00" pubdate>
+        2021年2月17日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      18
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【Leetcode】785.判断二分图</h1>
+            
+            <div class="markdown-body">
+              <h1 id="785-判断二分图"><a href="#785-判断二分图" class="headerlink" title="785 判断二分图"></a>785 判断二分图</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个无向图graph，当这个图为二分图时返回true。</p>
+<p>如果我们能将一个图的节点集合分割成两个独立的子集A和B，并使图中的每一条边的两个节点一个来自A集合，一个来自B集合，我们就将这个图称为二分图。</p>
+<p>graph将会以邻接表方式给出，graph[i]表示图中与节点i相连的所有节点。每个节点都是一个在0到graph.length-1之间的整数。这图中没有自环和平行边： graph[i] 中不存在i，并且graph[i]中没有重复的值。</p>
+<pre><code>示例 1:
+输入: [[1,3], [0,2], [1,3], [0,2]]
+输出: true
+解释: 
+无向图如下:
+0----1
+|    |
+|    |
+3----2
+我们可以将节点分成两组: &#123;0, 2&#125; 和 &#123;1, 3&#125;。
+
+示例 2:
+输入: [[1,2,3], [0,2], [0,1,3], [0,2]]
+输出: false
+解释: 
+无向图如下:
+0----1
+| \  |
+|  \ |
+3----2
+我们不能将节点分割成两个独立的子集。
+</code></pre>
+<h2 id="方法一（深度优先搜索）"><a href="#方法一（深度优先搜索）" class="headerlink" title="方法一（深度优先搜索）"></a>方法一（深度优先搜索）</h2><p>对图进行DFS，在遍历的过程中用两种颜色对节点进行染色，其中相邻的节点要染成不同的颜色。如果在遍历的过程中发现相邻的节点颜色相同，那么它不是二分图。如果用这样的染色策略对所有节点染色成功，那么它是二分图</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span>[] visited;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isBipartite</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[][] graph)</span> </span>&#123;<br>    <span class="hljs-comment">//visited数组记录一个节点有没有被染色，若为0则没被染色，若为-1或1则被染成相应的颜色</span><br>    visited = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[graph.length];<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; graph.length; i++)&#123;<br>        <span class="hljs-comment">//如果一个节点没有被染色，并且从它出发不能成功地将图染成两种颜色，则返回false</span><br>        <span class="hljs-keyword">if</span>(visited[i] == <span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-keyword">if</span>(!dfs(graph, i, <span class="hljs-number">1</span>))<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>&#125;<br><span class="hljs-comment">//从将节点i染成颜色color开始，判断能否将图染成二分图</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[][] graph, <span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> color)</span></span>&#123;<br>    <span class="hljs-comment">//递归返回条件：如果一个节点已经染色了，判断这个节点的颜色和当前要给它染的颜色color是否相同</span><br>    <span class="hljs-keyword">if</span>(visited[i] != <span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span> visited[i] == color;<br>    <span class="hljs-comment">//将当前节点染成color色，并将它的所有相邻节点染成-color色</span><br>    visited[i] = color;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j : graph[i])&#123;<br>        <span class="hljs-comment">//如果从i的一个相邻节点j开始，都没能成功地将图染成两种颜色，那么从i开始肯定也不行，返回false</span><br>        <span class="hljs-keyword">if</span>(!dfs(graph, j, -color))<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="方法二（广度优先遍历）"><a href="#方法二（广度优先遍历）" class="headerlink" title="方法二（广度优先遍历）"></a>方法二（广度优先遍历）</h2><p>思路和方法一相同，只是遍历的方法从DFS改成了BFS</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isBipartite</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[][] graph)</span> </span>&#123;<br>    <span class="hljs-comment">//visited数组记录一个节点有没有被染色，若为0则没被染色，若为-1或1则被染成相应的颜色</span><br>    <span class="hljs-keyword">int</span>[] visited = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[graph.length];<br>    <span class="hljs-comment">//如果经过一遍BFS，尚且有节点未被染色，说明这个节点和刚才遍历到的节点不在一个连通图，要从这个节点开始再进行BFS</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; graph.length; i++)&#123;<br>        <span class="hljs-keyword">if</span>(visited[i] != <span class="hljs-number">0</span>)<br>            <span class="hljs-keyword">continue</span>;<br>        Queue&lt;Integer&gt; queue = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();<br>        queue.add(i);<br>        visited[i] = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span>(!queue.isEmpty())&#123;<br>            <span class="hljs-keyword">int</span> cur = queue.poll();<br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> neighbor : graph[cur])&#123;<br>                <span class="hljs-comment">//如果相邻节点已经染色，并且和cur颜色一样，说明不是二分图，返回false</span><br>                <span class="hljs-keyword">if</span>(visited[neighbor] == visited[cur])<br>                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>                <span class="hljs-comment">//如果有cur的相邻节点尚未染色，则将这个相邻节点染成和cur不同的颜色</span><br>                <span class="hljs-keyword">if</span>(visited[neighbor] == <span class="hljs-number">0</span>)&#123;<br>                    visited[neighbor] = -visited[cur];<br>                    queue.add(neighbor);<br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="方法三（并查集）"><a href="#方法三（并查集）" class="headerlink" title="方法三（并查集）"></a>方法三（并查集）</h2><p>在一个二分图中，一个节点的所有邻居都具有相同的颜色，并且和这个节点颜色不同。</p>
+<p>因此我们如果用并查集来看这个问题，则上面一句话可以翻译如下：在二分图中，一个节点的所有邻居都在相同的集合中，并且和这个节点所在的集合不同。</p>
+<p>我们可以遍历所有节点，当遍历到一个节点时，先判断它是否有邻居节点和它已经在一个集合中了(find)，如果有则不是二分图，直接返回false，否则将它的所有邻居节点所在的集合合并(union)，再接着遍历下一个节点。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isBipartite</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[][] graph)</span> </span>&#123;<br>        UnionFindSet ufs = <span class="hljs-keyword">new</span> UnionFindSet();<br>        List&lt;Integer&gt; nodes = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; graph.length; i++)<br>            nodes.add(i);<br>        ufs.makeSets(nodes);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; graph.length; i++)&#123;<br>            <span class="hljs-keyword">int</span> cur = i;<br>            <span class="hljs-keyword">int</span>[] neighbors = graph[cur];<br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> neighbor : neighbors)&#123;<br>                <span class="hljs-keyword">if</span>(ufs.findHead(neighbor) == ufs.findHead(cur))<br>                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>                ufs.union(neighbor, neighbors[<span class="hljs-number">0</span>]);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UnionFindSet</span> </span>&#123;<br>        <span class="hljs-keyword">public</span> HashMap&lt;Integer, Integer&gt; fatherMap;   <span class="hljs-comment">//key为child，value为father</span><br>        <span class="hljs-keyword">public</span> HashMap&lt;Integer, Integer&gt; sizeMap;	<span class="hljs-comment">//value为key所在的集合的大小是多少</span><br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">UnionFindSet</span><span class="hljs-params">()</span> </span>&#123;<br>            fatherMap = <span class="hljs-keyword">new</span> HashMap&lt;Integer, Integer&gt;();<br>            sizeMap = <span class="hljs-keyword">new</span> HashMap&lt;Integer, Integer&gt;();<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">makeSets</span><span class="hljs-params">(List&lt;Integer&gt; nodes)</span> </span>&#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> node : nodes) &#123;<br>                fatherMap.put(node, node);   <span class="hljs-comment">//在最开始，每一个节点自己成一个集合</span><br>                sizeMap.put(node, <span class="hljs-number">1</span>);<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">//给一个元素node，返回它所处集合的代表节点。在这个过程中将链变扁平</span><br>        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-title">findHead</span><span class="hljs-params">(<span class="hljs-keyword">int</span> node)</span> </span>&#123;<br>            <span class="hljs-keyword">int</span> father = fatherMap.get(node);<br>            <span class="hljs-keyword">if</span> (father != node) &#123;<br>                father = findHead(father);<br>            &#125;<br>            fatherMap.put(node, father);<br>            <span class="hljs-keyword">return</span> father;<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">union</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span> </span>&#123;<br>            <span class="hljs-keyword">int</span> aHead = findHead(a);<br>            <span class="hljs-keyword">int</span> bHead = findHead(b);<br>            <span class="hljs-keyword">if</span> (aHead != bHead) &#123;<br>                <span class="hljs-keyword">int</span> aSetSize= sizeMap.get(aHead);<br>                <span class="hljs-keyword">int</span> bSetSize = sizeMap.get(bHead);<br>                <span class="hljs-keyword">if</span> (aSetSize &lt;= bSetSize) &#123;<br>                    fatherMap.put(aHead, bHead);<br>                    sizeMap.put(bHead, aSetSize + bSetSize);<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    fatherMap.put(bHead, aHead);<br>                    sizeMap.put(aHead, aSetSize + bSetSize);<br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/is-graph-bipartite/solution/pan-duan-er-fen-tu-by-leetcode-solution/">Leetcode官方题解</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/is-graph-bipartite/solution/bfs-dfs-bing-cha-ji-san-chong-fang-fa-pan-duan-er-/">Sweetiee的Leetcode题解</a></li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%B7%B1%E5%BA%A6%EF%BC%88%E5%B9%BF%E5%BA%A6%EF%BC%89%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">深度（广度）优先搜索</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/17/542.01%E7%9F%A9%E9%98%B5/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【Leetcode】542.01矩阵</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/17/134.%E5%8A%A0%E6%B2%B9%E7%AB%99/">
+                        <span class="hidden-mobile">【Leetcode】134.加油站</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
