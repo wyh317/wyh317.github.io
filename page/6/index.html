@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bg/rocket.png">
+  <link rel="icon" type="image/png" href="/img/bg/rocket.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -169,29 +169,27 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/16/232.%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/">【Leetcode】232.用栈实现队列</a>
+        <a href="/2021/02/19/59.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II/">【Leetcode】59.螺旋矩阵 II</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/16/232.%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/">
+        <a href="/2021/02/19/59.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II/">
           
           
             
           
-          232 用栈实现队列思路：  
+          59.螺旋矩阵 II题目给定一个正整数 n，生成一个包含 1 到 n^2 所有元素，且元素按顺时针顺序螺旋排列的正方形矩阵。
+示例:
+输入: 3
+输出:
+[
+    [ 1, 2, 3 ],
+    [ 8, 9, 4 ],
+    [ 7, 6, 5 ]
+]
 
-准备两个栈，一个push栈，一个pop栈
-
-执行push操作时，只向push栈中添加元素
-
-执行pop操作时，若pop栈为空，则先将push栈中的元素全倒入到pop栈中，然后弹出pop栈的栈顶
-
-执行peek操作时，和pop操作基本相同
-
-当push栈和pop栈均为空时，队列为空
-
-*代码：**
-1234567891011121314151617181920212
+方法定义四个索引top、bottom、left、right,分别代表长方形上下左右四条边的索引。
+按照从左到右、从上到下、从右到左、从下
         </a>
       </p>
 
@@ -199,8 +197,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-16 00:00" pubdate>
-              2021-02-16
+            <time datetime="2021-02-19 11:18" pubdate>
+              2021-02-19
             </time>
           </div>
         
@@ -216,7 +214,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/">栈与队列</a>
+              <a href="/tags/%E6%95%B0%E7%BB%84/">数组</a>
             
           </div>
         
@@ -230,24 +228,88 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/16/72.%20%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/">【Leetcode】72.编辑距离</a>
+        <a href="/2021/02/19/73.%E7%9F%A9%E9%98%B5%E7%BD%AE%E9%9B%B6/">【Leetcode】73.矩阵置零</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/16/72.%20%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/">
+        <a href="/2021/02/19/73.%E7%9F%A9%E9%98%B5%E7%BD%AE%E9%9B%B6/">
           
           
             
           
-          72. 编辑距离题目给你两个单词 word1 和 word2，请你计算出将 word1 转换成 word2 所使用的最少操作数 。
-你可以对一个单词进行如下三种操作：
-插入一个字符删除一个字符替换一个字符
-     
+          73.矩阵置零题目给定一个 m x n 的矩阵，如果一个元素为 0，则将其所在行和列的所有元素都设为 0。请使用原地算法。
+示例 1:
+输入: 
+[
+  [1,1,1],
+  [1,0,1],
+  [1,1,1]
+]
+
+输出: 
+[
+  [1,0,1],
+  [0,0,0],
+  [1,0,1]
+]
+
+方法一用两个set分别记录需要置0的行和需要置0的列。第一次遍历矩阵时，若发现一个元素为0，则将
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-19 11:18" pubdate>
+              2021-02-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%95%B0%E7%BB%84/">数组</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/19/57.%E6%8F%92%E5%85%A5%E5%8C%BA%E9%97%B4/">【Leetcode】57.插入区间</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/19/57.%E6%8F%92%E5%85%A5%E5%8C%BA%E9%97%B4/">
+          
+          
+            
+          
+          57.插入区间题目给出一个无重叠的 ，按照区间起始端点排序的区间列表。
+在列表中插入一个新的区间，你需要确保列表中的区间仍然有序且不重叠（如果有必要的话，可以合并区间）。
+ 
 示例 1：
-输入：word1 = &quot;horse&quot;, word2 = &quot;ros&quot;
-输出：3
-解释：
-horse -&gt; rorse (将 &
+输入：intervals = [[1,3],[6,9]], newInterval = [2,5]
+输出：[[1,5],[6,9]]
+
+示例 2：
+输入：intervals = [[1,2],[3,5],[6,7
         </a>
       </p>
 
@@ -255,8 +317,8 @@ horse -&gt; rorse (将 &
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-16 00:00" pubdate>
-              2021-02-16
+            <time datetime="2021-02-19 11:18" pubdate>
+              2021-02-19
             </time>
           </div>
         
@@ -272,7 +334,7 @@ horse -&gt; rorse (将 &
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+              <a href="/tags/%E6%95%B0%E7%BB%84/">数组</a>
             
           </div>
         
@@ -286,21 +348,19 @@ horse -&gt; rorse (将 &
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/16/503.%20%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A4%A7%E5%85%83%E7%B4%A0%20II/">【Leetcode】503.下一个更大元素II</a>
+        <a href="/2021/02/19/56.%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/">【Leetcode】56.合并区间</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/16/503.%20%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A4%A7%E5%85%83%E7%B4%A0%20II/">
+        <a href="/2021/02/19/56.%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/">
           
           
             
           
-          503. 下一个更大元素 II题目给定一个循环数组（最后一个元素的下一个元素是数组的第一个元素），输出每个元素的下一个更大元素。数字 x 的下一个更大的元素是按数组遍历顺序，这个数字之后的第一个比它更大的数，这意味着你应该循环地搜索它的下一个更大的数。如果不存在，则输出 -1。
+          56 合并区间题目：给出一个区间的集合，请合并所有重叠的区间。
 示例 1:
-输入: [1,2,1]
-输出: [2,-1,2]
-解释: 第一个 1 的下一个更大的数是 2；
-数字 2 找
+输入: [[1,3],[2,6],[8,10],[15,18]]输出: [[1,6],[8,10],[15,18]]解释: 区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6].  
+示例 2:输入: [[1,4],[4,5]]输出: [[1,5]]解释: 区间 [1,4] 和 [4,5] 可被视为重叠区间。
         </a>
       </p>
 
@@ -308,8 +368,8 @@ horse -&gt; rorse (将 &
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-16 00:00" pubdate>
-              2021-02-16
+            <time datetime="2021-02-19 11:18" pubdate>
+              2021-02-19
             </time>
           </div>
         
@@ -325,7 +385,7 @@ horse -&gt; rorse (将 &
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/">栈与队列</a>
+              <a href="/tags/%E6%95%B0%E7%BB%84/">数组</a>
             
           </div>
         
@@ -339,18 +399,18 @@ horse -&gt; rorse (将 &
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/16/71.%E7%AE%80%E5%8C%96%E8%B7%AF%E5%BE%84/">【Leetcode】71.简化路径</a>
+        <a href="/2021/02/19/55.%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/">【Leetcode】55.跳跃游戏</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/16/71.%E7%AE%80%E5%8C%96%E8%B7%AF%E5%BE%84/">
+        <a href="/2021/02/19/55.%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/">
           
           
             
           
-          71.简化路径题目以 Unix 风格给出一个文件的绝对路径，你需要简化它。或者换句话说，将其转换为规范路径。
-在 Unix 风格的文件系统中，一个点（.）表示当前目录本身；此外，两个点 （..） 表示将目录切换到上一级（指向父目录）；两者都可以是复杂相对路径的组成部分。
-请注意，返回的规范路径必须始终以斜杠 / 开头，并且两个目录名之间必须只有一个斜杠 /。最后一个目录名（如果存在）不能以 / 结
+          55 跳跃游戏题目：给定一个非负整数数组，你最初位于数组的第一个位置。数组中的每个元素代表你在该位置可以跳跃的最大长度。判断你是否能够到达最后一个位置。
+示例 1:输入: [2,3,1,1,4]输出: true解释: 我们可以先跳 1 步，从位置 0 到达 位置 1, 然后再从位置 1 跳 3 步到达最后一个位置。
+示例 2:输入: [3,2,1,0,4]输出: false解释: 无论怎样，你总会
         </a>
       </p>
 
@@ -358,8 +418,8 @@ horse -&gt; rorse (将 &
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-16 00:00" pubdate>
-              2021-02-16
+            <time datetime="2021-02-19 11:18" pubdate>
+              2021-02-19
             </time>
           </div>
         
@@ -375,7 +435,7 @@ horse -&gt; rorse (将 &
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/">栈与队列</a>
+              <a href="/tags/%E6%95%B0%E7%BB%84/">数组</a>
             
           </div>
         
@@ -389,21 +449,24 @@ horse -&gt; rorse (将 &
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/16/739.%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6/">【Leetcode】739.每日温度</a>
+        <a href="/2021/02/19/31.%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%8E%92%E5%88%97/">【Leetcode】31.下一个排列</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/16/739.%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6/">
+        <a href="/2021/02/19/31.%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%8E%92%E5%88%97/">
           
           
             
           
-          739.每日温度题目请根据每日 气温 列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，请在该位置用 0 来代替。
-例如，
-给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
-你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。
+          31.下一个排列题目实现获取下一个排列的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。
+如果不存在下一个更大的排列，则将数字重新排列成最小的排列（即升序排列）。
+必须原地修改，只允许使用额外常数空间。
+以下是一些例子，输入位于左侧列，其相应输出位于右侧列。
+1,2,3 → 1,3,2
+3,2,1 → 1,2,3
+1,1,5 → 1,5,1
 
-提示：气温 列表长度的范围是 [1
+方法当给定排列已经是最大排列时，这种情
         </a>
       </p>
 
@@ -411,8 +474,8 @@ horse -&gt; rorse (将 &
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-16 00:00" pubdate>
-              2021-02-16
+            <time datetime="2021-02-19 11:18" pubdate>
+              2021-02-19
             </time>
           </div>
         
@@ -428,7 +491,7 @@ horse -&gt; rorse (将 &
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/">栈与队列</a>
+              <a href="/tags/%E6%95%B0%E7%BB%84/">数组</a>
             
           </div>
         
@@ -442,21 +505,21 @@ horse -&gt; rorse (将 &
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/16/84.%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/">【Leetcode】 84.柱状图中最大的矩形</a>
+        <a href="/2021/02/19/18.%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C/">【Leetcode】18.四数之和</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/16/84.%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/">
+        <a href="/2021/02/19/18.%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C/">
           
           
             
           
-          84.柱状图中最大的矩形题目给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。求在该柱状图中，能够勾勒出来的矩形的最大面积。
-例如:height = [4,3,2,5,6].
-则柱状图中每一竖列的高分别为4，3，2，5，6。
-能找到的最大矩形即为以5为底，以2为高的矩形。面积为10.
-
-方法（单调栈）依次计算以每一竖列为高的所有矩形中最大的面积。即统计从一个竖
+          18. 四数之和题目给定一个包含 n 个整数的数组 nums 和一个目标值 target，判断 nums 中是否存在四个元素 a，b，c 和 d ，使得 a + b + c + d 的值与 target 相等？找出所有满足条件且不重复的四元组。
+注意：
+答案中不可以包含重复的四元组。
+示例：
+给定数组 nums = [1, 0, -1, 0, -2, 2]，和 target = 0。
+满足要求的四
         </a>
       </p>
 
@@ -464,8 +527,8 @@ horse -&gt; rorse (将 &
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-16 00:00" pubdate>
-              2021-02-16
+            <time datetime="2021-02-19 11:18" pubdate>
+              2021-02-19
             </time>
           </div>
         
@@ -481,7 +544,9 @@ horse -&gt; rorse (将 &
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/">栈与队列</a>
+              <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">双指针</a>
+            
+              <a href="/tags/%E6%95%B0%E7%BB%84/">数组</a>
             
           </div>
         
@@ -495,21 +560,22 @@ horse -&gt; rorse (将 &
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/15/20.%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/">【Leetcode】20.有效的括号</a>
+        <a href="/2021/02/19/16.%20%E6%9C%80%E6%8E%A5%E8%BF%91%E7%9A%84%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/">【Leetcode】16.最接近的三数之和</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/15/20.%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/">
+        <a href="/2021/02/19/16.%20%E6%9C%80%E6%8E%A5%E8%BF%91%E7%9A%84%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/">
           
           
             
           
-          20 有效的括号题目：给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。
-有效字符串需满足：
-左括号必须用相同类型的右括号闭合。左括号必须以正确的顺序闭合。注意空字符串可被认为是有效字符串。
-  示例 1:  输入: “()”  输出: true  
-  示例 2:  输入: “()[]{}”  输出: true  
-  示例 3:  输入: “(]” 
+          16. 最接近的三数之和题目给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存在唯一答案。
+示例：
+输入：nums = [-1,2,1,-4], target = 1
+输出：2
+解释：与 target 最接近的和是 2 (-1 + 2 + 1 = 2) 。
+
+方法本题与15.
         </a>
       </p>
 
@@ -517,8 +583,8 @@ horse -&gt; rorse (将 &
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
+            <time datetime="2021-02-19 11:18" pubdate>
+              2021-02-19
             </time>
           </div>
         
@@ -534,7 +600,9 @@ horse -&gt; rorse (将 &
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/">栈与队列</a>
+              <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">双指针</a>
+            
+              <a href="/tags/%E6%95%B0%E7%BB%84/">数组</a>
             
           </div>
         
@@ -548,21 +616,23 @@ horse -&gt; rorse (将 &
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/15/BFPRT%E7%AE%97%E6%B3%95/">BFPRT算法</a>
+        <a href="/2021/02/19/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">【Leetcode】1.两数之和</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/15/BFPRT%E7%AE%97%E6%B3%95/">
+        <a href="/2021/02/19/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
           
           
             
           
-          BFPRT算法算法目的在无序数组中找到第K小的数，时间复杂度O(N)
-基于partition思路的算法和快速排序中partition的思想有些相像。比如说我们要在长度为1000的数组中找到第n小的数，于是我们现在数组中随机找一个数进行partition的过程，小于它的放左边，等于它的放中间，大于它的放右边。完成后的情况如下图所示，等于区域范围为500-600
+          1. 两数之和题目给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
+你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。
+示例:
+给定 nums = [2, 7, 11, 15], target = 9
+因为 nums[0] + nums[1] = 2 + 7 = 9
+所以返回 [0, 1]
 
-因为我们要找第n小的数，因此：
-
-如
+方法1（
         </a>
       </p>
 
@@ -570,98 +640,8 @@ horse -&gt; rorse (将 &
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/15/KMP%E7%AE%97%E6%B3%95/">KMP算法</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/15/KMP%E7%AE%97%E6%B3%95/">
-          
-          
-            
-          
-          KMP算法KMP算法目的在str1中寻找str2出现的位置假设str1长度为N，str2长度为M  
-暴力方法：尝试从str1的每一个位置开始，让str2来匹配，暴力方法时间复杂度：O(MN)
-KMP算法流程：
-
-i1代表str1的索引，i2代表str2的索引。二者都从零位置开始尝试匹配。每一次匹配成功，i1和i2都右移
-当匹配失败时（以图中为例：X != Y)，有一个推论为：在str1从i到j中
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/15/Leetcode%201143.%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/">【Leetcode】1143.最长公共子序列</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/15/Leetcode%201143.%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/">
-          
-          
-            
-          
-          1143.最长公共子序列题目给定两个字符串 text1 和 text2，返回这两个字符串的最长公共子序列的长度。
-注：两个字符串的「公共子序列」（Longest Common Subsequence，简称 LCS）是这两个字符串所共同拥有的子序列。若这两个字符串没有公共子序列，则返回 0。
-示例 1:
-输入：text1 = &quot;abcde&quot;, text2 = &quot;ace&
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
+            <time datetime="2021-02-19 11:18" pubdate>
+              2021-02-19
             </time>
           </div>
         
@@ -677,7 +657,70 @@ i1代表str1的索引，i2代表str2的索引。二者都从零位置开始尝�
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+              <a href="/tags/%E6%95%B0%E7%BB%84/">数组</a>
+            
+              <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">位运算</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/19/15.%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/">【Leetcode】15.三数之和</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/19/15.%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/">
+          
+          
+            
+          
+          15. 三数之和题目给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有满足条件且不重复的三元组。
+注意：答案中不可以包含重复的三元组。
+ 
+示例：
+给定数组 nums = [-1, 0, 1, 2, -1, -4]，
+满足要求的三元组集合为：
+[
+[-1, 0, 1],
+[-1, -1, 2]
+]
+
+方法注意
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-19 11:18" pubdate>
+              2021-02-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">双指针</a>
+            
+              <a href="/tags/%E6%95%B0%E7%BB%84/">数组</a>
             
           </div>
         
@@ -689,7 +732,7 @@ i1代表str1的索引，i2代表str2的索引。二者都从零位置开始尝�
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/5/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/5/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/7/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   

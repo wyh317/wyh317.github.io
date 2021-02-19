@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bg/rocket.png">
+  <link rel="icon" type="image/png" href="/img/bg/rocket.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -169,27 +169,22 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/15/%E7%B4%A2%E5%BC%95/">索引</a>
+        <a href="/2021/02/19/309.%E6%9C%80%E4%BD%B3%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E6%97%B6%E6%9C%BA%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F/">【Leetcode】309.最佳买卖股票时机含冷冻期</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/15/%E7%B4%A2%E5%BC%95/">
+        <a href="/2021/02/19/309.%E6%9C%80%E4%BD%B3%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E6%97%B6%E6%9C%BA%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F/">
           
           
             
           
-          索引索引也叫键，是帮助存储引擎快速找到记录的一种数据结构。相当于一个目录的作用。
-索引的优点：
-
-加快数据的检索速度
-通过创建唯一性索引，保证数据库表中每一行数据的唯一性
-
-索引的缺点：
-
-创建和维护索引需要耗费时间：当对表中数据进行修改时，如果数据有索引，那么索引也需要修改。
-占用物存储空间
-
-B+树B+树是一颗搜索树，也是平衡树。在B+树中，所有记录节点都是按照键值的大小顺序存放在同一层的叶子
+          309.最佳买卖股票时机含冷冻期题目给定一个整数数组，其中第 i 个元素代表了第 i 天的股票价格 。​
+设计一个算法计算出最大利润。在满足以下约束条件下，你可以尽可能地完成更多的交易（多次买卖一支股票）:
+你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。卖出股票后，你无法在第二天买入股票 (即冷冻期为 1 天)。
+示例:
+输入: [1,2,3,0,2]
+输出: 3 
+解释: 对应的
         </a>
       </p>
 
@@ -197,8 +192,8 @@ B+树B+树是一颗搜索树，也是平衡树。在B+树中，所有记录节�
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
+            <time datetime="2021-02-19 11:08" pubdate>
+              2021-02-19
             </time>
           </div>
         
@@ -206,7 +201,7 @@ B+树B+树是一颗搜索树，也是平衡树。在B+树中，所有记录节�
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a>
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
             
           </div>
         
@@ -214,7 +209,7 @@ B+树B+树是一颗搜索树，也是平衡树。在B+树中，所有记录节�
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
             
           </div>
         
@@ -228,19 +223,28 @@ B+树B+树是一颗搜索树，也是平衡树。在B+树中，所有记录节�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/15/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">策略模式</a>
+        <a href="/2021/02/19/279.%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/">【Leetcode】279.完全平方数</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/15/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">
+        <a href="/2021/02/19/279.%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/">
           
           
             
           
-          策略模式定义策略模式定义了一簇算法，并把它们分别封装起来，让它们之间可以相互替换。此模式让算法的变化独立于使用算法的客户。
+          279.完全平方数题目给定正整数 n，找到若干个完全平方数（比如 1, 4, 9, 16, …）使得它们的和等于 n。你需要让组成和的完全平方数的个数最少。
+即：要用最少的完全平方数组成n，求这个最少的完全平方数的个数为多少。
+示例 1:
+输入: n = 12
+输出: 3 
+解释: 12 = 4 + 4 + 4.
 
-实现定义一个算法簇：描述鸭子的不同飞行行为.算法簇包含两个具体的算法(行为)：FlyWithWings和FlyNoWay。它们都实现自接口FlyBehavior
-123456789101112131415public interface FlyBehavior &#123;
+示例 2:
+输入: n = 13
+输出: 2
+解释: 13 = 4 + 9.
+
+方
         </a>
       </p>
 
@@ -248,8 +252,8 @@ B+树B+树是一颗搜索树，也是平衡树。在B+树中，所有记录节�
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
+            <time datetime="2021-02-19 11:08" pubdate>
+              2021-02-19
             </time>
           </div>
         
@@ -257,7 +261,7 @@ B+树B+树是一颗搜索树，也是平衡树。在B+树中，所有记录节�
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
             
           </div>
         
@@ -265,7 +269,9 @@ B+树B+树是一颗搜索树，也是平衡树。在B+树中，所有记录节�
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+            
+              <a href="/tags/%E6%B7%B1%E5%BA%A6%EF%BC%88%E5%B9%BF%E5%BA%A6%EF%BC%89%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">深度（广度）优先搜索</a>
             
           </div>
         
@@ -279,23 +285,19 @@ B+树B+树是一颗搜索树，也是平衡树。在B+树中，所有记录节�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/15/%E7%BD%91%E7%BB%9C%E5%B1%82/">网络层</a>
+        <a href="/2021/02/19/198.%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/">【Leetcode】198.打家劫舍</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/15/%E7%BD%91%E7%BB%9C%E5%B1%82/">
+        <a href="/2021/02/19/198.%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/">
           
           
             
           
-          网络层1.概述网络层分为数据平面和控制平面。  
+          198 打家劫舍题目：你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
+给定一个代表每个房屋存放金额的非负整数数组，计算你在不触动警报装置的情况下，能够偷窃到的最高金额。
 
-数据平面的作用是在一个路由器中，将数据报从一个输入链路转移到一个适当的输出链路，即转发功能(forward)
-控制平面的作用是协调一个网络中的每个路由器的转发动作，使得数据报沿着源和目的地主机之间的路由器路径最终进行端到端传送，即路由功能(routing)
-
-链路层交换机和路由器的区别：
-
-链路层交换机基于链路层帧中的字段值做出转发决定，交换机因
+示例 1:输入: [1,2,3,1]输出: 4解释: 偷窃 1 号房屋 (金额 = 1) 
         </a>
       </p>
 
@@ -303,8 +305,8 @@ B+树B+树是一颗搜索树，也是平衡树。在B+树中，所有记录节�
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
+            <time datetime="2021-02-19 11:08" pubdate>
+              2021-02-19
             </time>
           </div>
         
@@ -312,7 +314,7 @@ B+树B+树是一颗搜索树，也是平衡树。在B+树中，所有记录节�
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a>
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
             
           </div>
         
@@ -320,7 +322,7 @@ B+树B+树是一颗搜索树，也是平衡树。在B+树中，所有记录节�
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
             
           </div>
         
@@ -334,21 +336,23 @@ B+树B+树是一颗搜索树，也是平衡树。在B+树中，所有记录节�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/15/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">装饰者模式</a>
+        <a href="/2021/02/19/188.%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA%20IV/">【Leetcode】188.买卖股票的最佳时机 IV</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/15/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">
+        <a href="/2021/02/19/188.%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA%20IV/">
           
           
             
           
-          装饰者模式定义动态地为对象扩展功能。
-在扩展功能这一方面，装饰者模式比继承更有弹性
-
-实现实现背景：一家咖啡店有多种饮料(如咖啡、豆浆），还有多种调料可以添加（如Whip、Mocha）。每种饮料都有一个基础价格，加完调料后，价格即为基础价格加上调料价格。要求我们要计算一杯加过调料的饮料的价格。
-所有的装饰者和被装饰者都要继承自抽象类Beverage
-1234567public static abs
+          188.买卖股票的最佳时机 IV题目给定一个整数数组 prices ，它的第 i 个元素 prices[i] 是一支给定的股票在第 i 天的价格。
+设计一个算法来计算你所能获取的最大利润。你最多可以完成 k 笔交易。
+注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+ 
+示例 1：
+输入：k = 2, prices = [2,4,1]
+输出：2
+解释：在第 1 天 (股票价格 
         </a>
       </p>
 
@@ -356,8 +360,8 @@ B+树B+树是一颗搜索树，也是平衡树。在B+树中，所有记录节�
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
+            <time datetime="2021-02-19 11:08" pubdate>
+              2021-02-19
             </time>
           </div>
         
@@ -365,7 +369,7 @@ B+树B+树是一颗搜索树，也是平衡树。在B+树中，所有记录节�
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
             
           </div>
         
@@ -373,7 +377,7 @@ B+树B+树是一颗搜索树，也是平衡树。在B+树中，所有记录节�
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
             
           </div>
         
@@ -387,20 +391,28 @@ B+树B+树是一颗搜索树，也是平衡树。在B+树中，所有记录节�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/15/%E9%94%81/">锁</a>
+        <a href="/2021/02/19/152.%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84/">【Leetcode】152.乘积最大子数组</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/15/%E9%94%81/">
+        <a href="/2021/02/19/152.%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84/">
           
           
             
           
-          锁数据库系统使用锁是为了支持对共享资源进行并发访问，提供数据的完整性和一致性。
-锁的粒度锁定的数据量越少，发生锁争用的可能就越小，系统的并发程度就越高。但锁的各种操作(获取锁、释放锁、检查锁状态)都会增加系统开销。因此锁的粒度越小，系统开销就越大。因此在选择锁的粒度时，需要在锁开销和并发程度做平衡。
-MySQL数据库根据锁的粒度把锁分为表级锁和行级锁:
+          152.乘积最大子数组题目给你一个整数数组 nums ，请你找出数组中乘积最大的连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。
+ 
+示例 1:
+输入: [2,3,-2,4]
+输出: 6
+解释: 子数组 [2,3] 有最大乘积 6。
 
-表级锁：对当前操作的整张表加锁。锁的粒度大
+示例 2:
+输入: [-2,0,-1]
+输出: 0
+解释: 结果不能为 2, 因为 [-2,-1] 不是子数组。
+
+方法（动态规划）因为数组中
         </a>
       </p>
 
@@ -408,8 +420,8 @@ MySQL数据库根据锁的粒度把锁分为表级锁和行级锁:
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
+            <time datetime="2021-02-19 11:08" pubdate>
+              2021-02-19
             </time>
           </div>
         
@@ -417,7 +429,7 @@ MySQL数据库根据锁的粒度把锁分为表级锁和行级锁:
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a>
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
             
           </div>
         
@@ -425,7 +437,7 @@ MySQL数据库根据锁的粒度把锁分为表级锁和行级锁:
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
             
           </div>
         
@@ -439,18 +451,20 @@ MySQL数据库根据锁的粒度把锁分为表级锁和行级锁:
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/15/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">Java虚拟机</a>
+        <a href="/2021/02/19/139.%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86/">【Leetcode】139.单词拆分</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/15/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">
+        <a href="/2021/02/19/139.%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86/">
           
           
             
           
-          一、Java内存区域
-1.程序计数器程序计数器是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。为了线程切换后能恢复到正确的执行位置，每条线程都需要有一个独立的程序计数器。
-2.Java虚拟机栈虚拟机栈描述的是Java方法执行的线程内存模型。每个方法被执行的时候，Java虚拟机会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直到执行完成的过程，对应着一个
+          139.单词拆分题目给定一个非空字符串 s 和一个包含非空单词的列表 wordDict，判定 s 是否可以被空格拆分为一个或多个在字典中出现的单词。
+说明：拆分时可以重复使用字典中的单词。你可以假设字典中没有重复的单词。
+示例 1：
+输入: s = &quot;leetcode&quot;, wordDict = [&quot;leet&quot;, &quot;code&quot;]
+输出: t
         </a>
       </p>
 
@@ -458,8 +472,8 @@ MySQL数据库根据锁的粒度把锁分为表级锁和行级锁:
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
+            <time datetime="2021-02-19 11:08" pubdate>
+              2021-02-19
             </time>
           </div>
         
@@ -467,7 +481,7 @@ MySQL数据库根据锁的粒度把锁分为表级锁和行级锁:
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Java/">Java</a>
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
             
           </div>
         
@@ -475,7 +489,7 @@ MySQL数据库根据锁的粒度把锁分为表级锁和行级锁:
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">Java虚拟机</a>
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
             
           </div>
         
@@ -489,19 +503,27 @@ MySQL数据库根据锁的粒度把锁分为表级锁和行级锁:
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/15/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/">进程与线程</a>
+        <a href="/2021/02/19/120.%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E5%92%8C/">【Leetcode】120.三角形最短路径和</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/15/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/">
+        <a href="/2021/02/19/120.%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E5%92%8C/">
           
           
             
           
-          进程与线程在任何多道程序设计系统中，CPU由一个进程快速切换至另一个进程，使得每个进程各运行几十或几百个毫秒。严格地说，在某一瞬间，CPU只能运行一个进程。但在1秒钟期间，它可能运行多个进程，这样就产生并行的错觉。
-1.进程一个进程是某种类型的一个活动，它有程序、输入、输出以及状态。单个处理器可以被若干个进程共享，它使用某种调度算法决定何时停止一个进程的工作，并转而为另一个进程提供服务。
+          120.三角形最短路径和题目给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。
+相邻的结点 在这里指的是 下标 与 上一层结点下标 相同或者等于 上一层结点下标 + 1 的两个结点。
+ 
+例如，给定三角形：
 
-停留在
+[
+    [2],
+    [3,4],
+    [6,5,7],
+    [4,1,8,3]
+]
+自顶向下的最小路径和为 11（即，2 + 3 + 5 + 
         </a>
       </p>
 
@@ -509,8 +531,8 @@ MySQL数据库根据锁的粒度把锁分为表级锁和行级锁:
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 00:00" pubdate>
-              2021-02-15
+            <time datetime="2021-02-19 11:08" pubdate>
+              2021-02-19
             </time>
           </div>
         
@@ -518,7 +540,7 @@ MySQL数据库根据锁的粒度把锁分为表级锁和行级锁:
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a>
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
             
           </div>
         
@@ -526,7 +548,178 @@ MySQL数据库根据锁的粒度把锁分为表级锁和行级锁:
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/19/91.%E8%A7%A3%E7%A0%81%E6%96%B9%E6%B3%95/">【Leetcode】91.解码方法</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/19/91.%E8%A7%A3%E7%A0%81%E6%96%B9%E6%B3%95/">
+          
+          
+            
+          
+          91.解码方法题目一条包含字母 A-Z 的消息通过以下方式进行了编码：
+&#39;A&#39; -&gt; 1
+&#39;B&#39; -&gt; 2
+...
+&#39;Z&#39; -&gt; 26
+
+给定一个只包含数字的非空字符串，请计算解码方法的总数。
+示例 1:
+输入: &quot;12&quot;
+输出: 2
+解释: 它可以解码为 &quot;AB&quot;（1 2）或者 &quot;
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-19 11:08" pubdate>
+              2021-02-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/19/70.%E7%88%AC%E6%A5%BC%E6%A2%AF/">【Leetcode】70.爬楼梯</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/19/70.%E7%88%AC%E6%A5%BC%E6%A2%AF/">
+          
+          
+            
+          
+          70 爬楼梯题目：假设你正在爬楼梯。需要 n 阶你才能到达楼顶。每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？注意：给定 n 是一个正整数。
+示例 1：输入： 2输出： 2解释： 有两种方法可以爬到楼顶。  
+
+ 1 阶 + 1 阶  
+ 2 阶  
+
+示例 2：输入： 3输出： 3解释： 有三种方法可以爬到楼顶。  
+
+ 1 阶 + 1 阶 + 1 阶  
+ 1 阶 + 
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-19 11:08" pubdate>
+              2021-02-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/19/63.%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84II/">【Leetcode】63.不同路径 II</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/19/63.%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84II/">
+          
+          
+            
+          
+          63.不同路径 II题目一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。
+机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。
+现在考虑网格中有障碍物。那么从左上角到右下角将会有多少条不同的路径
+网格中的障碍物和空位置分别用 1 和 0 来表示。
+示例 1:
+输入:
+[
+  [0,0,0],
+  [0,1,0],
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-19 11:08" pubdate>
+              2021-02-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
             
           </div>
         
@@ -538,7 +731,7 @@ MySQL数据库根据锁的粒度把锁分为表级锁和行级锁:
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/7/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span>
+      <a class="extend prev" rel="prev" href="/page/7/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/9/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   

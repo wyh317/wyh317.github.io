@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bg/rocket.png">
+  <link rel="icon" type="image/png" href="/img/bg/rocket.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -169,146 +169,24 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/18/22.%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90/">【Leetcode】22.括号生成</a>
+        <a href="/2021/02/19/258.%E5%90%84%E4%BD%8D%E7%9B%B8%E5%8A%A0/">【Leetcode】258.各位相加</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/18/22.%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90/">
+        <a href="/2021/02/19/258.%E5%90%84%E4%BD%8D%E7%9B%B8%E5%8A%A0/">
           
           
             
           
-          22.括号生成题目数字 n 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 有效的 括号组合。
-示例：
-
-输入：n = 3
-输出：[
-    &quot;((()))&quot;,
-    &quot;(()())&quot;,
-    &quot;(())()&quot;,
-    &quot;()(())&quot;,
-    &quot;()()()&quot;
-    ]
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-18 00:00" pubdate>
-              2021-02-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">回溯算法</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/18/39.%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C/">【Leetcode】39.组合总和</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/18/39.%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C/">
-          
-          
-            
-          
-          39.组合总和题目给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
-candidates 中的数字可以无限制重复被选取。
-说明： 所有数字（包括 target）都是正整数。 解集不能包含重复的组合。 
-示例 1：
-输入：candidates = [2,3,6,7], target = 7,
-所求解
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-18 00:00" pubdate>
-              2021-02-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">回溯算法</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/18/46.%E5%85%A8%E6%8E%92%E5%88%97/">【Leetcode】46.全排列</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/18/46.%E5%85%A8%E6%8E%92%E5%88%97/">
-          
-          
-            
-          
-          46.全排列题目给定一个 没有重复 数字的序列，返回其所有可能的全排列。
+          258.各位相加题目给定一个非负整数 num，反复将各个位上的数字相加，直到结果为一位数。
 示例:
-输入: [1,2,3]
-输出:
-[
-[1,2,3],
-[1,3,2],
-[2,1,3],
-[2,3,1],
-[3,1,2],
-[3,2,1]
-]
+输入: 38
+输出: 2 
+解释: 各位相加的过程为：3 + 8 = 11, 1 + 1 = 2。 由于 2 是一位数，所以返回 2。
 
-方法（回溯法）对于回溯法，需要重点考虑三个问题：
+方法分析如下：
 
-路径：目前为止已经做出的选择
-选择列表：当前可以做的选择
-结束条件：到达决策树的叶节点时，无法再继续做选择，结束。
-
-
+整数abc变为a+b+c的过程中减少的值一定是9的倍数，证明如下：$$abc = a * 100 + b * 10 + c = a * 99 +
         </a>
       </p>
 
@@ -316,8 +194,8 @@ candidates 中的数字可以无限制重复被选取。
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-18 00:00" pubdate>
-              2021-02-18
+            <time datetime="2021-02-19 11:50" pubdate>
+              2021-02-19
             </time>
           </div>
         
@@ -330,13 +208,6 @@ candidates 中的数字可以无限制重复被选取。
           </div>
         
         
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">回溯算法</a>
-            
-          </div>
-        
       </div>
     </article>
   </div>
@@ -347,355 +218,30 @@ candidates 中的数字可以无限制重复被选取。
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/18/51.%20N%E7%9A%87%E5%90%8E/">【Leetcode】52.N皇后 II</a>
+        <a href="/2021/02/19/172.%E9%98%B6%E4%B9%98%E5%90%8E%E7%9A%840/">【Leetcode】172.阶乘后的0</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/18/51.%20N%E7%9A%87%E5%90%8E/">
+        <a href="/2021/02/19/172.%E9%98%B6%E4%B9%98%E5%90%8E%E7%9A%840/">
           
           
             
           
-          52. N皇后 IIn 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。
-给定一个整数 n，返回 n 皇后不同的解决方案的数量。
-示例:
-输入: 4
-输出: 2
-
-解释: 4 皇后问题存在如下两个不同的解法。
-[
- [&quot;.Q..&quot;,  // 解法 1
-  &quot;...Q&quot;,
-  &quot;Q...&quot;,
-  
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-18 00:00" pubdate>
-              2021-02-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">回溯算法</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/18/79.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/">【Leetcode】79.单词搜索</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/18/79.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/">
-          
-          
-            
-          
-          79.单词搜索题目给定一个二维网格和一个单词，找出该单词是否存在于网格中。
-单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。
- 
-示例:
-
-board =
-[
-[&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;E&#39;],
-[&#39;S&#39;,&#39;F&#3
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-18 00:00" pubdate>
-              2021-02-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">回溯算法</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/18/93.%E5%A4%8D%E5%8E%9FIP%E5%9C%B0%E5%9D%80/">【Leetcode】93.复原IP地址</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/18/93.%E5%A4%8D%E5%8E%9FIP%E5%9C%B0%E5%9D%80/">
-          
-          
-            
-          
-          93.复原IP地址题目给定一个只包含数字的字符串，复原它并返回所有可能的 IP 地址格式。
-有效的 IP 地址 正好由四个整数（每个整数位于 0 到 255 之间组成，且不能含有前导 0），整数之间用 ‘.’ 分隔。
-例如：”0.1.2.201” 和 “192.168.1.1” 是 有效的 IP 地址，但是 “0.011.255.245”、”192.168.1.312” 和 “&#x31;&#x3
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-18 00:00" pubdate>
-              2021-02-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">回溯算法</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/18/167.%20%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%20II%20-%20%E8%BE%93%E5%85%A5%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/">【Leetcode】167.两数之和 II - 输入有序数组</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/18/167.%20%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%20II%20-%20%E8%BE%93%E5%85%A5%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/">
-          
-          
-            
-          
-          167. 两数之和 II - 输入有序数组题目：给定一个已按照升序排列的有序数组，找到两个数使得它们相加之和等于目标数。函数应该返回这两个下标值 index1 和 index2，其中 index1必须小于index2。
-示例:输入: numbers = [2, 7, 11, 15], target = 9输出: [1,2]解释: 2 与 7 之和等于目标数 9 。因此 index1 = 1, in
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-18 00:00" pubdate>
-              2021-02-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">双指针</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/18/11.%E7%9B%9B%E6%B0%B4%E6%9C%80%E5%A4%9A%E7%9A%84%E5%AE%B9%E5%99%A8/">【Leetcode】11.盛水最多的容器</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/18/11.%E7%9B%9B%E6%B0%B4%E6%9C%80%E5%A4%9A%E7%9A%84%E5%AE%B9%E5%99%A8/">
-          
-          
-            
-          
-          11 盛水最多的容器题目：给你 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。
-说明：你不能倾斜容器，且 n 的值至少为 2。
-示例：输入：[1,8,6,2,5,4,8,3,7]输出：49
-思路：双指针法水
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-18 00:00" pubdate>
-              2021-02-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">双指针</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/18/131.%E5%88%86%E5%89%B2%E5%9B%9E%E6%96%87%E4%B8%B2/">【Leetcode】131.分割回文串</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/18/131.%E5%88%86%E5%89%B2%E5%9B%9E%E6%96%87%E4%B8%B2/">
-          
-          
-            
-          
-          131.分割回文串题目给定一个字符串 s，将 s 分割成一些子串，使每个子串都是回文串。
-返回 s 所有可能的分割方案。
-示例:
-输入: &quot;aab&quot;
-输出:
-[
-[&quot;aa&quot;,&quot;b&quot;],
-[&quot;a&quot;,&quot;a&quot;,&quot;b&quot;]
-]
-
-方法（回溯）
-选择: 在决策树的每一个节点。我们可以做的选择
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-18 00:00" pubdate>
-              2021-02-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">回溯算法</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/18/179.%E6%9C%80%E5%A4%A7%E6%95%B0/">【Leetcode】179.最大数</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/18/179.%E6%9C%80%E5%A4%A7%E6%95%B0/">
-          
-          
-            
-          
-          179.最大数题目给定一组非负整数，重新排列它们的顺序使之组成一个最大的整数。
+          172.阶乘后的0题目给定一个整数 n，返回 n! 结果尾数中零的数量。
 示例 1:
-输入: [10,2]
-输出: 210
+输入: 3
+输出: 0
+解释: 3! = 6, 尾数中没有零。
 
 示例 2:
-输入: [3,30,34,5,9]
-输出: 9534330
+输入: 5
+输出: 1
+解释: 5! = 120, 尾数中有 1 个零.
 
-方法
-先创建一个字符串数组strs，用来保存各数字的字符串格式
+说明: 你算法的时间复杂度应为 O(log n) 。
 
-应用以下排序判断规则，对strs进行排序：  
+方法如果计算出阶乘后再统计尾数中0的数量的话，当n很大时计算阶乘的过程肯定会溢出。因此需要考虑其他方法
 
-若拼接字符串 $x+y &gt; y+x, 则x大于y$
-若拼接字符串 $x+
         </a>
       </p>
 
@@ -703,8 +249,405 @@ board =
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-18 00:00" pubdate>
-              2021-02-18
+            <time datetime="2021-02-19 11:50" pubdate>
+              2021-02-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/19/169.%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0/">【Leetcode】169.多数元素</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/19/169.%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0/">
+          
+          
+            
+          
+          169 多数元素题目：给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。你可以假设数组是非空的，并且给定的数组总是存在多数元素。
+示例 1:输入: [3,2,3]输出: 3  
+示例 2:输入: [2,2,1,1,1,2,2]输出: 2  
+思路：  
+
+哈希表方法：我们使用哈希映射（HashMap）来存储每个元素以及出现的次数。对于哈希映射
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-19 11:50" pubdate>
+              2021-02-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/19/128.%20%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E5%BA%8F%E5%88%97/">【Leetcode】128. 最长连续序列</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/19/128.%20%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E5%BA%8F%E5%88%97/">
+          
+          
+            
+          
+          128. 最长连续序列题目给定一个未排序的整数数组 nums ，找出数字连续的最长序列（不要求序列元素在原数组中连续）的长度。
+进阶：你可以设计并实现时间复杂度为 O(n) 的解决方案吗？
+ 
+示例 1：
+
+输入：nums = [100,4,200,1,3,2]
+输出：4
+解释：最长数字连续序列是 [1, 2, 3, 4]。它的长度为 4。
+
+示例 2：
+输入：nums = [0,3,7,2,5,
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-19 11:50" pubdate>
+              2021-02-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/19/29.%E4%B8%A4%E6%95%B0%E7%9B%B8%E9%99%A4/">【Leetcode】29.两数相除</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/19/29.%E4%B8%A4%E6%95%B0%E7%9B%B8%E9%99%A4/">
+          
+          
+            
+          
+          29.两数相除题目给定两个整数，被除数 dividend 和除数 divisor。将两数相除，要求不使用乘法、除法和 mod 运算符。
+返回被除数 dividend 除以除数 divisor 得到的商。
+整数除法的结果应当截去（truncate）其小数部分，例如：truncate(8.345) = 8 以及 truncate(-2.7335) = -2
+ 
+示例 1:
+输入: dividend =
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-19 11:50" pubdate>
+              2021-02-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/19/381.%E5%B8%B8%E6%95%B0%E6%97%B6%E9%97%B4%E6%8F%92%E5%85%A5%E3%80%81%E5%88%A0%E9%99%A4%E5%92%8C%E8%8E%B7%E5%8F%96%E9%9A%8F%E6%9C%BA%E5%85%83%E7%B4%A0%20-%20%E5%85%81%E8%AE%B8%E9%87%8D%E5%A4%8D/">【Leetcode】381.O(1) 时间插入、删除和获取随机元素 - 允许重复</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/19/381.%E5%B8%B8%E6%95%B0%E6%97%B6%E9%97%B4%E6%8F%92%E5%85%A5%E3%80%81%E5%88%A0%E9%99%A4%E5%92%8C%E8%8E%B7%E5%8F%96%E9%9A%8F%E6%9C%BA%E5%85%83%E7%B4%A0%20-%20%E5%85%81%E8%AE%B8%E9%87%8D%E5%A4%8D/">
+          
+          
+            
+          
+          381.O(1) 时间插入、删除和获取随机元素 - 允许重复题目设计一个支持在平均 时间复杂度 O(1) 下， 执行以下操作的数据结构。
+注意: 允许出现重复元素。
+
+insert(val)：向集合中插入元素 val。
+remove(val)：当 val 存在时，从集合中移除一个 val。
+getRandom：从现有集合中随机获取一个元素。每个元素被返回的概率应该与其在集合中的数量呈线性相关。
+
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-19 11:50" pubdate>
+              2021-02-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/19/260.%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97%20III/">【Leetcode】260.只出现一次的数字 III</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/19/260.%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97%20III/">
+          
+          
+            
+          
+          260.只出现一次的数字 III题目给定一个整数数组 nums，其中恰好有两个元素只出现一次，其余所有元素均出现两次。 找出只出现一次的那两个元素。
+示例 :
+输入: [1,2,1,3,2,5]输出: [3,5]
+方法（位运算）由于两个相同的数字异或的结果为0，因此将数组中所有元素异或得到的结果res即为两个Single Number异或的结果
+我们进行如下考虑：如果我们将数组中的元素分为两组，每
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-19 11:48" pubdate>
+              2021-02-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">位运算</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/19/231.2%E7%9A%84%E5%B9%82/">【Leetcode】231.2的幂</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/19/231.2%E7%9A%84%E5%B9%82/">
+          
+          
+            
+          
+          231 2的幂题目：给定一个整数，编写一个函数来判断它是否是 2 的幂次方。
+方法一：一直除2看最后得到的是否为1，这种方法的时间复杂度为O(logn)。  
+1234567891011121314class Solution &#123;    public boolean isPowerOfTwo(int n) &#123;        if(n &lt;= 0)            re
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-19 11:48" pubdate>
+              2021-02-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">位运算</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/19/137.%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97II/">【Leetcode】137.只出现一次的数字 II</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/19/137.%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97II/">
+          
+          
+            
+          
+          137.只出现一次的数字 II题目给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现了三次。找出那个只出现了一次的元素。
+说明：
+你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？
+示例 1:
+输入: [2,2,3,2]
+输出: 3
+
+示例 2:
+输入: [0,1,0,1,0,1,99]
+输出: 99
+
+方法（位运算）把每一个整数考虑成长度为32位的二进制数。我们累
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-19 11:48" pubdate>
+              2021-02-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">位运算</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/19/58.%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E5%8D%95%E8%AF%8D%E7%9A%84%E9%95%BF%E5%BA%A6/">【Leetcode】58.最后一个单词的长度</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/19/58.%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E5%8D%95%E8%AF%8D%E7%9A%84%E9%95%BF%E5%BA%A6/">
+          
+          
+            
+          
+          58 最后一个单词的长度题目：给定一个仅包含大小写字母和空格 ‘ ‘ 的字符串 s，返回其最后一个单词的长度。如果字符串从左向右滚动显示，那么最后一个单词就是最后出现的单词。
+如果不存在最后一个单词，请返回 0 。
+说明：一个单词是指仅由字母组成、不包含任何空格字符的 最大子字符串。
+示例:输入: “Hello World”输出: 5
+思路：从字符串末尾开始向前遍历，其中主要有两种情况：第一种情况
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-19 11:46" pubdate>
+              2021-02-19
             </time>
           </div>
         
@@ -732,7 +675,7 @@ board =
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   
