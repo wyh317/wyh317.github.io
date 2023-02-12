@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>【Leetcode】32.最长有效括号 - wyh&#39;s space</title>
+  <title>云计算 - wyh&#39;s space</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -150,7 +150,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="【Leetcode】32.最长有效括号">
+            <span class="h2" id="subtitle" title="云计算">
               
             </span>
 
@@ -160,8 +160,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-05-05 15:22" pubdate>
-        2021年5月5日 下午
+      <time datetime="2023-02-12 23:07" pubdate>
+        2023年2月12日 晚上
       </time>
     </span>
   
@@ -172,7 +172,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      884 字
+      1.2k 字
     </span>
   
 
@@ -212,57 +212,53 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">【Leetcode】32.最长有效括号</h1>
+            <h1 style="display: none">云计算</h1>
             
             <div class="markdown-body">
-              <h1 id="32-最长有效括号"><a href="#32-最长有效括号" class="headerlink" title="32.最长有效括号"></a>32.最长有效括号</h1><p>给你一个只包含 ‘(‘ 和 ‘)’ 的字符串，找出最长有效（格式正确且连续）括号子串的长度。</p>
-<p>     示例 1：</p>
-<pre><code>输入：s = &quot;(()&quot;
-输出：2
-解释：最长有效括号子串是 &quot;()&quot;
-示例 2：
-
-输入：s = &quot;)()())&quot;
-输出：4
-解释：最长有效括号子串是 &quot;()()&quot;
-示例 3：
-
-输入：s = &quot;&quot;
-输出：0
-</code></pre>
-<h2 id="方法一（栈）"><a href="#方法一（栈）" class="headerlink" title="方法一（栈）"></a>方法一（栈）</h2><ul>
-<li><p>用栈来找出所有匹配的左右括号，并用一个列表来记录匹配括号的索引。</p>
-</li>
-<li><p>于是这个列表中最长连续子序列的长度就是最长有效括号的长度。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">longestValidParentheses</span><span class="hljs-params">(String s)</span> </span>&#123;<br>    Stack&lt;Integer&gt; stack = <span class="hljs-keyword">new</span> Stack&lt;&gt;();<br>    List&lt;Integer&gt; indexList = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.length(); i++)&#123;<br>        <span class="hljs-keyword">if</span>(s.charAt(i) == <span class="hljs-string">&#x27;(&#x27;</span>)<br>            stack.push(i);<br>        <span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-keyword">if</span>(!stack.isEmpty())&#123;<br>                indexList.add(stack.pop());<br>                indexList.add(i);<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span>(indexList.size() == <span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-comment">//寻找列表中最长连续子序列的长度</span><br>    Collections.sort(indexList);<br>    <span class="hljs-keyword">int</span> max = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> index = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span>(index &lt; indexList.size() - <span class="hljs-number">1</span>)&#123;<br>        <span class="hljs-keyword">int</span> count = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span>(index &lt; indexList.size() - <span class="hljs-number">1</span> &amp;&amp; indexList.get(index) == indexList.get(index + <span class="hljs-number">1</span>) - <span class="hljs-number">1</span>)&#123;<br>            count++;<br>            index++;<br>        &#125;<br>        max = Math.max(count, max);<br>        index++;<br>    &#125;<br>    <span class="hljs-keyword">return</span> max;<br>&#125;<br></code></pre></td></tr></table></figure></li>
-<li><p>时间复杂度：O(nlogn)</p>
-</li>
-<li><p>空间复杂度：O(n)  栈和列表所需的额外空间</p>
-<h2 id="方法二（动态规划）"><a href="#方法二（动态规划）" class="headerlink" title="方法二（动态规划）"></a>方法二（动态规划）</h2><h3 id="1-定义状态"><a href="#1-定义状态" class="headerlink" title="1.定义状态"></a>1.定义状态</h3><p>定义<code>dp[i]</code>为以位置i结尾的最长有效括号的长度</p>
-</li>
-</ul>
-<h3 id="2-Base-Case"><a href="#2-Base-Case" class="headerlink" title="2.Base Case"></a>2.Base Case</h3><ul>
-<li><p>一个单括号不可能形成有效括号，因此dp[0] = 0</p>
-</li>
-<li><p>如果1位置为右括号，0位置为左括号，那么dp[1] = 2</p>
-<h3 id="3-状态转移"><a href="#3-状态转移" class="headerlink" title="3.状态转移"></a>3.状态转移</h3></li>
-<li><p>如果i位置为左括号，那么没有以这个位置结尾的有效括号，dp[i] = 0</p>
-</li>
-<li><p>如果i位置为右括号，分两种情况：</p>
+              <p>如今，云计算作为一个无所不包的信息技术服务平台，它抽象了多个大型数据中心内的海量计算存储资源，对外提供了从基础设施到托管平台不同层次、不同粒度的在线服务和组件。其分为Iaas，PaaS和SaaS三个层次：</p>
+<h2 id="IaaS"><a href="#IaaS" class="headerlink" title="IaaS"></a>IaaS</h2><p>IaaS 的本质，是对云上各类 IT 基础设施的抽象</p>
+<p>区域（Region）：表示云计算厂商在某个地理位置提供的所有云服务的组合</p>
+<p>可用区（Availability Zone),：表示一个完整而独立的数据中心单元。一个区域通常由多个可用区高速互联组成，通过多个可用区来解决区域的高可用性问题。</p>
 <ul>
-<li><p>如果i-1位置为左括号，那么i-1位置和i位置能组成一个长度为2的有效括号，再加上以i-2位置结尾的最长有效括号的长度，即为以i位置结尾的最长有小括号的长度。<code>dp[i] = dp[i-2] + 2</code></p>
-</li>
-<li><p>如果i-1位置为右括号，那么以它结尾可能会有一定长度的有效括号，我们先越过这些位置，来到这些匹配好的有效括号前面一个位置，如果这个位置是左括号，那么<code>dp[i] = dp[i - 1] + 2 + dp[i - dp[i - 1] - 2]</code></p>
-<p>例如：<code>&quot;())(())&quot;</code>，对于位置5，其前面的位置4已经有长度为2的匹配好的有效括号<code>&quot;()&quot;</code>，并且它们前面的位置2为左括号，可以与位置5的右括号匹配，因此dp[i]肯定能在dp[i-1]的位置上加2。但如例子所示，以位置1结尾还有长度为2的有小括号，与之后的有小括号连上了，这时我们就需要把这部分有效括号的长度dp[i - dp[i - 1] - 2]也加上。</p>
-</li>
+<li>计算：云虚拟机体现了计算存储分离思想。传统虚拟机往往是对单一物理机器资源的纵向切割，计算、存储、网络等各方面的能力都是一台物理机的子集，可伸缩性受限。云虚拟机除了CPU 与内存部分仍属于一台宿主机外，它的网络、硬盘等其他部分可以超脱于宿主机之外，享受云端其他基础设施的能力，从而有更好的可扩展性和故障隔离能力。</li>
+<li>存储：云硬盘是云虚拟机可以挂载和使用的云端磁盘服务，也叫块存储（Block Storage）。作为云虚拟机的主要持久化存储，其与宿主机往往是分离的</li>
+<li>网络：虚拟私有网络：构建在云上、相互隔离的、用户可以自主控制的私有网络环境。虚拟机的网卡一面和虚拟机本体绑定，另一面嵌入某个私有网络的子网，从而把虚拟机“放置”在这个虚拟网络中。</li>
 </ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">longestValidParentheses</span><span class="hljs-params">(String s)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span>(s == <span class="hljs-keyword">null</span> || s.length() &lt; <span class="hljs-number">2</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span>[] dp = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[s.length()];<br>    <span class="hljs-comment">//Base Case</span><br>    dp[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>    dp[<span class="hljs-number">1</span>] = s.charAt(<span class="hljs-number">1</span>) == <span class="hljs-string">&#x27;)&#x27;</span> &amp;&amp; s.charAt(<span class="hljs-number">0</span>) == <span class="hljs-string">&#x27;(&#x27;</span> ? <span class="hljs-number">2</span> : <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> max = Math.max(dp[<span class="hljs-number">0</span>], dp[<span class="hljs-number">1</span>]);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt; s.length(); i++)&#123;<br>        <span class="hljs-keyword">if</span>(s.charAt(i) == <span class="hljs-string">&#x27;(&#x27;</span>)<br>            dp[i] = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-keyword">if</span>(s.charAt(i - <span class="hljs-number">1</span>) == <span class="hljs-string">&#x27;(&#x27;</span>)<br>                dp[i] = dp[i - <span class="hljs-number">2</span>] + <span class="hljs-number">2</span>;<br>            <span class="hljs-keyword">else</span>&#123;<br>                <span class="hljs-keyword">if</span>(i - dp[i - <span class="hljs-number">1</span>] - <span class="hljs-number">1</span> &gt;= <span class="hljs-number">0</span> &amp;&amp; s.charAt(i - dp[i - <span class="hljs-number">1</span>] - <span class="hljs-number">1</span>) == <span class="hljs-string">&#x27;(&#x27;</span>)&#123;<br>                    dp[i] = dp[i - <span class="hljs-number">1</span>] + <span class="hljs-number">2</span>;<br>                    dp[i] += i - dp[i - <span class="hljs-number">1</span>] - <span class="hljs-number">2</span> &gt;= <span class="hljs-number">0</span> ? dp[i - dp[i - <span class="hljs-number">1</span>] - <span class="hljs-number">2</span>] : <span class="hljs-number">0</span>;<br>                &#125;<br>            &#125;<br>        &#125;<br>        max = Math.max(max, dp[i]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> max;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="PaaS"><a href="#PaaS" class="headerlink" title="PaaS"></a>PaaS</h2><p>云计算提供的平台类服务，在IaaS的基础上又做了进一步的抽象与封装，让用户更方便地在更上层进行应用的构建，而无需关心底层的基础设施。</p>
 <ul>
-<li>时间复杂度：O(n)</li>
-<li>空间复杂度：O(n) </li>
+<li><p>对象存储：能存储任意二进制文件（对象）的存储服务。对象存储内本身不存在一个真正的文件系统，而是更接近一个键值（Key-Value）形式的存储服务。例如亚马逊的S3，Azure的Blob Storage。</p>
+</li>
+<li><p>应用托管服务：用于构建云上Web应用，例如Azure的App Service</p>
+</li>
+<li><p>云数据库：得益于云的优势，云数据库具有更强的可扩展性和更高的可用性和可靠性</p>
+<ul>
+<li>RDS（Relational Database Service），云上数据库让实现读写分离，自动调优更加容易</li>
+<li>NoSQL：AWS Aurora，阿里PolarDB，Azure CosmosDB</li>
 </ul>
+<p><img src="/img/%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93.png" srcset="/img/loading.gif" alt="云数据库"></p>
+</li>
+<li><p>大数据服务：云上大数据服务最大的特点就是简便易用，方便管理，提供弹性。例如AWS Elastic MapReduce（EMC），Azure HDInsight。通过这些产品和服务的组合，可以轻松构建数据仓库和数据湖解决方案。</p>
+</li>
+</ul>
+<p><img src="/img/%E4%BA%91%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1.png" srcset="/img/loading.gif" alt="云数据库"></p>
+<ul>
+<li>容器服务：云是容器的最佳载体，容器也非常适合在云上运行。</li>
+</ul>
+<p><img src="/img/%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1.png" srcset="/img/loading.gif" alt="容器服务"></p>
+<ul>
+<li>无服务器计算：让用户完全感觉不到服务器的存在，从而专注于业务逻辑编写，无需关心任何基础设施。通常可以支持用户每一个具有独立功能的函数作为服务来单独部署和运行，不需要硬件配置、完全按需服务，因此也称函数即服务（Function as a Service，FaaS）。例如AWS的Lanbda，阿里云的函数计算，Azure的Azure Functions。无服务器计算本身是无状态的，所有的持久化需求都要借助外部存储来实现，所以经常需要和数据库、对象存储等服务配合。</li>
+<li>云上AI服务：云上提供的计算机视觉、自然语言处理、语音类服务等，例如Azure的认知服务Congnitive Service。</li>
+</ul>
+<h2 id="SaaS"><a href="#SaaS" class="headerlink" title="SaaS"></a>SaaS</h2><p>例如：Outlook，Calendar，M365，Azure DevOps</p>
+<p>SaaS与传统Web应用的区别：</p>
+<ul>
+<li>多租户（不同租户间完全隔离）</li>
+<li>订阅制（按年、按月付费，而不是一次性付费）</li>
+<li>中心化部署</li>
+</ul>
+<h2 id="云原生"><a href="#云原生" class="headerlink" title="云原生"></a>云原生</h2><p>云原生的本质是用于构建现代云端应用的一系列架构理念，以及帮助这些理念落地的技术支撑和最佳实践。云原生的核心理念包括无状态、分布式、服务化、弹性扩展等等</p>
+<p>狭义的云原生定义，特指的是容器化、容器编排和微服务架构。各类厂商在宣传 Kubernetes 服务和产品时所说的“云原生”</p>
+<p>从更广义的视角来看，只要是适合在云上运行，具备和符合云上架构特点的应用，都可以说是属于“云原生”范畴。</p>
 
             </div>
             <hr>
@@ -272,17 +268,10 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+                      <a class="hover-with-bg" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
                     
                   </div>
                 
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
-                    
-                  </div>
                 
               </div>
               
@@ -293,18 +282,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/02/12/%E4%BA%91%E8%AE%A1%E7%AE%97/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">云计算</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/05/05/CSharp/">
-                        <span class="hidden-mobile">C#学习笔记</span>
+                      <a href="/2021/05/05/32.%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/">
+                        <span class="hidden-mobile">【Leetcode】32.最长有效括号</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

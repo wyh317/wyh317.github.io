@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>云计算</title>
+    <link href="/2023/02/12/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
+    <url>/2023/02/12/%E4%BA%91%E8%AE%A1%E7%AE%97/</url>
+    
+    <content type="html"><![CDATA[<p>如今，云计算作为一个无所不包的信息技术服务平台，它抽象了多个大型数据中心内的海量计算存储资源，对外提供了从基础设施到托管平台不同层次、不同粒度的在线服务和组件。其分为Iaas，PaaS和SaaS三个层次：</p><h2 id="IaaS"><a href="#IaaS" class="headerlink" title="IaaS"></a>IaaS</h2><p>IaaS 的本质，是对云上各类 IT 基础设施的抽象</p><p>区域（Region）：表示云计算厂商在某个地理位置提供的所有云服务的组合</p><p>可用区（Availability Zone),：表示一个完整而独立的数据中心单元。一个区域通常由多个可用区高速互联组成，通过多个可用区来解决区域的高可用性问题。</p><ul><li>计算：云虚拟机体现了计算存储分离思想。传统虚拟机往往是对单一物理机器资源的纵向切割，计算、存储、网络等各方面的能力都是一台物理机的子集，可伸缩性受限。云虚拟机除了CPU 与内存部分仍属于一台宿主机外，它的网络、硬盘等其他部分可以超脱于宿主机之外，享受云端其他基础设施的能力，从而有更好的可扩展性和故障隔离能力。</li><li>存储：云硬盘是云虚拟机可以挂载和使用的云端磁盘服务，也叫块存储（Block Storage）。作为云虚拟机的主要持久化存储，其与宿主机往往是分离的</li><li>网络：虚拟私有网络：构建在云上、相互隔离的、用户可以自主控制的私有网络环境。虚拟机的网卡一面和虚拟机本体绑定，另一面嵌入某个私有网络的子网，从而把虚拟机“放置”在这个虚拟网络中。</li></ul><h2 id="PaaS"><a href="#PaaS" class="headerlink" title="PaaS"></a>PaaS</h2><p>云计算提供的平台类服务，在IaaS的基础上又做了进一步的抽象与封装，让用户更方便地在更上层进行应用的构建，而无需关心底层的基础设施。</p><ul><li><p>对象存储：能存储任意二进制文件（对象）的存储服务。对象存储内本身不存在一个真正的文件系统，而是更接近一个键值（Key-Value）形式的存储服务。例如亚马逊的S3，Azure的Blob Storage。</p></li><li><p>应用托管服务：用于构建云上Web应用，例如Azure的App Service</p></li><li><p>云数据库：得益于云的优势，云数据库具有更强的可扩展性和更高的可用性和可靠性</p><ul><li>RDS（Relational Database Service），云上数据库让实现读写分离，自动调优更加容易</li><li>NoSQL：AWS Aurora，阿里PolarDB，Azure CosmosDB</li></ul><p><img src="/img/%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93.png" alt="云数据库"></p></li><li><p>大数据服务：云上大数据服务最大的特点就是简便易用，方便管理，提供弹性。例如AWS Elastic MapReduce（EMC），Azure HDInsight。通过这些产品和服务的组合，可以轻松构建数据仓库和数据湖解决方案。</p></li></ul><p><img src="/img/%E4%BA%91%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1.png" alt="云数据库"></p><ul><li>容器服务：云是容器的最佳载体，容器也非常适合在云上运行。</li></ul><p><img src="/img/%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1.png" alt="容器服务"></p><ul><li>无服务器计算：让用户完全感觉不到服务器的存在，从而专注于业务逻辑编写，无需关心任何基础设施。通常可以支持用户每一个具有独立功能的函数作为服务来单独部署和运行，不需要硬件配置、完全按需服务，因此也称函数即服务（Function as a Service，FaaS）。例如AWS的Lanbda，阿里云的函数计算，Azure的Azure Functions。无服务器计算本身是无状态的，所有的持久化需求都要借助外部存储来实现，所以经常需要和数据库、对象存储等服务配合。</li><li>云上AI服务：云上提供的计算机视觉、自然语言处理、语音类服务等，例如Azure的认知服务Congnitive Service。</li></ul><h2 id="SaaS"><a href="#SaaS" class="headerlink" title="SaaS"></a>SaaS</h2><p>例如：Outlook，Calendar，M365，Azure DevOps</p><p>SaaS与传统Web应用的区别：</p><ul><li>多租户（不同租户间完全隔离）</li><li>订阅制（按年、按月付费，而不是一次性付费）</li><li>中心化部署</li></ul><h2 id="云原生"><a href="#云原生" class="headerlink" title="云原生"></a>云原生</h2><p>云原生的本质是用于构建现代云端应用的一系列架构理念，以及帮助这些理念落地的技术支撑和最佳实践。云原生的核心理念包括无状态、分布式、服务化、弹性扩展等等</p><p>狭义的云原生定义，特指的是容器化、容器编排和微服务架构。各类厂商在宣传 Kubernetes 服务和产品时所说的“云原生”</p><p>从更广义的视角来看，只要是适合在云上运行，具备和符合云上架构特点的应用，都可以说是属于“云原生”范畴。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>工具</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>【Leetcode】32.最长有效括号</title>
     <link href="/2021/05/05/32.%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/"/>
     <url>/2021/05/05/32.%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/</url>
