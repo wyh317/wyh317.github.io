@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Hive安装指南</title>
+    <link href="/2023/02/27/Hive%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/"/>
+    <url>/2023/02/27/Hive%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</url>
+    
+    <content type="html"><![CDATA[<h2 id="1-下载Hive"><a href="#1-下载Hive" class="headerlink" title="1.下载Hive"></a>1.下载Hive</h2><p>下载Hive并解压：<a href="https://dlcdn.apache.org/hive/">https://dlcdn.apache.org/hive/</a></p><h2 id="2-修改环境变量"><a href="#2-修改环境变量" class="headerlink" title="2. 修改环境变量"></a>2. 修改环境变量</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vi /etc/profile<br></code></pre></td></tr></table></figure><p>添加如下（需将HIVE_HOME修改为本地Hive路径）：</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs txt">export HIVE_HOME=/home/Yihua/App/apache-hive-2.3.9-bin<br>export PATH=$HIVE_HOME/bin:$PATH<br><br>export CLASSPATH=$CLASSPATH:$HADOOP_HOME/lib/*:.<br>export CLASSPATH=$CLASSPATH:$HIVE_HOME/lib/*:<br></code></pre></td></tr></table></figure><p>使用<code>source /etc/profile</code>命令使对环境变量的修改立即生效生效</p><h2 id="3-修改Hive配置文件"><a href="#3-修改Hive配置文件" class="headerlink" title="3. 修改Hive配置文件"></a>3. 修改Hive配置文件</h2><p>默认的配置文件为hive-default.xml.template，我们copy一份新的hive-site并在其上面做修改</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cp hive-default.xml.template hive-site.xml<br></code></pre></td></tr></table></figure><p>检查配置内容：</p><ul><li>ConnectionURL：表明我们想使用什么数据库作为metastore, 这里我们配置为使用Hive内置的数据库Derby<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs json">&lt;property&gt;<br>    &lt;name&gt;javax.jdo.option.ConnectionURL&lt;/name&gt;<br>    &lt;value&gt;jdbc:derby:;databaseName=metastore_db;create=true&lt;/value&gt;<br>    &lt;description&gt;<br>        JDBC connect string for a JDBC metastore.<br>        To use SSL to encrypt/authenticate the connection, provide database-specific SSL flag in the connection URL.<br>        For example, jdbc:postgresql://myhost/db?ssl=true for postgres database.<br>    &lt;/description&gt;<br>&lt;/property&gt;<br></code></pre></td></tr></table></figure></li><li>Warehouse.dir：配置数据在HDFS上存储的路径<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs json">&lt;property&gt;<br>    &lt;name&gt;hive.metastore.warehouse.dir&lt;/name&gt;<br>    &lt;value&gt;/user/hive/warehouse&lt;/value&gt;<br>    &lt;description&gt;location of default database for the warehouse&lt;/description&gt;<br>&lt;/property&gt;<br></code></pre></td></tr></table></figure></li><li>替换${system:java.io.tmpdir}为/tmp/hive_io，这是Hive存储其临时文件的位置<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">:%s#$&#123;<span class="hljs-built_in">system</span>:java.io.tmpdir&#125;#/tmp/hive_io#g<br></code></pre></td></tr></table></figure></li><li>替换${system:user.name}为UserName<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">%s/$&#123;<span class="hljs-built_in">system</span>:user.name&#125;/Yihua/g<br></code></pre></td></tr></table></figure><h2 id="4-创建HDFS路径并赋权限"><a href="#4-创建HDFS路径并赋权限" class="headerlink" title="4. 创建HDFS路径并赋权限"></a>4. 创建HDFS路径并赋权限</h2>在创建前，需使用jps命令检查Hadoop进程是否都在运行，其中NameNode DataNode和SecondaryNameNode是HDFS进程，NodeManager和ResourceManager是Yarn进程<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">hadoop fs -mkdir /tmp<br>hadoop fs -mkdir /user<br>hadoop fs -mkdir /user/hive<br>hadoop fs -mkdir /user/hive/warehouse<br>hadoop fs -chmod g+w /tmp<br>hadoop fs -chmod g+w /user/hive/warehouse<br></code></pre></td></tr></table></figure><h2 id="5-Metastore-db"><a href="#5-Metastore-db" class="headerlink" title="5. Metastore_db"></a>5. Metastore_db</h2>在运行Hive的目录下会有一个Metastore_db文件，是一个derby数据库，包含Hive table的所有metadata。我们将现有的metastore做一个备份，并用schematool去实例化metastore, 为metastore初始化schema，表明数据库是derby。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">mv metastore_db metastore_db.tmp<br>schematool -initSchema -dbType derby<br></code></pre></td></tr></table></figure><h2 id="6-运行Hive或者在bin目录下运行beeline-u-jdbc-hive2"><a href="#6-运行Hive或者在bin目录下运行beeline-u-jdbc-hive2" class="headerlink" title="6. 运行Hive或者在bin目录下运行beeline -u jdbc:hive2://"></a>6. 运行Hive或者在bin目录下运行beeline -u jdbc:hive2://</h2></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>大数据</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>大数据</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>云计算</title>
     <link href="/2023/02/12/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
     <url>/2023/02/12/%E4%BA%91%E8%AE%A1%E7%AE%97/</url>

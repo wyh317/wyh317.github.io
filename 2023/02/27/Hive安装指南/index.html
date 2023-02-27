@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>云计算 - wyh&#39;s space</title>
+  <title>Hive安装指南 - wyh&#39;s space</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -150,7 +150,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="云计算">
+            <span class="h2" id="subtitle" title="Hive安装指南">
               
             </span>
 
@@ -160,8 +160,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2023-02-12 23:07" pubdate>
-        2023年2月12日 晚上
+      <time datetime="2023-02-27 20:19" pubdate>
+        2023年2月27日 晚上
       </time>
     </span>
   
@@ -172,7 +172,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      486 字
     </span>
   
 
@@ -182,7 +182,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12
+      7
        分钟
     </span>
   
@@ -212,53 +212,26 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">云计算</h1>
+            <h1 style="display: none">Hive安装指南</h1>
             
             <div class="markdown-body">
-              <p>如今，云计算作为一个无所不包的信息技术服务平台，它抽象了多个大型数据中心内的海量计算存储资源，对外提供了从基础设施到托管平台不同层次、不同粒度的在线服务和组件。其分为Iaas，PaaS和SaaS三个层次：</p>
-<h2 id="IaaS"><a href="#IaaS" class="headerlink" title="IaaS"></a>IaaS</h2><p>IaaS 的本质，是对云上各类 IT 基础设施的抽象</p>
-<p>区域（Region）：表示云计算厂商在某个地理位置提供的所有云服务的组合</p>
-<p>可用区（Availability Zone),：表示一个完整而独立的数据中心单元。一个区域通常由多个可用区高速互联组成，通过多个可用区来解决区域的高可用性问题。</p>
+              <h2 id="1-下载Hive"><a href="#1-下载Hive" class="headerlink" title="1.下载Hive"></a>1.下载Hive</h2><p>下载Hive并解压：<a target="_blank" rel="noopener" href="https://dlcdn.apache.org/hive/">https://dlcdn.apache.org/hive/</a></p>
+<h2 id="2-修改环境变量"><a href="#2-修改环境变量" class="headerlink" title="2. 修改环境变量"></a>2. 修改环境变量</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vi /etc/profile<br></code></pre></td></tr></table></figure>
+<p>添加如下（需将HIVE_HOME修改为本地Hive路径）：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs txt">export HIVE_HOME=/home/Yihua/App/apache-hive-2.3.9-bin<br>export PATH=$HIVE_HOME/bin:$PATH<br><br>export CLASSPATH=$CLASSPATH:$HADOOP_HOME/lib/*:.<br>export CLASSPATH=$CLASSPATH:$HIVE_HOME/lib/*:<br></code></pre></td></tr></table></figure>
+<p>使用<code>source /etc/profile</code>命令使对环境变量的修改立即生效生效</p>
+<h2 id="3-修改Hive配置文件"><a href="#3-修改Hive配置文件" class="headerlink" title="3. 修改Hive配置文件"></a>3. 修改Hive配置文件</h2><p>默认的配置文件为hive-default.xml.template，我们copy一份新的hive-site并在其上面做修改</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cp hive-default.xml.template hive-site.xml<br></code></pre></td></tr></table></figure>
+<p>检查配置内容：</p>
 <ul>
-<li>计算：云虚拟机体现了计算存储分离思想。传统虚拟机往往是对单一物理机器资源的纵向切割，计算、存储、网络等各方面的能力都是一台物理机的子集，可伸缩性受限。云虚拟机除了CPU 与内存部分仍属于一台宿主机外，它的网络、硬盘等其他部分可以超脱于宿主机之外，享受云端其他基础设施的能力，从而有更好的可扩展性和故障隔离能力。</li>
-<li>存储：云硬盘是云虚拟机可以挂载和使用的云端磁盘服务，也叫块存储（Block Storage）。作为云虚拟机的主要持久化存储，其与宿主机往往是分离的</li>
-<li>网络：虚拟私有网络：构建在云上、相互隔离的、用户可以自主控制的私有网络环境。虚拟机的网卡一面和虚拟机本体绑定，另一面嵌入某个私有网络的子网，从而把虚拟机“放置”在这个虚拟网络中。</li>
+<li>ConnectionURL：表明我们想使用什么数据库作为metastore, 这里我们配置为使用Hive内置的数据库Derby<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs json">&lt;property&gt;<br>    &lt;name&gt;javax.jdo.option.ConnectionURL&lt;/name&gt;<br>    &lt;value&gt;jdbc:derby:;databaseName=metastore_db;create=true&lt;/value&gt;<br>    &lt;description&gt;<br>        JDBC connect string for a JDBC metastore.<br>        To use SSL to encrypt/authenticate the connection, provide database-specific SSL flag in the connection URL.<br>        For example, jdbc:postgresql://myhost/db?ssl=true for postgres database.<br>    &lt;/description&gt;<br>&lt;/property&gt;<br></code></pre></td></tr></table></figure></li>
+<li>Warehouse.dir：配置数据在HDFS上存储的路径<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs json">&lt;property&gt;<br>    &lt;name&gt;hive.metastore.warehouse.dir&lt;/name&gt;<br>    &lt;value&gt;/user/hive/warehouse&lt;/value&gt;<br>    &lt;description&gt;location of default database for the warehouse&lt;/description&gt;<br>&lt;/property&gt;<br></code></pre></td></tr></table></figure></li>
+<li>替换${system:java.io.tmpdir}为/tmp/hive_io，这是Hive存储其临时文件的位置<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">:%s#$&#123;<span class="hljs-built_in">system</span>:java.io.tmpdir&#125;#/tmp/hive_io#g<br></code></pre></td></tr></table></figure></li>
+<li>替换${system:user.name}为UserName<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">%s/$&#123;<span class="hljs-built_in">system</span>:user.name&#125;/Yihua/g<br></code></pre></td></tr></table></figure>
+<h2 id="4-创建HDFS路径并赋权限"><a href="#4-创建HDFS路径并赋权限" class="headerlink" title="4. 创建HDFS路径并赋权限"></a>4. 创建HDFS路径并赋权限</h2>在创建前，需使用jps命令检查Hadoop进程是否都在运行，其中NameNode DataNode和SecondaryNameNode是HDFS进程，NodeManager和ResourceManager是Yarn进程<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">hadoop fs -mkdir /tmp<br>hadoop fs -mkdir /user<br>hadoop fs -mkdir /user/hive<br>hadoop fs -mkdir /user/hive/warehouse<br>hadoop fs -chmod g+w /tmp<br>hadoop fs -chmod g+w /user/hive/warehouse<br></code></pre></td></tr></table></figure>
+<h2 id="5-Metastore-db"><a href="#5-Metastore-db" class="headerlink" title="5. Metastore_db"></a>5. Metastore_db</h2>在运行Hive的目录下会有一个Metastore_db文件，是一个derby数据库，包含Hive table的所有metadata。我们将现有的metastore做一个备份，并用schematool去实例化metastore, 为metastore初始化schema，表明数据库是derby。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">mv metastore_db metastore_db.tmp<br>schematool -initSchema -dbType derby<br></code></pre></td></tr></table></figure>
+<h2 id="6-运行Hive或者在bin目录下运行beeline-u-jdbc-hive2"><a href="#6-运行Hive或者在bin目录下运行beeline-u-jdbc-hive2" class="headerlink" title="6. 运行Hive或者在bin目录下运行beeline -u jdbc:hive2://"></a>6. 运行Hive或者在bin目录下运行beeline -u jdbc:hive2://</h2></li>
 </ul>
-<h2 id="PaaS"><a href="#PaaS" class="headerlink" title="PaaS"></a>PaaS</h2><p>云计算提供的平台类服务，在IaaS的基础上又做了进一步的抽象与封装，让用户更方便地在更上层进行应用的构建，而无需关心底层的基础设施。</p>
-<ul>
-<li><p>对象存储：能存储任意二进制文件（对象）的存储服务。对象存储内本身不存在一个真正的文件系统，而是更接近一个键值（Key-Value）形式的存储服务。例如亚马逊的S3，Azure的Blob Storage。</p>
-</li>
-<li><p>应用托管服务：用于构建云上Web应用，例如Azure的App Service</p>
-</li>
-<li><p>云数据库：得益于云的优势，云数据库具有更强的可扩展性和更高的可用性和可靠性</p>
-<ul>
-<li>RDS（Relational Database Service），云上数据库让实现读写分离，自动调优更加容易</li>
-<li>NoSQL：AWS Aurora，阿里PolarDB，Azure CosmosDB</li>
-</ul>
-<p><img src="/img/%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93.png" srcset="/img/loading.gif" alt="云数据库"></p>
-</li>
-<li><p>大数据服务：云上大数据服务最大的特点就是简便易用，方便管理，提供弹性。例如AWS Elastic MapReduce（EMC），Azure HDInsight。通过这些产品和服务的组合，可以轻松构建数据仓库和数据湖解决方案。</p>
-</li>
-</ul>
-<p><img src="/img/%E4%BA%91%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1.png" srcset="/img/loading.gif" alt="云数据库"></p>
-<ul>
-<li>容器服务：云是容器的最佳载体，容器也非常适合在云上运行。</li>
-</ul>
-<p><img src="/img/%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1.png" srcset="/img/loading.gif" alt="容器服务"></p>
-<ul>
-<li>无服务器计算：让用户完全感觉不到服务器的存在，从而专注于业务逻辑编写，无需关心任何基础设施。通常可以支持用户每一个具有独立功能的函数作为服务来单独部署和运行，不需要硬件配置、完全按需服务，因此也称函数即服务（Function as a Service，FaaS）。例如AWS的Lanbda，阿里云的函数计算，Azure的Azure Functions。无服务器计算本身是无状态的，所有的持久化需求都要借助外部存储来实现，所以经常需要和数据库、对象存储等服务配合。</li>
-<li>云上AI服务：云上提供的计算机视觉、自然语言处理、语音类服务等，例如Azure的认知服务Congnitive Service。</li>
-</ul>
-<h2 id="SaaS"><a href="#SaaS" class="headerlink" title="SaaS"></a>SaaS</h2><p>例如：Outlook，Calendar，M365，Azure DevOps</p>
-<p>SaaS与传统Web应用的区别：</p>
-<ul>
-<li>多租户（不同租户间完全隔离）</li>
-<li>订阅制（按年、按月付费，而不是一次性付费）</li>
-<li>中心化部署</li>
-</ul>
-<h2 id="云原生"><a href="#云原生" class="headerlink" title="云原生"></a>云原生</h2><p>云原生的本质是用于构建现代云端应用的一系列架构理念，以及帮助这些理念落地的技术支撑和最佳实践。云原生的核心理念包括无状态、分布式、服务化、弹性扩展等等</p>
-<p>狭义的云原生定义，特指的是容器化、容器编排和微服务架构。各类厂商在宣传 Kubernetes 服务和产品时所说的“云原生”</p>
-<p>从更广义的视角来看，只要是适合在云上运行，具备和符合云上架构特点的应用，都可以说是属于“云原生”范畴。</p>
 
             </div>
             <hr>
@@ -268,10 +241,17 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+                      <a class="hover-with-bg" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
                     
                   </div>
                 
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+                    
+                  </div>
                 
               </div>
               
@@ -282,18 +262,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/02/27/Hive%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Hive安装指南</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/05/05/32.%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/">
-                        <span class="hidden-mobile">【Leetcode】32.最长有效括号</span>
+                      <a href="/2023/02/12/%E4%BA%91%E8%AE%A1%E7%AE%97/">
+                        <span class="hidden-mobile">云计算</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
