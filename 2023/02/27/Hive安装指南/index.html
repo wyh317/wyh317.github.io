@@ -172,7 +172,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      486 字
+      484 字
     </span>
   
 
@@ -219,7 +219,7 @@
 <h2 id="2-修改环境变量"><a href="#2-修改环境变量" class="headerlink" title="2. 修改环境变量"></a>2. 修改环境变量</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vi /etc/profile<br></code></pre></td></tr></table></figure>
 <p>添加如下（需将HIVE_HOME修改为本地Hive路径）：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs txt">export HIVE_HOME=/home/Yihua/App/apache-hive-2.3.9-bin<br>export PATH=$HIVE_HOME/bin:$PATH<br><br>export CLASSPATH=$CLASSPATH:$HADOOP_HOME/lib/*:.<br>export CLASSPATH=$CLASSPATH:$HIVE_HOME/lib/*:<br></code></pre></td></tr></table></figure>
-<p>使用<code>source /etc/profile</code>命令使对环境变量的修改立即生效生效</p>
+<p>使用<code>source /etc/profile</code>命令使对环境变量的修改立即生效</p>
 <h2 id="3-修改Hive配置文件"><a href="#3-修改Hive配置文件" class="headerlink" title="3. 修改Hive配置文件"></a>3. 修改Hive配置文件</h2><p>默认的配置文件为hive-default.xml.template，我们copy一份新的hive-site并在其上面做修改</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cp hive-default.xml.template hive-site.xml<br></code></pre></td></tr></table></figure>
 <p>检查配置内容：</p>
@@ -261,6 +261,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/04/05/PySpark-%E4%BD%BF%E7%94%A8addPyFile%E5%AF%BC%E5%85%A5%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84Python-Module/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">PySpark:使用addPyFile导入自定义的Python Module</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
