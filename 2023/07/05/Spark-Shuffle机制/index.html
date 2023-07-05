@@ -172,7 +172,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      831 字
+      864 字
     </span>
   
 
@@ -226,7 +226,7 @@
               <h1 id="Shuffle机制"><a href="#Shuffle机制" class="headerlink" title="Shuffle机制"></a>Shuffle机制</h1><p>Apache Spark是一个强大的分布式计算框架，它能够高效地处理大规模数据集并加速数据处理过程。其中一个关键的特性就是其Shuffle机制，理解Spark的Shuffle机制对于理解Spark作业的执行至关重要。本文将分别介绍Spark的Shuffle Write阶段和Shuffle Read阶段，并在最后与MapReduce Shuffle机制进行比较。</p>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Shuffle解决的是上下游stage之间传递数据的问题。Shuffle机制分为Shuffle Write和Shuffle Read两个阶段，前者主要解决上游Stage输出数据的分区问题，后者主要解决下游Stage从上游Stage获取数据、重新组织、并为后续操作提供数据的问题。</p>
 <p>以join操作为例的Spark Shuffle过程：</p>
-<p><img src="/img/%E5%9B%BE6.2.png" srcset="/img/loading.gif" alt="图6.2"></p>
+<p><img src="/img/%E5%9B%BE6.2.png" srcset="/img/loading.gif"></p>
 <h2 id="Shuffle-Write"><a href="#Shuffle-Write" class="headerlink" title="Shuffle Write"></a>Shuffle Write</h2><p>Spark的Shuffle Write过程包含数据聚合，排序，分区三个步骤，其中分区是必备步骤，聚合和排序是可选步骤。</p>
 <ul>
 <li> 聚合：进行聚合combine操作的目的是减少Shuffle的数据量。只有包含聚合函数的数据操作才需要进行Shuffle Write时的combine，例如aggregateByKey(), reduceByKey(), distinct()等。</li>
@@ -234,7 +234,7 @@
 <li> 分区（Required）。在partition时，Spark根据partitionId将record依次输出到不同的buffer中，每当buffer填满就将record溢写到磁盘上的分区文件中。使用buffer的原因是map()输出record的速度很快，需要进行缓冲来减少磁盘I/O</li>
 </ul>
 <p>下图展示了一个包含聚合和排序操作的Shuffle Write流程：</p>
-<p><img src="/img/%E5%9B%BE6.7.png" srcset="/img/loading.gif" alt="图6.7"></p>
+<p><img src="/img/%E5%9B%BE6.7.png" srcset="/img/loading.gif"></p>
 <p>注：Shuffle Write的分区个数与下游Stage的task个数一致，这个分区个数可以由用户自定义，如groupByKey(numPartitions)中的numPartitions。如果用户没有定义，则默认分区个数是父RDD的分区个数的最大值</p>
 <h2 id="Shuffle-Read"><a href="#Shuffle-Read" class="headerlink" title="Shuffle Read"></a>Shuffle Read</h2><p>Spark的Shuffle Read过程包含数据获取，聚合，排序三个步骤。其中数据获取是必备步骤，聚合和排序是可选步骤。</p>
 <ul>
@@ -243,13 +243,16 @@
 <li> 排序：如果需要对key进行排序，则建立一个Array结构，读取HashMap中的record，并对record按key进行排序。</li>
 </ul>
 <p>下图展示了一个包含聚合和排序操作的Shuffle Read流程：</p>
-<p><img src="/img/%E5%9B%BE6.11.png" srcset="/img/loading.gif" alt="图6.11"></p>
+<p><img src="/img/%E5%9B%BE6.11.png" srcset="/img/loading.gif"></p>
 <p>注：Shuffle中使用的数据结构都试图在内存中进行聚合和排序，如果内存放不下，则进行扩容。如果扩容还放不下，就将数据spill到磁盘上，最后将磁盘和内存中的数据进行merge得到最终结果。</p>
-<h2 id="与MapReduce-Shuffle的区别"><a href="#与MapReduce-Shuffle的区别" class="headerlink" title="与MapReduce Shuffle的区别"></a>与MapReduce Shuffle的区别</h2><p><img src="/img/%E5%9B%BE6.15.png" srcset="/img/loading.gif" alt="图6.15"></p>
+<h2 id="与MapReduce-Shuffle的区别"><a href="#与MapReduce-Shuffle的区别" class="headerlink" title="与MapReduce Shuffle的区别"></a>与MapReduce Shuffle的区别</h2><p><img src="/img/%E5%9B%BE6.15.png" srcset="/img/loading.gif"></p>
 <ul>
 <li>  MapReduce不能在线聚合，即无论是map端还是reduce端，都是先将数据存到buffer或spill到磁盘后，再执行聚合操作。而Spark是随着map的不断输出，在内存中使用hashMap来进行聚合的。</li>
 <li>  MapReduce在shuffle write时严格按照key排序，但对于groupByKey()这样的操作不需要严格按照key进行排序。而Spark在shuffle write时的排序比较灵活，可以根据partitionId+key排序，也可以根据partitionId排序，或者不排序。</li>
 </ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
+<li>许利杰，方亚芬. 大数据处理框架Apache Spark设计与实现[M]. 电子工业出版社, 2021.</li>
+</ol>
 
             </div>
             <hr>
