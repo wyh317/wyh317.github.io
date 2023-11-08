@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Spark数据缓存机制及错误容忍机制 - wyh&#39;s space</title>
+  <title>大数据发展历程 - wyh&#39;s space</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -150,7 +150,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Spark数据缓存机制及错误容忍机制">
+            <span class="h2" id="subtitle" title="大数据发展历程">
               
             </span>
 
@@ -160,8 +160,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2023-07-06 23:08" pubdate>
-        2023年7月6日 晚上
+      <time datetime="2023-11-08 09:19" pubdate>
+        2023年11月8日 上午
       </time>
     </span>
   
@@ -172,7 +172,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.3k 字
+      1.1k 字
     </span>
   
 
@@ -182,7 +182,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      23
+      11
        分钟
     </span>
   
@@ -220,55 +220,63 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Spark数据缓存机制及错误容忍机制</h1>
+            <h1 style="display: none">大数据发展历程</h1>
             
             <div class="markdown-body">
-              <p>本文将重点介绍Spark框架中两个关键特性：数据缓存机制和错误容忍机制。数据缓存机制使得数据能够在内存中共享和重复使用，从而极大地提高了任务的执行速度。错误容忍机制则保证了即使在分布式环境中出现故障或错误，Spark仍能保持稳定运行，从而提供可靠的数据处理。</p>
-<h1 id="Spark数据缓存机制"><a href="#Spark数据缓存机制" class="headerlink" title="Spark数据缓存机制"></a>Spark数据缓存机制</h1><p>理解Spark的数据缓存机制，首先需要回答以下几个问题：</p>
-<ul>
-<li>哪些数据需要缓存：多个job共同依赖的、会被重复使用的中间数据。这类数据一旦缓存起来可以避免重复计算以减少job的执行时间。此外，被缓存的数据也不宜过大，数据过大内存不足时虽然可以存在磁盘，但磁盘I/O同样是个耗时操作，有时甚至不如重新计算快。</li>
-<li>缓存操作会立即执行吗：缓存操作cache()是个lazy操作，不会立即执行。即执行到cache()操作时，只标记这个RDD需要被缓存到内存中，并不执行真正的缓存操作，只有等到遇到action()操作触发job运行时才会实际执行缓存操作。当需要缓存的RDD中的record被计算出来时，及时进行缓存。</li>
-<li>包含缓存时如何生成DAG图：Spark首先假设应用没有数据缓存，照常生成DAG。然后将被缓存的RDD前所有的RDD都去掉，得到削减后的DAG图。最后按照正常的规则将DAG图转为stage和task。</li>
+              <p>大数据技术在过去几十年中取得了巨大的发展。从最初的数据仓库概念，到后来的Hadoop技术和数据湖、再到如今的大数据平台和数据中台，每一个阶段带动着技术和业务的变革。</p>
+<p>本文将梳理大数据发展的历程，包含数据仓库、数据湖、大数据平台和数据中台四个阶段。并运用”Why-What-How”的结构分别梳理每个阶段的演变原因，要解决的问题以及支撑技术。</p>
+<h1 id="数据仓库："><a href="#数据仓库：" class="headerlink" title="数据仓库："></a>数据仓库：</h1><ul>
+<li>Why：随着企业信息化程度的不断提高，企业需要已有的数据转化为知识，帮助管理者做出经营分析决策。因此，在上世纪90年代数据仓库应运而生。需要集成企业多个业务系统的数据，进行大数据量的查询。</li>
+<li>What: 数据仓库是在企业管理和决策中面向主题的、集成的、与事件相关的、不可修改的数据集合。</li>
+<li>How: <ul>
+<li>使用ETL（Extract, Transform, Load）过程，将来自不同业务系统的数据集成到一起，使得数据能够被高效地管理</li>
+<li>OLAP技术使得数据分析师可以从不同维度进行高效的数据分析和查询。</li>
 </ul>
-<h2 id="缓存写入与缓存读取（memoryStore"><a href="#缓存写入与缓存读取（memoryStore" class="headerlink" title="缓存写入与缓存读取（memoryStore)"></a>缓存写入与缓存读取（memoryStore)</h2><p>Spark在每个Executor进程中分配一个区域(memoryStore)来进行数据缓存，该区域由BlockManager来管理。由下图所示，menoryStore中包含了一个LinkedHashMap，用来存储RDD的分区。该LinkedHashMap的Key是blockId，即rddId+partitionId，value是分区中的数据</p>
-<p><img src="/img/%E5%9B%BE7.9.png" srcset="/img/loading.gif"></p>
-<p>在上图的例子中，mappedRDD的partition0和partition1被worker节点1中的BlockManager缓存，而partition2被worker节点2中的BlockManager缓存。对于图中的第2个job来说，它的3个task都被分到了worker节点1上，其中task3和task4对应的CachedPartition在本地，因此可以直接通过Worker节点1的menoryStore读取，而task5对应的CachedPartition在节点2上，需要远程访问。</p>
-<p>注：缓存机制只适用于每个Spark应用内部，即缓存数据只能在job之间共享，应用之间不能共享缓存数据</p>
-<h2 id="缓存的替换与回收"><a href="#缓存的替换与回收" class="headerlink" title="缓存的替换与回收"></a>缓存的替换与回收</h2><ul>
-<li>  自动缓存替换：缓存替换指的是当需要缓存的RDD大于当前可利用的空间时，使用新的RDD替换掉旧的以腾出空间。Spark采用LRU(Least Recently Used)替换算法，即优先替换掉当前最长时间没有被使用过的RDD。</li>
-<li>  主动缓存回收：除了自动缓存替换外，Spark还允许用户通过unpersist()操作自己设置回收的RDD和回收时间。不同于persist()的延时生效，unpersist()是立即生效的。</li>
+</li>
+<li>特点：<ul>
+<li>当面临海量规模的数据时，传统的数据仓库难以扩展。</li>
+<li>传统的数据仓库只能处理有严格schema的结构化数据，无法处理半结构化和非结构化数据。<h1 id="数据湖："><a href="#数据湖：" class="headerlink" title="数据湖："></a>数据湖：</h1></li>
 </ul>
-<h2 id="与MapReduce缓存机制的对比"><a href="#与MapReduce缓存机制的对比" class="headerlink" title="与MapReduce缓存机制的对比"></a>与MapReduce缓存机制的对比</h2><ul>
-<li>  它的缓存机制主要基于磁盘存储，将中间计算结果写入磁盘，以便后续任务可以从磁盘读取并继续处理。这种机制可以减少重复计算和提高任务的容错能力，但由于涉及磁盘读写，对于迭代式算法和需要频繁访问中间结果的任务来说，性能不够高效</li>
-<li>  Spark提供了内存缓存机制。Spark的RDD可以在集群的内存中持久化，以便后续任务可以更快地访问它们。因为数据可以在内存中共享和重复使用，避免了磁盘读写的开销，可以实现更高的性能。此外，Spark的缓存机制也更加灵活，它允许开发人员在需要时手动选择哪些数据需要缓存，以及选择缓存数据的存储级别。</li>
+</li>
+<li>Why：随着互联网时代的来临，由于数据规模进一步扩大，数据也不仅仅是结构化的数据，传统的数据仓库无法支撑。2000年代初，Google的三驾马车以及开源的Hadoop技术将大数据的发展带入了数据湖时代。</li>
+<li>What: 数据湖是一个以原始格式存储海量结构化和非结构化数据的存储系统。</li>
+<li>How：由以下技术支撑<ul>
+<li>分布式存储：Hadoop Distributed File System（HDFS），Amazon S3，Azure Data Lake Storage（ADLS）等</li>
+<li>分布式计算：Apache Hadoop、Apache Spark、Apache Flink等</li>
+<li>SQL查询引擎：Hive、Impala、Spark SQL等</li>
+<li>任务调度框架：Azkaban、Oozie等</li>
+<li>数据迁移工具：Sqoop等</li>
+<li>日志收集框架：Flume等</li>
+<li>集群资源管理框架：Yarn等</li>
+<li>分布式协调服务：Zookeeper等</li>
 </ul>
-<h1 id="错误容忍机制"><a href="#错误容忍机制" class="headerlink" title="错误容忍机制"></a>错误容忍机制</h1><p>错误容忍机制就是在应用执行失败时能够自动恢复应用执行，并且执行结果与正常执行时得到的结果一致。</p>
-<p>Spark通过以下两个方法实现错误容忍：</p>
-<ul>
-<li>  重新计算机制，主要用来解决软硬件故障导致的job执行失败问题</li>
-<li>  Checkpoint机制，主要用来解决计算链很长情况下的数据丢失问题</li>
+</li>
+<li>特点：<ul>
+<li>完全分布式，易扩展</li>
+<li>可以存储结构化、非结构化、半结构化数据<h1 id="大数据平台："><a href="#大数据平台：" class="headerlink" title="大数据平台："></a>大数据平台：</h1></li>
 </ul>
-<h2 id="重新计算机制"><a href="#重新计算机制" class="headerlink" title="重新计算机制"></a>重新计算机制</h2><p>这种机制通过重新执行计算任务来实现错误容忍。当job抛出异常不能继续执行时，重新启动计算任务，再次执行。</p>
-<ul>
-<li>  从哪里开始重新计算：Spark将会以Stage的粒度进行重新计算。原因在于：Spark采用了延时删除的策略，即将上游stage的Shuffle Write的结果写入本地磁盘，这部分数据只有在job完成后才会删除。因此即使当前stage计算失败，上一个stage由于输出数据还在磁盘上无需重复计算，只需重复计算当前stage即可。由此可见，Spark根据宽依赖切分出的stage既保证了task的独立性，也方便了错误容忍的重新计算。</li>
-<li>  怎样计算丢失数据：Spark采用了一种称为lineage的数据溯源方法，其核心是在每个RDD中记录其上游数据是什么，以及当前RDD是如何通过上游RDD得到的。这样在错误发生时，可以根据lineage找到计算当前RDD所需的计算链以进行重复计算。</li>
+</li>
+<li>Why：数据开发涉及的技术和流程繁多。技术方面，Hadoop生态圈技术繁多，技术门槛限制了其易用性。流程方面，数据开发流程包括但不限于：数据集成，数据开发，数据测试，任务部署及运维，数据质量监测等。面对如此复杂的流程，如果没有高效的平台作为支撑，就如同写代码没有IDE，效率低下。大数据平台就是为了提高数据开发的效率，降低数据开发的门槛，让数据能够快速地被加工。</li>
+<li>What: 大数据平台是面向数据研发场景的、覆盖数据研发完整工作链路的工具集合和数据工作台</li>
+<li>How: 大数据平台一般具有以下组件<ul>
+<li>大数据基础设施（存储，计算，任务调度）</li>
+<li>数据集成工具</li>
+<li>数据开发工具（离线，实时）</li>
+<li>数据测试工具</li>
+<li>任务监控及运维中心<h1 id="数据中台："><a href="#数据中台：" class="headerlink" title="数据中台："></a>数据中台：</h1></li>
 </ul>
-<h2 id="Checkpoint机制"><a href="#Checkpoint机制" class="headerlink" title="Checkpoint机制"></a>Checkpoint机制</h2><h3 id="Checkpoint机制的意义"><a href="#Checkpoint机制的意义" class="headerlink" title="Checkpoint机制的意义"></a><strong>Checkpoint机制的意义</strong></h3><p>重新计算机制有一个缺点，如果某个RDD的计算链过长，那么重新计算该数据的代价比较高。对于这一问题，Spark同时提供了Checkpoint机制，它可以将计算过程中某些重要数据进行持久化，这样在再次执行时可以从检查点执行，从而减少重新计算的开销。</p>
-<p>Checkpoint的目的就是对重要数据进行持久化，在节点宕机时也能够恢复，因此需要可靠地存储。此外checkpoint的数据量可能很大，因此需要大的存储空间，一般使用HDFS来进行持久化。</p>
-<p>在已经有了缓存机制的情况下，并且前一个Stage的输出也会存在磁盘上，为什么还需要checkpoint机制呢？</p>
-<ul>
-<li>  首先, 前一个stage虽然通过Shuffle Write将输出写到磁盘上，但是磁盘并不可靠，可能随着节点宕机而丢数据。并且这部分在磁盘上的数据会随着job完成而被清空，无法被下一个job使用</li>
-<li>  其次，被缓存的数据由于内存大小的限制，容易被替换和回收而丢失，也不能提供充足的可靠性。</li>
+</li>
+<li>Why：随着企业数据规模的进一步扩大以及数据需求的快速增长，当报表、数据资产、指标越来越多时，出现了数据质量差、取数效率低、数据重复建设等问题，阻碍数据进一步产生价值。企业需要应对数据治理的挑战</li>
+<li>What: 数据中台强调数据治理以及数据的规范化建设，通过构建统一的公共数据层，打造统一、标准、共享、安全的数据体系。</li>
+<li>How：数据中台一般具有以下组件（自顶向下）<ul>
+<li>数据应用</li>
+<li>数据服务：支持通过API暴露数据给数据应用</li>
+<li>公共数据层</li>
+<li>数据治理：元数据管理，数据质量，数据地图（Data Catalog)，数据安全与合规。</li>
+<li>大数据平台（包括大数据基础设施及数据集成、开发、测试，任务运维等工具）</li>
+<li>大数据基础设施</li>
 </ul>
-<p>所以，对于串联执行的job，尤其是迭代型job，需要每隔几个job就对一些中间数据进行checkpoint，这样在出错时可以从最近的checkpoint数据恢复执行。</p>
-<h3 id="Checkpoint机制的实现"><a href="#Checkpoint机制的实现" class="headerlink" title="Checkpoint机制的实现"></a><strong>Checkpoint机制的实现</strong></h3><p>用户设置rdd.checkpoint()后只是标记了这个rdd需要持久化，这时计算过程也像正常一样计算。不同的是，一旦设置了checkpoint，等到当前job计算结束后，会再重新启动一个专门的job重新计算一遍这个rdd，并将其checkpoint。在这个专门的job中，每计算出一个record，就将其持久化写入HDFS。</p>
-<p>由此可见，checkpoint额外启动job来进行持久化的过程会增加计算开销。为了解决这个问题，最好先将需要被checkpoint的数据进行缓存，这样额外启动的job只需要对缓存数据进行checkpoint即可，无需重新计算这个RDD，以便节约计算开销。</p>
-<p>当一个RDD完成checkpoint之后，Spark会建立一个新的RDD，类型为ReliabeCheckpointRDD，用来表示被checkpoint到磁盘上的RDD。由于Spark认定这个RDD已经被持久化到稳定的HDFS上，之后无需被重复计算，因此会将这个新的ReliabeCheckpointRDD的lineage截断，不再保留它的计算链。</p>
-<h3 id="Checkpoint机制与缓存机制的区别"><a href="#Checkpoint机制与缓存机制的区别" class="headerlink" title="Checkpoint机制与缓存机制的区别"></a><strong>Checkpoint机制与缓存机制的区别</strong></h3><ul>
-<li>  目的不同：缓存机制的目的是加速计算，checkpoint机制的目的是为了错误容忍。</li>
-<li>  存储位置不同：缓存机制为了读写速度快，主要使用内存。checkpoint为了数据的可靠性，主要使用HDFS</li>
-<li>  写入数据速度不同：缓存数据写入较快，对job执行影响小，会在job运行时进行缓存。checkpoint时写入速度慢，为了避免影响当前job的计算时延，会额外启动专门的job来进行持久化。</li>
-<li>  对lineage的影响不同：checkpoint机制将切断被持久化了的RDD的lineage，而缓存机制会保留被缓存的RDD的lineage。因为Spark认为缓存的数据并不可靠，一旦丢失还需要根据lineage重新计算，而通过checkpoints持久化了的数据是可靠的</li>
+</li>
 </ul>
 
             </div>
@@ -284,13 +292,6 @@
                   </div>
                 
                 
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/Spark/">Spark</a>
-                    
-                  </div>
-                
               </div>
               
               
@@ -298,18 +299,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/08/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">大数据发展历程</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/07/05/Spark-Shuffle%E6%9C%BA%E5%88%B6/">
-                        <span class="hidden-mobile">Spark Shuffle机制</span>
+                      <a href="/2023/07/06/Spark%E6%95%B0%E6%8D%AE%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%E5%8F%8A%E9%94%99%E8%AF%AF%E5%AE%B9%E5%BF%8D%E6%9C%BA%E5%88%B6/">
+                        <span class="hidden-mobile">Spark数据缓存机制及错误容忍机制</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
