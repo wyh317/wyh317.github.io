@@ -399,57 +399,6 @@ Spark数据缓存机制理解Spark的数据缓存机制，首先需要回答以�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2023/04/05/PySpark-%E4%BD%BF%E7%94%A8addPyFile%E5%AF%BC%E5%85%A5%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84Python-Module/">PySpark:使用addPyFile导入自定义的Python Module</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2023/04/05/PySpark-%E4%BD%BF%E7%94%A8addPyFile%E5%AF%BC%E5%85%A5%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84Python-Module/">
-          
-          
-            
-          
-          背景最近在工作中遇到了一个实际的Spark使用场景：在已有一系列自定义的Python Module的情况下，如何让Spark集群中的每一个节点都能够使用这些module中的函数来处理数据？
-经过调研，我们发现pyspark.SparkContext中的addPyFile能够满足这一使用场景的需要。简单来说，这个函数主要完成了两件事：
-
-将给定local或HDFS路径下的py文件拷贝至Spark集群
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-04-05 23:21" pubdate>
-              2023-04-05
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Spark/">Spark</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
         <a href="/2023/02/27/Hive%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/">Hive安装指南</a>
       </h1>
 
@@ -646,6 +595,55 @@ BCL（Base Class Library，基类库）：包括通用基础类（文件操作�
               <a href="/tags/C/">C#</a>
             
           </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/19/258.%E5%90%84%E4%BD%8D%E7%9B%B8%E5%8A%A0/">【Leetcode】258.各位相加</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/19/258.%E5%90%84%E4%BD%8D%E7%9B%B8%E5%8A%A0/">
+          
+          
+            
+          
+          258.各位相加题目给定一个非负整数 num，反复将各个位上的数字相加，直到结果为一位数。
+示例:
+输入: 38
+输出: 2 
+解释: 各位相加的过程为：3 + 8 = 11, 1 + 1 = 2。 由于 2 是一位数，所以返回 2。
+
+方法分析如下：
+
+整数abc变为a+b+c的过程中减少的值一定是9的倍数，证明如下：$$abc = a * 100 + b * 10 + c = a * 99 +
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-19 11:50" pubdate>
+              2021-02-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
         
       </div>
     </article>
