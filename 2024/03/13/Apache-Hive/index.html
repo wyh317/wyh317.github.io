@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Data Mesh - wyh&#39;s space</title>
+  <title>Apache Hive - wyh&#39;s space</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -150,7 +150,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Data Mesh">
+            <span class="h2" id="subtitle" title="Apache Hive">
               
             </span>
 
@@ -160,7 +160,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2024-03-13 22:20" pubdate>
+      <time datetime="2024-03-13 23:01" pubdate>
         2024年3月13日 晚上
       </time>
     </span>
@@ -172,7 +172,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      654 字
+      1.3k 字
     </span>
   
 
@@ -220,39 +220,39 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Data Mesh</h1>
+            <h1 style="display: none">Apache Hive</h1>
             
             <div class="markdown-body">
-              <h2 id="What-is-Data-Mesh"><a href="#What-is-Data-Mesh" class="headerlink" title="What is Data Mesh"></a>What is Data Mesh</h2><p>A set of principles to build a modern data architecture. Like microservice is a set of principles to build a modern software.</p>
-<p>We can think about data mesh as a network (include nodes and connections) to exchange data about the business. The nodes in the mesh are data products, which are grouped into domains. The nodes will produce and consume high-quality data within the mesh. The interoperability between nodes is under <strong>centralized governance and standardization</strong> and enabled by a shared <strong>centralized self-serve data infrastructure</strong><br /></p>
-<p><img src="/img/DataMesh.jpg" srcset="/img/loading.gif"></p>
-<h2 id="Why-we-need-data-mesh"><a href="#Why-we-need-data-mesh" class="headerlink" title="Why we need data mesh"></a>Why we need data mesh</h2><p>Generally, an enterprise always has a centralized data platform, with a centralized team who owns and curates the data from all domains. However, this approach has some disadvantages:</p>
-<ul>
-<li>The centralized data team has less understanding about the product data than the product domain team.</li>
-<li>The increasing sources need to be ingested by the centralized data platform team.</li>
-<li>The increasing consumer needs need to be satisfied by the centralized data platform team</li>
+              <p>Hive 是一个构建在 Hadoop 之上的数据仓库，它可以将结构化的数据文件映射成表，并提供类 SQL 查询功能，用于查询的 SQL 语句会被转化为 MapReduce 作业，然后提交到 Hadoop 上运行。</p>
+<h2 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h2><ul>
+<li>对外接口：包括命令行，Web界面，Thrift接口，JDBC等</li>
+<li>Driver驱动器：管理HiveQL的生命周期，通过编译器和优化器创建执行计划，通过执行器执行执行计划。解析器将 SQL 字符串转换成抽象语法树 AST，并对抽象语法树进行分析，比如判断字段是否存在、类型是否合理等，编译器负责将 AST 编译成逻辑执行计划，并由优化器对逻辑执行计划进行优化，最后由执行器将逻辑执行计划转换为物理执行计划。</li>
+<li>MetaStore：存储Hive表的元数据。默认是存储在 Hive 自带的 Derby 数据库中的，一般会通过配置将其存储到 MySQL 中。</li>
 </ul>
-<p>The ingest, process and serve are coupled. So the monolithic platform, is the smallest unit that must change to cater for a new functionality: unlocking a new dataset and making it available for new or existing consumption. This limits our ability to achieve higher velocity and scale in response to new consumers or sources of the data.<br />The motivation behind breaking a system down into its architectural quantum is to create independent teams who can each build and operate an architectural quantum. Parallelize work across these teams to reach higher operational scalability.</p>
-<h2 id="Data-mesh-principles："><a href="#Data-mesh-principles：" class="headerlink" title="Data mesh principles："></a>Data mesh principles：</h2><p>In short：</p>
+<p><img src="/img/HiveOverview.jpg" srcset="/img/loading.gif"></p>
+<h2 id="Hive-MetaStore"><a href="#Hive-MetaStore" class="headerlink" title="Hive MetaStore"></a>Hive MetaStore</h2><p>Hive Metastore：作为Hive表与HDFS上以文件形式存在的数据之间的桥梁，它存储了 Hive 中所有表的元数据，包括表的名称和位置，列的名称和类型等。任何具有 JDBC 驱动程序的数据库都可以作为元数据库（metabase）。Hive 内置的 Derby 数据库就是一个元数据存储。</p>
+<p>Metastore 有三种配置方式  </p>
 <ul>
-<li><strong>Decentralized Ownership</strong>: Data ownership by domain. Data in data mesh is broken down around a specific domain. Data is closely related with the microservice that produce that data.</li>
-<li><strong>Data as a product</strong>: Data is considered as a product by each domain team that publish it. The domain team has to engage in product thinking for that data.</li>
-<li><strong>Centralized Infrastructure</strong>: Data is available and self-serve anywhere in the company using the centralized infrastructure.</li>
-<li><strong>Centralized Governance</strong></li>
+<li>内嵌模式：元数据存储在内置的 Derby 数据库，并且 Derby 数据库和 metastore 服务都嵌入在主 HiveServer 进程中，当启动 HiveServer 进程时，Derby 和 Metastore 都会启动</li>
+<li>本地模式：本地模式采用外部数据库来存储元数据，如MySQL。Hive Metastore 服务与主 HiveServer 进程在同一进程中运行，但是存储元数据的数据库在单独的进程中运行，并且可以在单独的主机上。Metastore 服务将通过 JDBC 与 Metastore 数据库进行通信。 </li>
+<li>远程模式：远程模式（Remote Metastore）下，Metastore 服务在其自己的单独 JVM 上运行，而不在 HiveServer 的 JVM 中运行。还可以完全屏蔽数据库层，因此这也带来了更好的可管理性/安全性</li>
 </ul>
-<h3 id="Decentralized-Ownership"><a href="#Decentralized-Ownership" class="headerlink" title="Decentralized Ownership"></a>Decentralized Ownership</h3><p>Data ownership by domain<br />Distributed data products owned by independent domain teams who have embedded data engineers and data product owners, using common data infrastructure as a platform to host, prep and serve their data assets.</p>
-<h3 id="Data-as-a-product"><a href="#Data-as-a-product" class="headerlink" title="Data as a product"></a>Data as a product</h3><p>In operational domains，Domain teams provide their capabilities as APIs to the rest of the developers in the organization, as building blocks of creating higher order value and functionality. The teams strive for creating the best developer experience for their domain APIs; including discoverable and understandable API documentation, API test sandboxes, and closely tracked quality and adoption KPIs. For a distributed data platform to be successful, domain data teams must apply product thinking with similar rigor to the datasets that they provide; considering their data assets as their products and the rest of the organization’s data scientists, ML and data engineers as their customers.</p>
-<h3 id="Centralized-Governance"><a href="#Centralized-Governance" class="headerlink" title="Centralized Governance"></a>Centralized Governance</h3><p>From a single platform team extracting and owning the data for its use, to each domain team providing its data as a product in a discoverable fashion. </p>
+<h2 id="内部表与外部表"><a href="#内部表与外部表" class="headerlink" title="内部表与外部表"></a>内部表与外部表</h2><p>外部表不会将数据移动到自己的数据仓库目录下，只是在元数据中存储了数据的位置。而内部表将数据移动到自己的数据仓库目录下，数据的生命周期由 Hive 来进行管理</p>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>索引的设计目标是提高表某些列的查询速度。如果没有索引，带有where的查询会加载整个表或分区并处理所有行。但是如果where语句对应的列存在索引，则只需要加载和处理文件的一部分。<br>在指定列上建立索引，会产生一张索引表。里面的字段包括：索引列的值、该值对应的 HDFS 文件路径、该值在文件中的偏移量。在查询涉及到索引字段时，首先到索引表查找索引列值对应的 HDFS 文件路径及偏移量，这样就避免了全表扫描。<br>索引表最主要的一个缺陷在于：索引表无法自动 rebuild，这也就意味着如果表中有数据新增或删除，则必须手动 rebuild，重新执行 MapReduce 作业，生成索引表数据。</p>
+<h2 id="分区表和分桶表"><a href="#分区表和分桶表" class="headerlink" title="分区表和分桶表"></a>分区表和分桶表</h2><p>分区表和分桶表的本质都是将数据按照不同粒度进行拆分，从而使得在查询时候不必扫描全表，只需要扫描对应的分区或分桶，从而提升查询效率</p>
 <ul>
-<li>Discoverability: Each domain data product must register itself with this centralized data catalog for easy discoverability.</li>
-<li>Inter-operable and governed by global standards: For example, to be able to correlate the data about an tenant across different domain data products,  we need to consider ‘tenant’ with a federated entity and a unique global federated entity identifier for the ‘tenant’.</li>
+<li>分区：partitionBy<br>分区为 HDFS 上表目录的子目录，数据按照分区存储在子目录中。如果查询的 where 字句的中包含分区条件，则直接从该分区去查找，而不是扫描整个表目录，以提高查询性能。在 Hive 中可以使用 PARTITIONED BY 子句创建分区表。表可以包含一个或多个分区列，Hive会为分区列中的每个不同值组合创建单独的数据目录</li>
+<li>分桶：clusteredBy<br>并非所有的数据都可以进行合理的分区，分区的数量很多也会对文件系统造成负担，因此Hive提供了分桶这样一个更细粒度的数据拆分方案。分桶表会将指定列的值进行哈希散列，并对 bucket（桶数量）取余，然后存储到对应的 bucket（桶）中<br>分桶的实质是对指定字段做了 hash 散列然后存放到对应文件中</li>
 </ul>
-<h3 id="Centralized-Infrastructure"><a href="#Centralized-Infrastructure" class="headerlink" title="Centralized Infrastructure"></a>Centralized Infrastructure</h3><p>A data infrastructure team can own and provide the necessary technology that the domains need to capture, process, store and serve their data products.<br />The key to building the data infrastructure as a platform is:</p>
+<h2 id="Hive优缺点："><a href="#Hive优缺点：" class="headerlink" title="Hive优缺点："></a>Hive优缺点：</h2><p>优点：</p>
 <ul>
-<li>Not to include any domain specific concepts or business logic</li>
-<li>Make sure the platform hides all the underlying complexity and provides the data infrastructure components in a self-service manner.</li>
+<li>上手门槛相对较低：Hive的出现大大降低了MapReduce的使用门槛，使得只会SQL不会Java的人也能进行大数据分析</li>
+<li>提供了表级别的元数据管理</li>
 </ul>
-<p>A success criteria for self-serve data infrastructure is lowering the time to create a new data product on the infrastructure. </p>
+<p>不足：</p>
+<ul>
+<li>Hive需要基于独立的metastore来提供数据表元信息查询，在数据分区特别大的情况下metastore的性能不足，这导致一些分区多的数据表上的查询分析性能不能满足业务需求</li>
+</ul>
 
             </div>
             <hr>
@@ -281,18 +281,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/03/13/Apache-Hive/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Apache Hive</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/03/12/History-of-data-platform-architecture/">
-                        <span class="hidden-mobile">History of data platform architecture</span>
+                      <a href="/2024/03/13/Data-Mesh/">
+                        <span class="hidden-mobile">Data Mesh</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
